@@ -13,9 +13,11 @@
 
 - Instalar os pacotes
   - Ubuntu
-    `sudo apt install -y btrfs-progs libfsxfs-utils dosfstools`
+
+    `sudo apt install -y btrfs-progs dosfstools`
   - CentOS
-    `sudo yum install -y btrfs-utils libfsxfs-utils dosfstools`
+
+    `sudo yum install -y btrfs-utils dosfstools`
 
 
 ## Objetivos
