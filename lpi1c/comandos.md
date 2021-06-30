@@ -10,6 +10,8 @@
 | rm | remove arquivo |
 | touch | criar um arquivo vazio |
 | dmesg | ler mensagens do kernel |
+| df | visualiza a utilização das partições |
+
 
 
 ## Discos e Partições
