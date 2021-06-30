@@ -1,5 +1,7 @@
 # Lab-01 - Discos, Partições e Arquivos de Sistemas
 
+[Lista de Comandos](../comandos.md)
+
 ## Requisitos
 
 ### VirtualBox
