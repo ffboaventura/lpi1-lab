@@ -9,6 +9,8 @@
 | mkdir | cria diretório |
 | rm | remove arquivo |
 | touch | criar um arquivo vazio |
+| dmesg | ler mensagens do kernel |
+
 
 ## Discos e Partições
 
@@ -33,11 +35,8 @@
 
 ### Sistemas de Arquivos
 
-sudo mkfs.<tipo de sistema de arquivos> [parametros] <caminho da partição>
-Cria um sistema de arquivos na partição selecionada
-Novos tipos de sistema de arquivos são suportados através da instalação de pacotes
-Btrfs == btrfs-utils
-XFS == libfsxfs-utils
-FAT == dosfstools
-sudo mkfs.<tipo de sistema de arquivos> --help
-Lista todos os parâmetros suportados para criação do sistema de arquivos
+- `sudo mkfs.<tipo de sistema de arquivos> [parametros] <caminho da partição>`
+   Cria um sistema de arquivos na partição selecionada
+- `sudo mkfs.<tipo de sistema de arquivos> --help`
+   Lista todos os parâmetros suportados para criação do sistema de arquivos
+
