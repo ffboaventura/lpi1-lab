@@ -38,7 +38,8 @@
 5. Montar cada uma das partições no respectivo diretório
 6. Verificar que as partições estão montadas corretamente no S.O.
 7. Gravar arquivos dentro de uma das partições
-8. Remover as partições existentes
+8. Desmontar as partições
+9. Remover as partições existentes
 
 ### LVM
 
