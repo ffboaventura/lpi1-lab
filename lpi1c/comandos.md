@@ -38,8 +38,23 @@
 ### Sistemas de Arquivos
 
 - `sudo mkfs.<tipo de sistema de arquivos> [parametros] <caminho da partição>`
+
    Cria um sistema de arquivos na partição selecionada
+
 - `sudo mkfs.<tipo de sistema de arquivos> --help`
+
    Lista todos os parâmetros suportados para criação do sistema de arquivos
 
 - `sudo mkfs.ext4 <caminho da partição>`
+
+## LVM
+
+### Physical Volume (`PV`)
+
+- `sudo pvcreate <dispositivo de disco>`
+
+    Criar um Physical Volume
+
+    `sudo pvcreate /dev/sdb`
+
+- `sudo pvs`

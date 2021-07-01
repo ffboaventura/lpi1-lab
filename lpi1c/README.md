@@ -1,3 +1,5 @@
 # Laboratório LPIC-I
 
+- [Comandos](comandos.md) - Lista de comandos mais utilizados no decorrer do módulo LPI-1
+
 - [Laboratório I](lab01/README.md) - Discos, Partições e Sistemas de Arquivos

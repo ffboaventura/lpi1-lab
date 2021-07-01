@@ -258,18 +258,227 @@ Syncing disks.
 ### LVM
 
 1. Criar um Physical Volume (`PV`) com o disco adicionado
+
+```
+[aluno@centos01 ~]$ sudo pvcreate /dev/sdb
+WARNING: dos signature detected on /dev/sdb at offset 510. Wipe it? [y/n]: y
+  Wiping dos signature on /dev/sdb.
+  Physical volume "/dev/sdb" successfully created.
+```
+
 2. Verificar que o PV está criado
+
+```
+[aluno@centos01 ~]$ sudo pvs
+  PV         VG              Fmt  Attr PSize   PFree
+  /dev/sda2  centos_centos01 lvm2 a--  <19,00g    0
+  /dev/sdb                   lvm2 ---    1,00g 1,00g
+```
+
+```
+[aluno@centos01 ~]$ sudo pvdisplay /dev/sdb
+  "/dev/sdb" is a new physical volume of "1,00 GiB"
+  --- NEW Physical volume ---
+  PV Name               /dev/sdb
+  VG Name
+  PV Size               1,00 GiB
+  Allocatable           NO
+  PE Size               0
+  Total PE              0
+  Free PE               0
+  Allocated PE          0
+  PV UUID               NV9dT4-KUgw-g9uV-Jpxe-fw45-Ah6D-6QKodg
+```
+
 3. Criar um Volume Group (`VG`) utilizando o PV criado
+
+```
+[aluno@centos01 ~]$ sudo vgcreate vg_data /dev/sdb
+Volume group "vg_data" successfully created
+```
+
 4. Verificar que o VG está criado
+
+```
+[aluno@centos01 ~]$ sudo vgs
+VG              #PV #LV #SN Attr   VSize    VFree
+centos_centos01   1   2   0 wz--n-  <19,00g       0
+vg_data           1   0   0 wz--n- 1020,00m 1020,00m
+```
+
+```
+[aluno@centos01 ~]$ sudo vgdisplay vg_data
+--- Volume group ---
+VG Name               vg_data
+System ID
+Format                lvm2
+Metadata Areas        1
+Metadata Sequence No  1
+VG Access             read/write
+VG Status             resizable
+MAX LV                0
+Cur LV                0
+Open LV               0
+Max PV                0
+Cur PV                1
+Act PV                1
+VG Size               1020,00 MiB
+PE Size               4,00 MiB
+Total PE              255
+Alloc PE / Size       0 / 0
+Free  PE / Size       255 / 1020,00 MiB
+VG UUID               XpnQic-sBwB-B3lZ-JYjs-oRHQ-NDF7-chp23w
+```
+
 5. Criar um Logical Volume (`LV`) utilizando metade do disco
+
+```
+[aluno@centos01 ~]$ sudo lvcreate -L 500 -n lv_part1 vg_data
+Logical volume "lv_part1" created.
+```
+
 6. Criar um `LV` utilizando 10% do disco
+
+```
+[aluno@centos01 ~]$ sudo lvcreate -L 100M -n lv_part2 vg_data
+Logical volume "lv_part2" created.
+```
+
 7. Verificar que os `LV`s estão criados
+
+```
+[aluno@centos01 ~]$ sudo lvs vg_data
+LV       VG      Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+lv_part1 vg_data -wi-a----- 500,00m
+lv_part2 vg_data -wi-a----- 100,00m
+```
+
+```
+[aluno@centos01 ~]$ sudo lvdisplay vg_data
+--- Logical volume ---
+LV Path                /dev/vg_data/lv_part1
+LV Name                lv_part1
+VG Name                vg_data
+LV UUID                Hjwm5J-Q2hn-K4L3-kf9d-Uisn-34QA-gh709i
+LV Write Access        read/write
+LV Creation host, time centos01.homelab.local, 2021-07-01 17:33:09 -0300
+LV Status              available
+# open                 0
+LV Size                500,00 MiB
+Current LE             125
+Segments               1
+Allocation             inherit
+Read ahead sectors     auto
+- currently set to     8192
+Block device           253:2
+
+--- Logical volume ---
+LV Path                /dev/vg_data/lv_part2
+LV Name                lv_part2
+VG Name                vg_data
+LV UUID                Qr2TXt-PUZ2-ipN0-eRdx-HOVv-G6eF-FaA1Ai
+LV Write Access        read/write
+LV Creation host, time centos01.homelab.local, 2021-07-01 17:38:09 -0300
+LV Status              available
+# open                 0
+LV Size                100,00 MiB
+Current LE             25
+Segments               1
+Allocation             inherit
+Read ahead sectors     auto
+- currently set to     8192
+Block device           253:3
+```
+
 8. Formatar os dois `LV`s como `ext4`
+
+```
+[aluno@centos01 ~]$ sudo mkfs.ext4 /dev/vg_data/lv_part1
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+128016 inodes, 512000 blocks
+25600 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=34078720
+63 block groups
+8192 blocks per group, 8192 fragments per group
+2032 inodes per group
+Superblock backups stored on blocks:
+8193, 24577, 40961, 57345, 73729, 204801, 221185, 401409
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (8192 blocks): done
+Writing superblocks and filesystem accounting information: done
+```
+
 9. Montar os `LV`s nos diretórios criados anteriormente no `/mnt`
+
+```
+[aluno@centos01 ~]$ sudo mount /dev/vg_data/lv_part1 /mnt/dir1
+[aluno@centos01 ~]$ sudo mount /dev/vg_data/lv_part2 /mnt/dir2
+```
+
+```
+[aluno@centos01 ~]$ mount | grep vg_data
+/dev/mapper/vg_data-lv_part1 on /mnt/dir1 type ext4 (rw,relatime,seclabel,data=ordered)
+/dev/mapper/vg_data-lv_part2 on /mnt/dir2 type ext4 (rw,relatime,seclabel,data=ordered)
+```
+
+```
+[aluno@centos01 ~]$ df -h /mnt/dir1 /mnt/dir2
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/vg_data-lv_part1  477M  2,3M  445M   1% /mnt/dir1
+/dev/mapper/vg_data-lv_part2   93M  1,6M   85M   2% /mnt/dir2
+```
+
 10. Redimensionar o menor `LV` para ocupar mais 20% do disco
+
+```
+[aluno@centos01 ~]$ sudo lvresize -L +200M /dev/vg_data/lv_part2
+Size of logical volume vg_data/lv_part2 changed from 100,00 MiB (25 extents) to 300,00 MiB (75 extents).
+Logical volume vg_data/lv_part2 successfully resized.
+```
+
 11. Verificar:
     1. Que o `LV` foi redimensionado
+
+```
+[aluno@centos01 ~]$ sudo lvs vg_data
+LV       VG      Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+lv_part1 vg_data -wi-ao---- 500,00m
+lv_part2 vg_data -wi-ao---- 300,00m
+```
+
     2. Se houve reflexo no sistema de arquivos
+
+```
+[aluno@centos01 ~]$ df -h /mnt/dir1 /mnt/dir2
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/vg_data-lv_part1  477M  2,3M  445M   1% /mnt/dir1
+/dev/mapper/vg_data-lv_part2   93M  1,6M   85M   2% /mnt/dir2
+```
+
 12. Redimensionar o sistema de arquivos
 
+```
+[aluno@centos01 ~]$ sudo resize2fs /dev/vg_data/lv_part2
+resize2fs 1.42.9 (28-Dec-2013)
+Filesystem at /dev/vg_data/lv_part2 is mounted on /mnt/dir2; on-line resizing required
+old_desc_blocks = 1, new_desc_blocks = 3
+The filesystem on /dev/vg_data/lv_part2 is now 307200 blocks long.
+```
 
+```
+[aluno@centos01 ~]$ df -h /mnt/dir1 /mnt/dir2
+Filesystem                    Size  Used Avail Use% Mounted on
+/dev/mapper/vg_data-lv_part1  477M  2,3M  445M   1% /mnt/dir1
+/dev/mapper/vg_data-lv_part2  287M  2,0M  270M   1% /mnt/dir2
+```
+
+----------------
+[Voltar](README.md)
