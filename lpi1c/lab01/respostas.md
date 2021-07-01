@@ -100,6 +100,11 @@ Disk /dev/mapper/centos_centos01-swap: 2147 MB, 2147483648 bytes, 4194304 sector
     Syncing disks.
     ```
     4. Verificar no S.O. que a partição foi removida
+
+    ```
+    ls -l /dev/sdb*
+    ```
+
     5. Adicionar duas novas partições com tipo 83
 
     `sudo fdisk /dev/sdb`
@@ -141,11 +146,114 @@ Disk /dev/mapper/centos_centos01-swap: 2147 MB, 2147483648 bytes, 4194304 sector
     ```
 
 3. Criar um sistema de arquivos em cada uma das partições criadas
+
+```
+sudo mkfs.ext4 /dev/sdb1
+sudo mkfs.ext4 /dev/sdb2
+```
+
+```
+[aluno@centos01 ~]$ sudo mkfs.ext4 /dev/sdb2
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+25688 inodes, 102400 blocks
+5120 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=33685504
+13 block groups
+8192 blocks per group, 8192 fragments per group
+1976 inodes per group
+Superblock backups stored on blocks:
+        8193, 24577, 40961, 57345, 73729
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: done
+```
+
 4. Criar um diretório para cada uma das partições dentro do diretório `/mnt`
+
+```
+sudo mkdir /mnt/dir1
+sudo mkdir /mnt/dir2
+
+[aluno@centos01 ~]$ sudo ls -l /mnt
+total 0
+drwxr-xr-x. 2 root root 6 Jun 30 21:26 dir1
+drwxr-xr-x. 2 root root 6 Jun 30 21:26 dir2
+```
+
+
 5. Montar cada uma das partições no respectivo diretório
+
+```
+sudo mount /dev/sdb1 /mnt/dir1
+sudo mount -t ext4 /dev/sdb2 /mnt/dir2
+```
+
 6. Verificar que as partições estão montadas corretamente no S.O.
+
+```
+[aluno@centos01 ~]$ sudo ls -l /mnt/dir*
+/mnt/dir1:
+total 12
+drwx------. 2 root root 12288 Jun 30 21:23 lost+found
+
+/mnt/dir2:
+total 12
+drwx------. 2 root root 12288 Jun 30 21:23 lost+found
+```
+
 7. Gravar arquivos dentro de uma das partições
-8. Remover as partições existentes
+
+```
+sudo touch /mnt/dir1/arq1
+sudo touch /mnt/dir2/arq1
+
+[aluno@centos01 ~]$ sudo ls -l /mnt/dir*
+/mnt/dir1:
+total 13
+-rw-r--r--. 1 root root     0 Jun 30 21:28 arq1
+drwx------. 2 root root 12288 Jun 30 21:23 lost+found
+
+/mnt/dir2:
+total 13
+-rw-r--r--. 1 root root     0 Jun 30 21:28 arq1
+drwx------. 2 root root 12288 Jun 30 21:23 lost+found
+```
+
+8. Desmontar partições
+
+```
+sudo umount /mnt/dir1
+sudo umount /mnt/dir2
+```
+
+9. Remover as partições existentes
+
+```
+sudo fdisk /dev/sdb
+
+Command (m for help): d
+Partition number (1,2, default 2): 1
+Partition 1 is deleted
+
+Command (m for help): d
+Selected partition 2
+Partition 2 is deleted
+
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+
+```
 
 ### LVM
 
