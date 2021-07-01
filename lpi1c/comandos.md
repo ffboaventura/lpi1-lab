@@ -42,3 +42,4 @@
 - `sudo mkfs.<tipo de sistema de arquivos> --help`
    Lista todos os parâmetros suportados para criação do sistema de arquivos
 
+- `sudo mkfs.ext4 <caminho da partição>`

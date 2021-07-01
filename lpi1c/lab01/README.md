@@ -15,9 +15,10 @@
   - Ubuntu
 
     `sudo apt install -y btrfs-progs dosfstools`
+
   - CentOS
 
-    `sudo yum install -y btrfs-utils dosfstools`
+    `sudo yum install -y btrfs-progs dosfstools`
 
 
 ## Objetivos
@@ -56,3 +57,5 @@
     2. Se houve reflexo no sistema de arquivos
 12. Redimensionar o sistema de arquivos
 
+------------
+[Respostas](respostas.md)
