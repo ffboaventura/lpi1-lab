@@ -1,0 +1,167 @@
+# Lab-01 - Discos, Partições e Arquivos de Sistemas
+
+[Lista de Comandos](../comandos.md)
+
+## Requisitos
+
+### VirtualBox
+
+- Criar dois discos adicionais
+- Adicionar um disco a cada uma das máquinas (CentOS e Ubuntu)
+
+### VMs
+
+- Instalar os pacotes
+  - Ubuntu
+
+    `sudo apt install -y btrfs-progs dosfstools`
+
+  - CentOS
+
+    `sudo yum install -y btrfs-progs dosfstools`
+
+
+## Objetivos
+
+### Partições
+
+1. Identificar o novo disco adicionado à máquina
+
+`sudo fdisk -l | grep "^Disk"`
+
+```bash
+[aluno@centos01 ~]$ sudo fdisk -l | grep "^Disk"
+Disk /dev/sda: 21.5 GB, 21474836480 bytes, 41943040 sectors
+Disk label type: dos
+Disk identifier: 0x000cc1db
+Disk /dev/sdb: 1073 MB, 1073741824 bytes, 2097152 sectors
+Disk /dev/mapper/centos_centos01-root: 18.2 GB, 18249416704 bytes, 35643392 sectors
+Disk /dev/mapper/centos_centos01-swap: 2147 MB, 2147483648 bytes, 4194304 sectors
+```
+
+`dmesg | grep sd`
+
+```bash
+[aluno@centos01 ~]$ dmesg | grep sd
+[...]
+[    4.616047] sd 2:0:0:0: [sda] Attached SCSI disk
+[    4.616219] sd 3:0:0:0: [sdb] 2097152 512-byte logical blocks: (1.07 GB/1.00 GiB)
+[    4.616260] sd 3:0:0:0: [sdb] Write Protect is off
+[    4.616264] sd 3:0:0:0: [sdb] Mode Sense: 00 3a 00 00
+[    4.616282] sd 3:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    4.617898] sd 3:0:0:0: [sdb] Attached SCSI disk
+[...]
+```
+
+2. Editar a tabela de partições do disco:
+
+    `sudo fdisk /dev/sdb`
+
+    1. Adicionar uma nova partição
+
+    ```
+    Command (m for help): n
+    Partition type:
+    p   primary (0 primary, 0 extended, 4 free)
+    e   extended
+    Select (default p): p
+    Partition number (1-4, default 1): 1
+    First sector (2048-2097151, default 2048):
+    Using default value 2048
+    Last sector, +sectors or +size{K,M,G} (2048-2097151, default 2097151): +500M
+    Partition 1 of type Linux and of size 500 MiB is set
+
+    Command (m for help): w
+    The partition table has been altered!
+
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
+
+    2. Listar e identificar no S.O. a partição criada
+
+    ```
+    ls -l /dev/sdb*
+    ```
+
+    3. Apagar a partição
+
+    `sudo fdisk /dev/sdb`
+
+    ```
+    Command (m for help): d
+    Selected partition 1
+    Partition 1 is deleted
+
+    Command (m for help): w
+    The partition table has been altered!
+
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
+    4. Verificar no S.O. que a partição foi removida
+    5. Adicionar duas novas partições com tipo 83
+
+    `sudo fdisk /dev/sdb`
+
+    ```
+    Command (m for help): n
+    Partition type:
+    p   primary (0 primary, 0 extended, 4 free)
+    e   extended
+    Select (default p): p
+    Partition number (1-4, default 1): 1
+    First sector (2048-2097151, default 2048):
+    Using default value 2048
+    Last sector, +sectors or +size{K,M,G} (2048-2097151, default 2097151): +500M
+    Partition 1 of type Linux and of size 500 MiB is set
+
+    Command (m for help): n
+    Partition type:
+    p   primary (1 primary, 0 extended, 3 free)
+    e   extended
+    Select (default p): p
+    Partition number (2-4, default 2):
+    First sector (1026048-2097151, default 1026048):
+    Using default value 1026048
+    Last sector, +sectors or +size{K,M,G} (1026048-2097151, default 2097151): +100M
+    Partition 2 of type Linux and of size 100 MiB is set
+
+    Command (m for help): w
+    The partition table has been altered!
+
+    Calling ioctl() to re-read partition table.
+    Syncing disks.
+    ```
+
+    6. Verificar no S.O. que as partições foram criadas
+
+    ```
+    ls -l /dev/sdb*
+    ```
+
+3. Criar um sistema de arquivos em cada uma das partições criadas
+4. Criar um diretório para cada uma das partições dentro do diretório `/mnt`
+5. Montar cada uma das partições no respectivo diretório
+6. Verificar que as partições estão montadas corretamente no S.O.
+7. Gravar arquivos dentro de uma das partições
+8. Remover as partições existentes
+
+### LVM
+
+1. Criar um Physical Volume (`PV`) com o disco adicionado
+2. Verificar que o PV está criado
+3. Criar um Volume Group (`VG`) utilizando o PV criado
+4. Verificar que o VG está criado
+5. Criar um Logical Volume (`LV`) utilizando metade do disco
+6. Criar um `LV` utilizando 10% do disco
+7. Verificar que os `LV`s estão criados
+8. Formatar os dois `LV`s como `ext4`
+9. Montar os `LV`s nos diretórios criados anteriormente no `/mnt`
+10. Redimensionar o menor `LV` para ocupar mais 20% do disco
+11. Verificar:
+    1. Que o `LV` foi redimensionado
+    2. Se houve reflexo no sistema de arquivos
+12. Redimensionar o sistema de arquivos
+
+
