@@ -4,3 +4,4 @@
 
 - [Laboratório 01](lab01/README.md) - Discos, Partições e Sistemas de Arquivos
 - [Laboratório 02](lab02/README.md) - Gerenciamento de pacotes
+- [Laboratório 03](lab03/README.md) - Fluxo de texto e filtros
