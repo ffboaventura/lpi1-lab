@@ -150,14 +150,25 @@ aluno@ubuntu01:~$ wc -l /etc/wgetrc
 5. Conte a quantidade de palavras do arquivo `/etc/hdparm.conf`
 
 ```
-
+aluno@ubuntu01:~$ wc -w /etc/hdparm.conf
+854 /etc/hdparm.conf
 ```
 
 6. Divida o arquivo `/var/log/dpkg.log.1` em arquivos de **50k** com máscara `kern_`
 
 ```
-aluno@ubuntu01:~$ wc -w /etc/hdparm.conf
-854 /etc/hdparm.conf
+aluno@ubuntu01:~$ split -b 50k /var/log/dpkg.log.1 kern_
+
+aluno@ubuntu01:~$ ls -l kern_*
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_aa
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ab
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ac
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ad
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ae
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_af
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ag
+-rw-rw-r-- 1 aluno aluno 51200 Jul  3 00:26 kern_ah
+-rw-rw-r-- 1 aluno aluno 14954 Jul  3 00:26 kern_ai
 
 ```
 
