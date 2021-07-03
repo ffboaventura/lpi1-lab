@@ -6,9 +6,9 @@
 
 ### Pacotes:
 
-- Ubuntu
+- Ubuntu (`apt install`)
     - fortune-mod
-- CentOS
+- CentOS (`yum install`)
     - epel-release
     - fortune-mod
 
