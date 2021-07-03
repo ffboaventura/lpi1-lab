@@ -8,6 +8,9 @@
 
 - Ubuntu
     - fortune-mod
+- CentOS
+    - epel-release
+    - fortune-mod
 
 ## Objetivos
 
