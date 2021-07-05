@@ -18,7 +18,6 @@ wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz.md5
 
 ## Objetivos
 
-### Bash
 
 1. Verifique os checksums do arquivo:
     - md5sum
