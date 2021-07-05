@@ -44,7 +44,7 @@ wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz.md5
 
     ```
     cd ~
-    tar xzvf ./Downloads/lab04.tar.gz
+    tar xzvf ./lab04.tar.gz
     cd lab04
     ```
 
