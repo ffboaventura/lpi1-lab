@@ -8,6 +8,13 @@ Faça download dos arquivos:
 
 - [lab04.tar.gz](files/lab04.tar.gz) [sha512sum](files/lab04.tar.gz.sha512) [sha256sum](files/lab04.tar.gz.sha256) [md5sum](files/lab04.tar.gz.md5)
 
+```
+wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz
+wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz.sha512
+wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz.sha256
+wget https://labs.fboaventura.dev/lpi1c/lab04/files/lab04.tar.gz.md5
+```
+
 ## Objetivos
 
 ### Bash
