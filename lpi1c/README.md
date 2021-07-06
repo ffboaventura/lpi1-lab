@@ -7,3 +7,4 @@
 - [Laboratório 03](lab03/README.md) - Fluxo de texto e filtros
 - [Laboratório 04](lab04/README.md) - Checksums
 - [Laboratório 05](lab05/README.md) - Gerenciamento básico de arquivos
+- [Laboratório 06](lab06/README.md) - Encontrando arquivos e redirecionamentos
