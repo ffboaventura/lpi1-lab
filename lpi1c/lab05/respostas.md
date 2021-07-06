@@ -56,7 +56,7 @@ mkdir -p {tmp,etc,bin} var/{log,lib,backup}
 4. Fazer um backup da árvore de diretório criada no `scripts` no `home` do aluno, sem a pasta `scripts`
 
 ```
-tar czvf * ../scripts.tar.gz
+tar czvf ../scripts.tar.gz *
 ```
 
 5. Gerar o __checksum__ utilizando o `md5` para o arquivo de backup criado
