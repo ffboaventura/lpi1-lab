@@ -174,7 +174,7 @@ O processo morto foi substituído por um novo
       ```
       aluno@ubuntu01:~$ tmux
       Ctrl+b %
-      Ctrl+b ->
+      Ctrl+b →
       aluno@ubuntu01:~$ sudo tail -vf /var/log/apache2/*.log
       ```
 
@@ -183,14 +183,14 @@ O processo morto foi substituído por um novo
       ```
       [aluno@centos01 ~]$ tmux
       Ctrl+b %
-      Ctrl+b ->
+      Ctrl+b →
       [aluno@centos01 ~]$ sudo tail -vf /var/log/httpd/*_log
       ```
 
     2. Na outra tela, escolha e mate um dos processos do apache
 
       ```
-      Ctrl+b <-
+      Ctrl+b ←
       aluno@ubuntu01:~$ sudo kill -9 732
       aluno@ubuntu01:~$ pidof apache2
       1536
