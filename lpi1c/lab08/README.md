@@ -16,6 +16,16 @@
 - É boa prática utilizar aspas simples (`'`) ao redor da expressão regular, para evitar expansão do shell.  Quando utilizarmos variáveis nas expressões regulares, podemos utilizar aspas duplas (`"`).
 - Mantenha uma cópia dos arquivos quando for executar comandos que façam alterações
 
+### Operadores
+
+- `^` representa o início da linha
+- `$` representa o final da linha
+- `.` utilizado para indicar a presença de qualquer caractere
+- `*` indica que o caractere anterior aparece em qualquer quantidade (inclusive nenhuma vez)
+- `?` indica que o caractere anterior aparece zero ou uma vez
+- `[]` indica uma classe de caracteres
+  - [a-zA-Z0-9]
+
 ## Objetivos
 
 1. Utilizando o arquivo `/etc/passwd` como parâmetro:
