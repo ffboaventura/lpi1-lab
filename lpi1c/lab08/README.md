@@ -12,6 +12,12 @@
 
 ### Observações
 
+- O download pode ser feito de dentro das máquinas utilizando o comando:
+
+```
+wget https://labs.fboaventura.dev/lpi1c/lab08/files/<arquivo.txt>
+```
+
 - É boa prática utilizar aspas simples (`'`) ao redor da expressão regular, para evitar expansão do shell.  Quando utilizarmos variáveis nas expressões regulares, podemos utilizar aspas duplas (`"`).
 - Mantenha uma cópia dos arquivos quando for executar comandos que façam alterações
 
