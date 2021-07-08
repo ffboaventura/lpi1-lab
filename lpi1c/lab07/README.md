@@ -1,13 +1,15 @@
 # Lab-07 - Gerenciando processos
 
-[Lista de Comandos](../comandos.md)
+- [Lista de Comandos](../comandos.md)
 - [Cheat Sheets](../../cheatsheets) - Tabelas com resumos de comandos
     - [screen](../../cheatsheets/screen.md) - Utilização do screen
     - [tmux](../../cheatsheets/tmux.md) - Utilização do tmux
 
 ## Requisitos
 
-- Instalar os pacotes screen e tmux
+Pacotes:
+- Ubuntu: screen e tmux
+- CentOS: screen, tmux e psmisc
 
 
 ## Objetivos
