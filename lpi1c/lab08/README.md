@@ -6,10 +6,9 @@
 ## Requisitos
 
 - Download dos arquivos
-  - [artigo](files/artigo.txt)
-  - [calice](files/calice.txt)
-  - [fado](files/fado.txt)
-  - [pedaco](files/pedaco.txt)
+  - [calice.txt](files/calice.txt)
+  - [fado.txt](files/fado.txt)
+  - [pedaco.txt](files/pedaco.txt)
 
 ### Observações
 
