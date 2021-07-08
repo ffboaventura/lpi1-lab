@@ -101,12 +101,14 @@ CentOS:
 Ubuntu:
 
 ```
+aluno@ubuntu01:~$ pidof apache2
 1326 1325 732
 ```
 
 CentOS:
 
 ```
+[aluno@centos01 ~]$ pidof httpd
 1289 1288 1287 1286 1285 1284
 ```
 
