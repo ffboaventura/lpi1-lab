@@ -112,16 +112,26 @@ CentOS:
 
 7. Qual é o PID do processo de origem (pai) do apache?
 
-Ubuntu:
+Ubuntu: **732**
 
 ```
-732
+ps -ef | grep apache2
+root        732       1  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data    1325    732  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
+www-data    1326    732  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
+
+
 ```
 
-CentOS:
+CentOS: **1284**
 
 ```
-1284
+root      1284     1  5 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    1285  1284  0 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    1286  1284  0 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    1287  1284  0 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    1288  1284  0 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
+apache    1289  1284  0 21:46 ?        00:00:00 /usr/sbin/httpd -DFOREGROUND
 ```
 
 8. Caso haja mais de um, escolha um dos processos e "mate"
