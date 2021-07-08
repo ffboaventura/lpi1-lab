@@ -121,8 +121,6 @@ ps -ef | grep apache2
 root        732       1  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
 www-data    1325    732  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
 www-data    1326    732  0 00:07 ?        00:00:00 /usr/sbin/apache2 -k start
-
-
 ```
 
 CentOS: **1284**
