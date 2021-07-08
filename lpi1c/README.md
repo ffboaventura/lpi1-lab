@@ -13,4 +13,5 @@
 - [Laboratório 05](lab05/README.md) - Gerenciamento básico de arquivos
 - [Laboratório 06](lab06/README.md) - Encontrando arquivos e redirecionamentos
 - [Laboratório 07](lab07/README.md) - Gerenciando processos
+- [Laboratório 08](lab08/README.md) - Expressões Regulares
 
