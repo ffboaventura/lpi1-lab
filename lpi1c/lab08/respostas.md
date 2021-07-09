@@ -1,74 +1,146 @@
-# Lab-06 - Encontrando arquivos e redirecionamentos
+# Lab-08 - Expressões Regulares
 
-[Lista de Comandos](../comandos.md)
+- [Lista de Comandos](../comandos.md)
+-
 
 ## Requisitos
 
-- Instalar o pacote s-nail
+- Download dos arquivos
+  - [calice.txt](files/calice.txt)
+  - [fado.txt](files/fado.txt)
+  - [pedaco.txt](files/pedaco.txt)
+
+### Observações
+
+- O download pode ser feito de dentro das máquinas utilizando o comando:
+
+```
+wget https://labs.fboaventura.dev/lpi1c/lab08/files/<arquivo.txt>
+```
+
+- É boa prática utilizar aspas simples (`'`) ao redor da expressão regular, para evitar expansão do shell.  Quando utilizarmos variáveis nas expressões regulares, podemos utilizar aspas duplas (`"`).
+- Mantenha uma cópia dos arquivos quando for executar comandos que façam alterações
+
+### Operadores
+
+- `^` representa o início da linha
+- `$` representa o final da linha
+- `.` utilizado para indicar a presença de qualquer caractere
+- `*` indica que o caractere anterior aparece em qualquer quantidade (inclusive nenhuma vez)
+- `?` indica que o caractere anterior aparece zero ou uma vez
+- `[]` indica uma classe de caracteres
+  - [a-zA-Z0-9]
 
 ## Objetivos
 
-1. Encontre os diretórios que estão dentro do caminho `/etc`
+1. Utilizando o arquivo `/etc/passwd` como parâmetro:
+  1. Procure pelo usuário `aluno`
 
   ```
-  find /etc -type d
-
-  sudo find /etc -type d
+  grep 'aluno' /etc/passwd
   ```
 
-2. Encontre os arquivos dentro do `/var` que pertencem ao usuário `syslog`
+  2. Procure pelos usuários que iniciem com `p`
 
   ```
-  find /var -type f -user syslog
-
-  sudo find /var -type f -user syslog
+  grep '^p' /etc/passwd
   ```
 
-3. Encontre os diretórios no filesystem (`/`) que pertencem ao grupo `daemon`
+  3. Procure pelos usuários que o **segundo** caractere seja uma vogal
 
   ```
-  sudo find / -type d -group daemon
+  grep '^.[aeiou]'
   ```
 
-4. Encontre no diretório `/etc` todos os arquivos que são mais novos que o `/etc/passwd` e gere o `md5sum` deles no arquivo `/home/aluno/etc_novo.md5`
+  4. Procure pelos usuários que a linha termine com `h`
 
   ```
-  sudo find /etc -newer /etc/passwd -exec md5sum {} \; >> /home/aluno/etc_novo.md5
+  grep 'h$' /etc/passwd
   ```
 
-5. Encontre no diretório `/var` todos os arquivos que foram modificados nos últimos 60 minutos
+2. Nos arquivos baixados/criados:
+  1. Identifique qual deles possui uma linha que comece com ` ` (espaço)
 
   ```
-  sudo find /var -type f -mmin -60
+  grep '^ ' *.txt
   ```
 
-6. Encontre no diretório `/var` todos os arquivos que foram acessados a mais de 10 dias
+  2. Em quantas linhas aparecem a palavra `filho`?
 
   ```
-  sudo find /var -type f -atime +10
+  grep 'filho' *.txt | wc -l
   ```
 
-7. Encontre no diretório `/var` todos os arquivos que terminem em `.md5sums` e verifique o `checksum` dos arquivos, salvando o resultado no arquivo `/home/aluno/verifica_checksums.log`
+  3. Em quantas linhas ocorrem encontros vocálicos?
 
   ```
-  cd /
-  sudo find /var -type f -name "*.md5sums" | xargs md5sum -c 1> /home/aluno/verifica_checksums.log
+  grep '[aeiou][aeiou]' *.txt | wc -l
   ```
 
-8. Faça uma busca no diretório `/etc` e armazene em um log quais arquivos ou diretórios o usuário `aluno` não tem permissão para acessar
-
   ```
-  find /etc 1>/dev/null 2>/home/aluno/nao_acessa.log
-
-  find /etc 2>&1 | egrep "Permission denied" >/home/aluno/nao_acessa.log
+  grep '[aeiou]\{2,\}' *.txt | wc -l
   ```
 
-9. Utilizando o `s-nail`, envie o log do comando anterior por e-mail, utilizando o redirecionamento de entrada
-    ```
-    s-nail -s "Logs" aluno </home/aluno/nao_acessa.log
-    ```
+  4. Em quantas linhas aparecem a letra `r` seguida de `c` ou `t`?
 
+  ```
+  grep 'r[ct]' *.txt | wc -l
+  ```
 
+3. No arquivo `calice.txt`:
+  - substitua `amarga` por `doce`
+
+  ```
+  sed -i 's/amarga/doce/g' calice.txt
+  ```
+
+  - substitua `calada` por `amada`
+
+  ```
+  sed -i 's/calada/amada/g' calice.txt
+  ```
+
+  - substitua `labuta` por `farinha`
+
+  ```
+  sed -i 's/labuta/farinha' calice.txt
+  ```
+
+  - substitua `mentira` por `verdade`
+
+  ```
+  sed -i 's/mentira/verdade/g' calice.txt
+  ```
+
+  - substitua `morta` por `torta`
+
+  ```
+  sed -i 's/morta/torta/g' calice.txt
+  ```
+
+4. No arquivo `fado.txt`:
+
+  - Substitua todas as ocorrências de letras acentuadas por suas versões sem acento
+
+  ```
+  sed -e 's/É/E/g;s/[ãáâ]/a/g;s/ú/u/g;s/ç/c/g' fado.txt
+  ```
+
+  ```
+  sed -i 'y/Éãáâúç/Eaaauc/' fado.txt
+  ```
+
+  - Remova todas as letras `m` do texto
+
+  ```
+  sed -i 's/m//g' fado.txt
+  ```
+
+  - Remova as linhas onde aparecem a sequência `sto`
+
+  ```
+  sed -i '/sto/d'
+  ```
 
 ------------
 [Respostas](respostas.md)
