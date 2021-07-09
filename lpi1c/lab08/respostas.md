@@ -103,7 +103,7 @@ wget https://labs.fboaventura.dev/lpi1c/lab08/files/<arquivo.txt>
   - substitua `labuta` por `farinha`
 
   ```
-  sed -i 's/labuta/farinha' calice.txt
+  sed -i 's/labuta/farinha/g' calice.txt
   ```
 
   - substitua `mentira` por `verdade`
