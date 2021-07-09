@@ -49,7 +49,7 @@ wget https://labs.fboaventura.dev/lpi1c/lab08/files/<arquivo.txt>
   3. Procure pelos usuários que o **segundo** caractere seja uma vogal
 
   ```
-  grep '^.[aeiou]'
+  grep '^.[aeiou]' /etc/passwd
   ```
 
   4. Procure pelos usuários que a linha termine com `h`
@@ -139,7 +139,7 @@ wget https://labs.fboaventura.dev/lpi1c/lab08/files/<arquivo.txt>
   - Remova as linhas onde aparecem a sequência `sto`
 
   ```
-  sed -i '/sto/d'
+  sed -i '/sto/d' fado.txt
   ```
 
 ------------
