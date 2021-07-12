@@ -14,4 +14,5 @@
 - [Laboratório 06](lab06/README.md) - Encontrando arquivos e redirecionamentos
 - [Laboratório 07](lab07/README.md) - Gerenciando processos
 - [Laboratório 08](lab08/README.md) - Expressões Regulares
-
+- [Laboratório 09](lab09/README.md) - Escrevendo scripts (parte 1)
+<!-- - [Laboratório 10](lab10/README.md) - Shell scripts -->
