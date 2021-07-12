@@ -1,73 +1,113 @@
-# Lab-06 - Encontrando arquivos e redirecionamentos
+# Lab-09 - Configurando sessões e escrevendo scripts
 
 [Lista de Comandos](../comandos.md)
 
 ## Requisitos
 
-- Instalar o pacote s-nail
+- Crie um diretório `~/bin` onde serão armazenados os scripts
+
+```
+mkdir ~/bin
+```
+
+## Informações úteis
+
+### Variáveis especiais
+
+- `$*`  - Todos os valores passados como argumentos
+- `$#` - O número de argumentos
+- `$0`  - O nome do arquivo de script
+- `$1..$n` - O número do argumento na posição n
+- `$!` - O PID do último programa executado
+- `$$` - O PID do Shell atual
+- `$?` - O Código numérico de saída do último comando (0 == sem erros)
+
+### Comandos
+
+- `cut` - corta uma linha em campos definidos (`-d[separador] -f<[inicio]-[fim]> | <c1,c2,c3>`) ou caracteres (`-c[inicio]-[fim]`)
+    - `cut -d: -f1,7 /etc/passwd`
+<!-- - `source <arquivo>` - importa as definições em um arquivo para o shell do script -->
+- `read <VAR1> <VAR2>...` - lê a entrada do usuário para uma ou mais variáveis.  Sem parâmetros serve como pausa
+- `echo [STRING]` - Comando utilizado para imprimir uma string
+- `expr` ou `$(())` - Realiza operações matemáticas com números inteiros
 
 ## Objetivos
 
-1. Encontre os diretórios que estão dentro do caminho `/etc`
+1. Acrescente o diretório `~/bin` (`$HOME/bin`) no `PATH` da sua sessão
 
-  ```
-  find /etc -type d
+```
+nano ~/.profile
+```
 
-  sudo find /etc -type d
-  ```
+Na última linha acrescente:
 
-2. Encontre os arquivos dentro do `/var` que pertencem ao usuário `syslog`
 
-  ```
-  find /var -type f -user syslog
+```bash
+export PATH="$HOME/bin:$PATH"
+```
 
-  sudo find /var -type f -user syslog
-  ```
+2. Crie um script que busque o nome da distribuição atual no arquivo `/etc/os-release` e imprima na tela
 
-3. Encontre os diretórios no filesystem (`/`) que pertencem ao grupo `daemon`
+```bash
+#!/bin/bash
 
-  ```
-  sudo find / -type d -group daemon
-  ```
+distribuicao=`grep ^NAME /etc/os-release | cut -d= -f2`
 
-4. Encontre no diretório `/etc` todos os arquivos que são mais novos que o `/etc/passwd` e gere o `md5sum` deles no arquivo `/home/aluno/etc_novo.md5`
+echo "A distribuição atual é: $distribuicao"
 
-  ```
-  sudo find /etc -newer /etc/passwd -exec md5sum {} \; >> /home/aluno/etc_novo.md5
-  ```
+```
 
-5. Encontre no diretório `/var` todos os arquivos que foram modificados nos últimos 60 minutos
+3. Crie um script que leia os nomes dos usuários no `/etc/passwd` e imprima os que possuem shell terminada em `sh`
 
-  ```
-  sudo find /var -type f -mmin -60
-  ```
+```bash
+#!/bin/bash
 
-6. Encontre no diretório `/var` todos os arquivos que foram acessados a mais de 10 dias
+usuarios=`grep sh$ /etc/passwd | cut -d: -f1`
 
-  ```
-  sudo find /var -type f -atime +10
-  ```
+echo "Usuários com shell de login:"
+echo $usuarios
 
-7. Encontre no diretório `/var` todos os arquivos que terminem em `.md5sums` e verifique o `checksum` dos arquivos, salvando o resultado no arquivo `/home/aluno/verifica_checksums.log`
+```
 
-  ```
-  cd /
-  sudo find /var -type f -name "*.md5sums" | xargs md5sum -c 1> /home/aluno/verifica_checksums.log
-  ```
+4. Crie um script que some dois números inteiros solicitados ao usuário
 
-8. Faça uma busca no diretório `/etc` e armazene em um log quais arquivos ou diretórios o usuário `aluno` não tem permissão para acessar
+```bash
+#!/bin/bash
 
-  ```
-  find /etc 1>/dev/null 2>/home/aluno/nao_acessa.log
+echo "Digite dois números: "
+read N1 N2
 
-  find /etc 2>&1 | egrep "Permission denied" >/home/aluno/nao_acessa.log
-  ```
+soma=$(( N1 + N2 ))
+echo "A soma de $N1 e $N2 é $soma"
 
-9. Utilizando o `s-nail`, envie o log do comando anterior por e-mail, utilizando o redirecionamento de entrada
-    ```
-    s-nail -s "Logs" aluno </home/aluno/nao_acessa.log
-    ```
+```
 
+5. Cria um script que:
+    1. Defina uma função para soma de dois parâmetros
+    2. Leia os números a serem somados como argumentos da linha de comando
+    3. Solicite ao usuário caso os dois números não tenham sido passados como argumento
+
+
+```bash
+#!/bin/bash
+
+function soma() {
+  soma=$(( $N1 + $N2 ))
+
+  echo $soma
+}
+
+if [ $# -lt 2 ]; then
+  echo "Digite dois números: "
+  read N1 N2
+else
+  N1=$1
+  N2=$2
+fi
+
+soma
+
+```
 
 
 ------------
