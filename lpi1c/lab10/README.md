@@ -4,7 +4,7 @@
 
 ## Requisitos
 
-- Crie um diretório `~/var` e armazene o arquivo [files/usuarios.csv](usuarios.csv)
+- Crie um diretório `~/var` e armazene o arquivo [usuarios.csv](files/usuarios.csv)
 
 ## Informações úteis
 
