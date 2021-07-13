@@ -172,7 +172,7 @@ done
 
 
 ```bash
-sed '1d' ${HOME}/var/usuarios.csv" | cut -d, -f2,3,5 | grep "^[aeiou]" | while read line; do echo "$(echo $line | cut -d, -f2) $(echo $line | cut -d, -f3 | sed -e 's/^.*@//')"; done
+sed '1d' ${HOME}/var/usuarios.csv | cut -d, -f2,3,5 | grep "^[aeiou]" | while read line; do echo "$(echo $line | cut -d, -f2) $(echo $line | cut -d, -f3 | sed -e 's/^.*@//')"; done
 ```
  -->
 
