@@ -81,7 +81,7 @@ done
 2. Liste o login e o primeiro nome de todos os usuários
 3. Conte a quantidade de usuários masculinos e femininos
 4. Considerando os usuários que a primeira letra do login seja uma vogal e mostre o primeiro nome e o domínio do e-mail
-5.
+
 
 ------------
 [Respostas](respostas.md)
