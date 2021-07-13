@@ -153,7 +153,9 @@ echo "Male  : $m"
 ```
 
 4. Considerando os usuários que a primeira letra do login seja uma vogal e mostre o primeiro nome e o domínio do e-mail
+
 <!--
+
 ```bash
 #!/bin/bash
 
@@ -174,6 +176,7 @@ done
 ```bash
 sed '1d' ${HOME}/var/usuarios.csv | cut -d, -f2,3,5 | grep "^[aeiou]" | while read line; do echo "$(echo $line | cut -d, -f2) $(echo $line | cut -d, -f3 | sed -e 's/^.*@//')"; done
 ```
+
  -->
 
 
