@@ -16,3 +16,4 @@
 - [Laboratório 08](lab08/README.md) - Expressões Regulares
 - [Laboratório 09](lab09/README.md) - Escrevendo scripts (parte 1)
 - [Laboratório 10](lab10/README.md) - Loops e decisões
+- [Laboratório 11](lab11/README.md) - Gerenciando o sistema
