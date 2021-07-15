@@ -27,7 +27,7 @@
         ```
 
 1. Crie os grupos: `comercial`, `compras`, `administrativo` e `ti`
-2. Crie os usuários abaixo com as características determinadas:
+1. Crie os usuários abaixo com as características determinadas:
     1. login: `joao`, grupo principal: `comercial`
     1. login: `marcos`, grupo principal: `compras`
     1. login: `maria`, grupo principal: `administrativo`
@@ -37,10 +37,13 @@
     1. login `marcos` aos grupos `administrativo` e `ti`
     1. login `maria` ao grupo `compras`
     1. login `celio` ao grupo `www-data` ou `http`
-3. Cadastre senhas para todos os usuários
-4. Crie uma tarefa cron para os usuários `celio` e `marcos` que grave a lista do diretório `${HOME}/www` para o arquivo `/tmp/<login>_www.log`
-5. Verifique se a data do sistema está correta
-6. Verifique se o relógio do sistema está configurado para atualizar automaticamente
+1. Cadastre senhas para todos os usuários
+1. Crie uma tarefa cron para os usuários `celio` e `marcos` que grave a lista do diretório `${HOME}/www` para o arquivo `/tmp/<login>_www.log`
+1. Verifique se a data do sistema está correta
+1. Verifique se o relógio do sistema está configurado para atualizar automaticamente
+1. Veja os logs do sistema atual
+1. Acompanhe os logs do servidor Apache
+
 
 ------------
 [Respostas](respostas.md)
