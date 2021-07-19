@@ -17,3 +17,4 @@
 - [Laboratório 09](lab09/README.md) - Escrevendo scripts (parte 1)
 - [Laboratório 10](lab10/README.md) - Loops e decisões
 - [Laboratório 11](lab11/README.md) - Gerenciando o sistema
+- [Laboratório 12](lab12/README.md) - Configurando a rede
