@@ -82,22 +82,22 @@ nmcli conn show
 
       Ubuntu:
 
-      ```bash
-      sudo cat > /etc/netplan/99-local.yml <<_EOF_
-      network:
-        ethernets:
-          enp0s3:
-            dhcp4: false
-            addresses: ["192.168.18.201/24"]
-            gateway4: 192.168.18.1
-            nameservers:
-              addresses: ["8.8.8.8", "8.8.4.4"]
-              search: [lpilab.local]
-        version: 2
-        _EOF_
-        sudo netplan try
-        sudo netplan apply
-        ```
+```bash
+sudo cat > /etc/netplan/99-local.yml <<_EOF_
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: false
+      addresses: ["192.168.18.201/24"]
+      gateway4: 192.168.18.1
+      nameservers:
+        addresses: ["8.8.8.8", "8.8.4.4"]
+        search: [lpilab.local]
+  version: 2
+  _EOF_
+  sudo netplan try
+  sudo netplan apply
+  ```
 
 1. Reinicie a máquina e teste se a conexão de rede funciona
 
