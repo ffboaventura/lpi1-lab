@@ -70,6 +70,7 @@ nmcli conn show
     1. Adicionando o gateway padrão atual como estático
     1. Adicionando os servidores DNS do Google (`8.8.8.8` e `8.8.4.4`)
 
+      CentOS:
 
       ```bash
       sudo nmcli conn modify enp0s3 ip4 X.X.X.X
@@ -78,6 +79,25 @@ nmcli conn show
       sudo nmcli conn modify enp0s3 ipv4.method static
       sudo nmcli conn modify enp0s3 connection.autoconnect yes
       ```
+
+      Ubuntu:
+
+      ```bash
+      sudo cat > /etc/netplan/99-local.yml <<_EOF_
+      network:
+        ethernets:
+          enp0s3:
+            dhcp4: false
+            addresses: ["192.168.18.201/24"]
+            gateway4: 192.168.18.1
+            nameservers:
+              addresses: ["8.8.8.8", "8.8.4.4"]
+              search: [lpilab.local]
+        version: 2
+        _EOF_
+        sudo netplan try
+        sudo netplan apply
+        ```
 
 1. Reinicie a máquina e teste se a conexão de rede funciona
 
