@@ -72,11 +72,11 @@ nmcli conn show
 
 
       ```bash
-      sudo nmcli conn modify enp3s0 ip4 X.X.X.X
-      sudo nmcli conn modify enp3s0 gw4 X.X.X.Y
-      sudo nmcli conn modify enp3s0 ipv4.dns "8.8.8.8 8.8.4.4"
-      sudo nmcli conn modify enp3s0 ipv4.method static
-      sudo nmcli conn modify enp3s0 connection.autoconnect yes
+      sudo nmcli conn modify enp0s3 ip4 X.X.X.X
+      sudo nmcli conn modify enp0s3 gw4 X.X.X.Y
+      sudo nmcli conn modify enp0s3 ipv4.dns "8.8.8.8 8.8.4.4"
+      sudo nmcli conn modify enp0s3 ipv4.method static
+      sudo nmcli conn modify enp0s3 connection.autoconnect yes
       ```
 
 1. Reinicie a máquina e teste se a conexão de rede funciona
