@@ -1,4 +1,4 @@
-# Lab-11 - Gerenciando o sistema
+# Lab-12 - Configurando a rede
 
 [Lista de Comandos](../comandos.md)
 
@@ -6,168 +6,80 @@
 
 - N/A
 
+<!--
+ Desabilitar o `systemd-resolved`:
+
+    ```bash
+    sudo systemctl disable systemd-resolved
+    sudo systemctl stop systemd-resolved
+    sudo rm -f /etc/resolv.conf
+    ```
+
+    Editar o arquivo `/etc/NetworkManager/NetworkManager.conf` e logo abaixo do `[main]` acrescentar a linha:
+
+    ```
+    [main]
+    dns=default
+    ```
+    -->
+
 ## Objetivos
 
-1. Altere o padrão de diretório home para as contas que serão criadas no sistema:
-    1. Deve conter os diretórios: `bin`, `www`, `var` e `docs`
+1. Listar as conexões existentes no servidor
 
-    ```bash
-    sudo mkdir -p /etc/skel/{bin,www,var,docs}
-    ```
+```bash
+sudo nmcli conn show
+```
 
-    2. O arquivo `.bashrc` deve conter a chamada para o comando `fortune -s`
+1. Identificar o endereço IP atual na máquina
 
-    ```bash
-    sudo nano /etc/skel/.bashrc
+```bash
+ip addr ls
+```
 
-    fortune -s
-    ```
+```bash
+sudo nmcli conn show id enp0s3
+```
 
-    3. Deve conter um arquivo de boas vindas ao novo usuário
+1. Identificar o gateway padrão atual na máquina
 
-    ```bash
-    sudo nano /etc/skel/bemvindo.txt
+```bash
+ip route ls
+```
 
-    Olá! Bem vindo ao servidor.
-    ```
+```bash
+ip r
+```
 
-    4. E no diretório `www` deve ter um arquivo chamado `index.html` com o seguinte conteúdo:
+1. Identificar a interface de rede atual
 
-        ```bash
-        sudo touch /etc/skel/www/index.html
-        sudo chmod +w /etc/skel/www/index.html
-        cat <<_EOF_ > /etc/skel/www/index.html
-        <html>
-            <head>
-            <title>Página Pessoal</title>
-            </head>
-            <body>
-                <h1>Oops!</h1>
-                <p>A página pessoal que deveria estar aqui não chegou ainda... Volte mais tarde!</p>
-            </body>
-        </html>
-        _EOF_
-        sudo chmod 0644 /etc/skel/www/index.html
-        ```
+```bash
+ip addr ls
+```
 
-1. Crie os grupos: `comercial`, `compras`, `administrativo` e `ti`
+```bash
+ip link ls
+```
 
-  ```bash
-  for nome in comercial compras administrativo ti; do sudo groupadd ${nome}; done
-  ```
+```bash
+nmcli conn show
+```
 
-1. Crie os usuários abaixo com as características determinadas:
-    1. login: `joao`, grupo principal: `comercial`
+1. Alterar a configuração de rede do servidor:
+    1. Adicionando o IP atual como estático
+    1. Adicionando o gateway padrão atual como estático
+    1. Adicionando os servidores DNS do Google (`8.8.8.8` e `8.8.4.4`)
+
 
       ```bash
-      sudo useradd -c "Joao" -d /home/joao -m -s /bin/bash -g comercial joao
+      sudo nmcli conn modify enp3s0 ip4 X.X.X.X
+      sudo nmcli conn modify enp3s0 gw4 X.X.X.Y
+      sudo nmcli conn modify enp3s0 ipv4.dns "8.8.8.8 8.8.4.4"
+      sudo nmcli conn modify enp3s0 ipv4.method static
+      sudo nmcli conn modify enp3s0 connection.autoconnect yes
       ```
 
-    1. login: `marcos`, grupo principal: `compras`
-
-      ```bash
-      sudo useradd -c "Marcos" -d /home/marcos -m -s /bin/bash -g compras marcos
-      ```
-
-    1. login: `maria`, grupo principal: `administrativo`
-
-      ```bash
-      sudo useradd -c "Maria" -d /home/maria -m -s /bin/bash -g administrativo maria
-      ```
-
-    1. login: `celio`, grupo principal: `ti`
-
-      ```bash
-      sudo useradd -c "Celio" -d /home/celio -m -s /bin/bash -g ti celio
-      ```
-
-    ```bash
-    for usr in joao:comercial marcos:compras maria:administrativo celio:ti; do
-      login=$(echo $usr | cut -d: -f1)
-      grupo=$(echo $usr | cut -d: -f2)
-      sudo useradd -c "$login" -d /home/$login -m -s /bin/bash -g $grupo $login
-    done
-    ```
-
-1. Acrescente os usuários aos grupos conforme determinado:
-    1. login `joao` ao grupo `administrativo`
-
-      ```bash
-      sudo gpasswd -a joao administrativo
-      ```
-
-    1. login `marcos` aos grupos `administrativo` e `ti`
-
-      ```bash
-      sudo gpasswd -a marcos administrativo
-      sudo gpasswd -a marcos ti
-      ```
-
-    1. login `maria` ao grupo `compras`
-
-      ```bash
-      sudo gpasswd -a maria compras
-      ```
-
-    1. login `celio` ao grupo `www-data` ou `http`
-
-      ```bash
-      sudo gpasswd -a celio www-data
-      ```
-
-1. Cadastre senhas para todos os usuários
-
-      ```bash
-      sudo passwd joao
-      sudo passwd marcos
-      sudo passwd maria
-      sudo passwd celio
-      ```
-
-1. Crie uma tarefa cron para os usuários `celio` e `marcos` que grave a lista do diretório `${HOME}/www` para o arquivo `/tmp/<login>_www.log` a cada `10 minutos`
-
-      ```bash
-      echo "*/10 * * * * ls -l ${HOME}/www > /tmp/`whoami`_www.log" > /tmp/cron
-      sudo crontab -u celio /tmp/cron
-      sudo crontab -u marcos /tmp/cron
-      ```
-
-1. Verifique se a data do sistema está correta
-
-  ```bash
-  date
-  timedatectl
-  ```
-
-1. Verifique se o relógio do sistema está configurado para atualizar automaticamente
-
-  ```bash
-  timedatectl
-  ```
-
-1. Veja os logs do sistema atual
-
-  ```bash
-  sudo journalctl
-  sudo less /var/log/syslog
-  ```
-
-1. Acompanhe os logs do servidor Apache
-
-  ##### Ubuntu
-
-  ```bash
-  sudo journalctl -f -u apache2
-  tail -vf /var/log/apache2/*.log
-  ```
-
-  ##### CentOS
-
-  ```bash
-  sudo journalctl -f -u httpd
-  tail -vf /var/log/httpd/*_log
-  ```
-
+1. Reinicie a máquina e teste se a conexão de rede funciona
 
 
 ------------
