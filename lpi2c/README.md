@@ -11,7 +11,9 @@ sitename: Treinamento LPIC-II - Laboratórios
 
 ![Lab 01](images/lpi2_lab_s02.png)
 
-[Laboratório 01](S01/index.md): 
+[iSCSI](iscsi/README.md)
+
+[Laboratório 01](S01/index.md):
 
 * Configurações básicas de rede e roteamento
 * Introdução a análise de pacotes e identificação de serviços
@@ -33,28 +35,28 @@ sitename: Treinamento LPIC-II - Laboratórios
 
 [Objetivos01](S04/objetivos01.md) | [Respostas](S04/respostas01.md)
 
-[Laboratório 05](S05/index.md):  
+[Laboratório 05](S05/index.md):
 
 * Configurações do Postfix
 * Testes de envio de e-mail entre as máquinas
 
 [Objetivos 01](S05/objetivos01.md) | [Respostas](S05/respostas01.md)
 
-[Laboratório 06](S06/index.md):  
+[Laboratório 06](S06/index.md):
 
 * Configurações do Postfix
 * Testes de envio de e-mail entre as máquinas
 
 [Objetivos 01](S06/objetivos01.md) | [Respostas](S06/respostas01.md)
 
-[Laboratório 07](S07/index.md):  
+[Laboratório 07](S07/index.md):
 
 * Docker
 
 [Objetivos 01](S07/objetivos01.md) | [Respostas](S07/respostas01.md)
 [Objetivos 02](S07/objetivos02.md) | [Respostas](S07/respostas02.md)
 
-[Laboratório 08](S08/index.md):  
+[Laboratório 08](S08/index.md):
 
 * docker-compose
 * Fazer deploy de aplicações utilizando docker-compose
