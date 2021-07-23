@@ -1,0 +1,40 @@
+network:
+    ethernets:
+        enp2s0:
+            match:
+              macaddress: 'd4:85:66:45:23:3c'
+            addresses:
+            - 192.168.21.254/24
+            dhcp4: false
+            dhcp6: false
+            #gateway4: 192.168.21.1
+            routes:
+             - to: 0.0.0.0/0
+               via: 192.168.21.1
+               metric: 1000
+            set-name: 'net'
+        enp3s0:
+            match:
+             macaddress: '50:3e:aa:09:98:34'
+            addresses:
+            - 189.84.213.178/30
+            dhcp4: false
+            dhcp6: false
+            #gateway4: 189.84.213.177
+            routes:
+             - to: 0.0.0.0/0
+               via: 189.84.213.177
+               metric: 0
+            set-name: 'din'
+        enp4s0:
+            match:
+              macaddress: '64:1c:67:73:d8:6c'
+            addresses:
+            - 192.168.0.254/24
+            - 192.168.0.253/24
+            nameservers:
+              addresses: ["127.0.0.1"]
+            set-name: 'lan'
+            dhcp6: false
+    version: 2
+

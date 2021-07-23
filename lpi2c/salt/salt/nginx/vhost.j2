@@ -1,0 +1,23 @@
+{#
+{% if salt['grains.get']('domain') == 'theforce.local' %}
+{% set server_name="theforce.local www.theforce.local" %}
+{% set dst_host="luke.theforce.local" %}
+{% elif salt['grains.get']('domain') == 'darkside.local' %}
+{% set server_name="darkside.local www.darkside.local" %}
+{% set dst_host="darthvader.theforce.local" %}
+{% endif %}
+#}
+
+{% for vhost in salt['pillar.get']('vhosts') %}
+server {
+    listen  80;
+    server_name{% for server_name in vhost['server_name'] %} {{ server_name }}{% endfor %};
+
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://{{ vhost['dst_host'] }};
+    }
+}
+{% endfor %}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Firewall Script
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/bin/bash /etc/fw/firewall.sh
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/etc/fw
+Restart=on-failure

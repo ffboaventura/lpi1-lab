@@ -1,0 +1,18 @@
+$TTL 3D
+@   IN  SOA ns1.theforce.local. nsadmin.theforce.local. (
+            2019101801  ; Serial
+            28800       ; refresh (8h)
+            7200        ; retry (2h)
+            2592000     ; expire (30d)
+            86400       ; minimum (1d)
+    )
+        NS      c3po
+        MX  5   luke
+luke    A       172.17.15.2
+c3po    A       172.17.15.1
+r2d2    CNAME   c3po
+
+frederico-ubnt  A   172.17.15.2
+rtr-02          A   172.17.15.1
+
+saltmaster  A   172.31.7.54

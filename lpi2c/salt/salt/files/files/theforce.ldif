@@ -1,0 +1,1242 @@
+
+dn: OU=Recursos Humanos,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Recursos Humanos
+    
+
+dn: OU=Engenharia,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Engenharia
+    
+
+dn: OU=Tecnologia da Informação,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Tecnologia da Informação
+    
+
+dn: OU=Diretoria,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Diretoria
+    
+
+dn: OU=Conselho,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Conselho
+    
+
+dn: OU=Marketing,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Marketing
+    
+
+dn: OU=Vendas,DC=theforce,DC=local
+objectClass: top
+objectClass: organizationalUnit
+ou: Vendas
+    
+
+dn: cn=Stacey Garner,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Stacey Garner
+sn: Garner
+uid: sgarner
+userpassword: 2nAuZP3RfC
+homephone: (992)364-3525x17855
+mail: stacey.garner@theforce.local
+description: User-friendly real-time projection
+ou: Vendas
+
+
+dn: cn=Christine Gonzalez,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Christine Gonzalez
+sn: Gonzalez
+uid: cgonzalez
+userpassword: JyRp0VZGLk
+homephone: 001-921-552-2301x1835
+mail: christine.gonzalez@theforce.local
+description: Decentralized bi-directional analyzer
+ou: Conselho
+
+
+dn: cn=Glenn Hernandez,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Glenn Hernandez
+sn: Hernandez
+uid: ghernandez
+userpassword: X3uJQJr4wg
+homephone: 001-961-264-1886
+mail: glenn.hernandez@theforce.local
+description: Face-to-face full-range strategy
+ou: Vendas
+
+
+dn: cn=Jean Baxter,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jean Baxter
+sn: Baxter
+uid: jbaxter
+userpassword: wqwvenGjJ4
+homephone: (864)467-4993x10108
+mail: jean.baxter@theforce.local
+description: Secured user-facing ability
+ou: Diretoria
+
+
+dn: cn=Andrea Bennett,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Andrea Bennett
+sn: Bennett
+uid: abennett
+userpassword: NKz6KRCGHa
+homephone: 041-266-6805x7249
+mail: andrea.bennett@theforce.local
+description: Optional bifurcated intranet
+ou: Engenharia
+
+
+dn: cn=Victoria Horton,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Victoria Horton
+sn: Horton
+uid: vhorton
+userpassword: TCiVoaaKlU
+homephone: 001-997-921-4116
+mail: victoria.horton@theforce.local
+description: Automated national concept
+ou: Marketing
+
+
+dn: cn=James Johnson,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: James Johnson
+sn: Johnson
+uid: jjohnson
+userpassword: Fv8cWcReKw
+homephone: +1-073-874-8245x95562
+mail: james.johnson@theforce.local
+description: Versatile methodical help-desk
+ou: Engenharia
+
+
+dn: cn=James Wade,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: James Wade
+sn: Wade
+uid: jwade
+userpassword: gLJuEQCUyT
+homephone: 167.153.5951
+mail: james.wade@theforce.local
+description: Stand-alone web-enabled knowledge user
+ou: Diretoria
+
+
+dn: cn=Kevin Abbott,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kevin Abbott
+sn: Abbott
+uid: kabbott
+userpassword: RXAAA5IDHU
+homephone: (885)101-9393x461
+mail: kevin.abbott@theforce.local
+description: Triple-buffered 24hour interface
+ou: Marketing
+
+
+dn: cn=Gabriela Davis,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Gabriela Davis
+sn: Davis
+uid: gdavis
+userpassword: 1WMD6hDN1E
+homephone: (814)401-7600
+mail: gabriela.davis@theforce.local
+description: Optional bottom-line Local Area Network
+ou: Engenharia
+
+
+dn: cn=Cindy Alexander,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Cindy Alexander
+sn: Alexander
+uid: calexander
+userpassword: bUZi1yFCJc
+homephone: 605-564-1636x037
+mail: cindy.alexander@theforce.local
+description: Right-sized background architecture
+ou: Recursos Humanos
+
+
+dn: cn=Kenneth Freeman,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kenneth Freeman
+sn: Freeman
+uid: kfreeman
+userpassword: NjWZfXd34d
+homephone: 689-426-4626x24235
+mail: kenneth.freeman@theforce.local
+description: Vision-oriented content-based moratorium
+ou: Tecnologia da Informação
+
+
+dn: cn=Ashley Wilkinson,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Ashley Wilkinson
+sn: Wilkinson
+uid: awilkinson
+userpassword: gaUgbJxeQb
+homephone: 262.759.0793x627
+mail: ashley.wilkinson@theforce.local
+description: Optimized hybrid Graphic Interface
+ou: Conselho
+
+
+dn: cn=Charles Gonzalez,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Charles Gonzalez
+sn: Gonzalez
+uid: cgonzalez
+userpassword: FzlTUxQbb2
+homephone: 933.788.4547x583
+mail: charles.gonzalez@theforce.local
+description: Exclusive exuding encryption
+ou: Diretoria
+
+
+dn: cn=Jesse Duke,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jesse Duke
+sn: Duke
+uid: jduke
+userpassword: wnoaoijLkr
+homephone: 804.932.1456x89416
+mail: jesse.duke@theforce.local
+description: Secured scalable matrix
+ou: Diretoria
+
+
+dn: cn=Jeffrey Shelton,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jeffrey Shelton
+sn: Shelton
+uid: jshelton
+userpassword: PT6XrpoVXb
+homephone: 677.376.2208x848
+mail: jeffrey.shelton@theforce.local
+description: Implemented logistical knowledge user
+ou: Conselho
+
+
+dn: cn=Michael Hall,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michael Hall
+sn: Hall
+uid: mhall
+userpassword: e2nJvueexb
+homephone: (815)098-7373
+mail: michael.hall@theforce.local
+description: Inverse actuating application
+ou: Conselho
+
+
+dn: cn=Vincent Powell,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Vincent Powell
+sn: Powell
+uid: vpowell
+userpassword: gCbSBp4myx
+homephone: (651)685-4386x963
+mail: vincent.powell@theforce.local
+description: User-friendly exuding success
+ou: Engenharia
+
+
+dn: cn=Melissa Brewer,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Melissa Brewer
+sn: Brewer
+uid: mbrewer
+userpassword: KSom09EDhT
+homephone: 934-053-2423
+mail: melissa.brewer@theforce.local
+description: Fully-configurable optimizing superstructure
+ou: Marketing
+
+
+dn: cn=Valerie Ortiz,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Valerie Ortiz
+sn: Ortiz
+uid: vortiz
+userpassword: 6GnfzkBlEU
+homephone: +1-426-667-9651x12809
+mail: valerie.ortiz@theforce.local
+description: Ameliorated methodical installation
+ou: Tecnologia da Informação
+
+
+dn: cn=Nicole Schmidt,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Nicole Schmidt
+sn: Schmidt
+uid: nschmidt
+userpassword: rkDqzalXK1
+homephone: 289.007.9954
+mail: nicole.schmidt@theforce.local
+description: Reduced incremental website
+ou: Engenharia
+
+
+dn: cn=Cheryl Bowman,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Cheryl Bowman
+sn: Bowman
+uid: cbowman
+userpassword: wbcBYqkRgu
+homephone: +1-711-084-9557x6734
+mail: cheryl.bowman@theforce.local
+description: Secured object-oriented matrices
+ou: Engenharia
+
+
+dn: cn=Adam Donaldson,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Adam Donaldson
+sn: Donaldson
+uid: adonaldson
+userpassword: CT1lhX0MBs
+homephone: 377-150-0048
+mail: adam.donaldson@theforce.local
+description: Integrated responsive solution
+ou: Vendas
+
+
+dn: cn=Patrick Rios,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Patrick Rios
+sn: Rios
+uid: prios
+userpassword: 6Gk7Dlkl7h
+homephone: 001-554-107-4936
+mail: patrick.rios@theforce.local
+description: Open-source full-range knowledge user
+ou: Tecnologia da Informação
+
+
+dn: cn=Chase Phillips,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Chase Phillips
+sn: Phillips
+uid: cphillips
+userpassword: oBoomQ1yd4
+homephone: 133.619.6159
+mail: chase.phillips@theforce.local
+description: Multi-lateral multi-state array
+ou: Vendas
+
+
+dn: cn=Scott Ward,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Scott Ward
+sn: Ward
+uid: sward
+userpassword: gPw4VBIq19
+homephone: 001-079-571-9290x919
+mail: scott.ward@theforce.local
+description: Triple-buffered 24hour support
+ou: Vendas
+
+
+dn: cn=Valerie Martinez,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Valerie Martinez
+sn: Martinez
+uid: vmartinez
+userpassword: jy7zrnXKnq
+homephone: 308.061.0030
+mail: valerie.martinez@theforce.local
+description: User-centric content-based contingency
+ou: Engenharia
+
+
+dn: cn=Todd Hodges,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Todd Hodges
+sn: Hodges
+uid: thodges
+userpassword: JMCbccARcT
+homephone: (021)175-5812x46121
+mail: todd.hodges@theforce.local
+description: Universal analyzing algorithm
+ou: Engenharia
+
+
+dn: cn=Nathan Graham,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Nathan Graham
+sn: Graham
+uid: ngraham
+userpassword: 3e8Htp5tND
+homephone: 001-689-759-4075x1899
+mail: nathan.graham@theforce.local
+description: Reduced heuristic projection
+ou: Diretoria
+
+
+dn: cn=Rebecca Lambert,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Rebecca Lambert
+sn: Lambert
+uid: rlambert
+userpassword: uQZvAoQPpN
+homephone: 917.802.0185x32269
+mail: rebecca.lambert@theforce.local
+description: Reduced multimedia Graphic Interface
+ou: Marketing
+
+
+dn: cn=Tracy Beck,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tracy Beck
+sn: Beck
+uid: tbeck
+userpassword: F9BxQPVyOw
+homephone: 228.604.8295
+mail: tracy.beck@theforce.local
+description: Switchable tertiary frame
+ou: Recursos Humanos
+
+
+dn: cn=Glenda Diaz,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Glenda Diaz
+sn: Diaz
+uid: gdiaz
+userpassword: VHDXZ546oQ
+homephone: 802.923.9239x252
+mail: glenda.diaz@theforce.local
+description: Re-contextualized tertiary concept
+ou: Conselho
+
+
+dn: cn=Randy Melendez,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Randy Melendez
+sn: Melendez
+uid: rmelendez
+userpassword: wzP79JAJZp
+homephone: 796.318.4431x9770
+mail: randy.melendez@theforce.local
+description: Programmable optimal matrices
+ou: Recursos Humanos
+
+
+dn: cn=Christopher Wagner,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Christopher Wagner
+sn: Wagner
+uid: cwagner
+userpassword: FUiVpynqMi
+homephone: (461)613-7499
+mail: christopher.wagner@theforce.local
+description: Secured neutral synergy
+ou: Marketing
+
+
+dn: cn=Chelsea House,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Chelsea House
+sn: House
+uid: chouse
+userpassword: ZVnh1CuZjK
+homephone: 001-935-973-2544x08289
+mail: chelsea.house@theforce.local
+description: Organized radical synergy
+ou: Conselho
+
+
+dn: cn=William Young,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: William Young
+sn: Young
+uid: wyoung
+userpassword: Y1oswbiecf
+homephone: (570)233-6620
+mail: william.young@theforce.local
+description: Future-proofed local budgetary management
+ou: Tecnologia da Informação
+
+
+dn: cn=Maria Lucas,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Maria Lucas
+sn: Lucas
+uid: mlucas
+userpassword: CENXCOgqAh
+homephone: (671)594-7539
+mail: maria.lucas@theforce.local
+description: Optimized neutral core
+ou: Tecnologia da Informação
+
+
+dn: cn=Trevor Perez,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Trevor Perez
+sn: Perez
+uid: tperez
+userpassword: GvQlMwlHUj
+homephone: 624.180.0296x278
+mail: trevor.perez@theforce.local
+description: Total secondary website
+ou: Vendas
+
+
+dn: cn=Mary Norman,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Mary Norman
+sn: Norman
+uid: mnorman
+userpassword: TdeLNROgdE
+homephone: 001-754-906-1009x590
+mail: mary.norman@theforce.local
+description: Synergistic global strategy
+ou: Engenharia
+
+
+dn: cn=Alexander Gonzales,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Alexander Gonzales
+sn: Gonzales
+uid: agonzales
+userpassword: YU7ojitFF5
+homephone: (393)161-5367x9033
+mail: alexander.gonzales@theforce.local
+description: Total real-time core
+ou: Diretoria
+
+
+dn: cn=Wendy Foster,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Wendy Foster
+sn: Foster
+uid: wfoster
+userpassword: Mj3l9HjM0x
+homephone: 9338235245
+mail: wendy.foster@theforce.local
+description: Balanced bifurcated matrix
+ou: Marketing
+
+
+dn: cn=Virginia Green,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Virginia Green
+sn: Green
+uid: vgreen
+userpassword: O04Wlfpd1r
+homephone: +1-402-794-2389x666
+mail: virginia.green@theforce.local
+description: Switchable mobile definition
+ou: Recursos Humanos
+
+
+dn: cn=Michael Moore,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michael Moore
+sn: Moore
+uid: mmoore
+userpassword: DgB4GUcJNC
+homephone: +1-586-358-3532x28022
+mail: michael.moore@theforce.local
+description: Fully-configurable well-modulated pricing structure
+ou: Recursos Humanos
+
+
+dn: cn=Tom Frazier,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tom Frazier
+sn: Frazier
+uid: tfrazier
+userpassword: ezIEDKGn8X
+homephone: 803-347-1287x3539
+mail: tom.frazier@theforce.local
+description: Expanded client-server info-mediaries
+ou: Vendas
+
+
+dn: cn=Julie Cummings,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Julie Cummings
+sn: Cummings
+uid: jcummings
+userpassword: tzt5iOWmPW
+homephone: 869.450.2885
+mail: julie.cummings@theforce.local
+description: Digitized mission-critical core
+ou: Vendas
+
+
+dn: cn=Charlotte Lambert,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Charlotte Lambert
+sn: Lambert
+uid: clambert
+userpassword: 8qzTBw0ZXA
+homephone: 034.469.9102x5690
+mail: charlotte.lambert@theforce.local
+description: Implemented modular success
+ou: Diretoria
+
+
+dn: cn=Jennifer Mullins,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jennifer Mullins
+sn: Mullins
+uid: jmullins
+userpassword: SDrpLanckV
+homephone: 001-120-076-1536x1958
+mail: jennifer.mullins@theforce.local
+description: Implemented tangible moderator
+ou: Tecnologia da Informação
+
+
+dn: cn=Amanda Wilson,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Amanda Wilson
+sn: Wilson
+uid: awilson
+userpassword: l4qYBDO0kL
+homephone: +1-704-116-6585
+mail: amanda.wilson@theforce.local
+description: Operative grid-enabled Graphic Interface
+ou: Diretoria
+
+
+dn: cn=Samantha Mitchell,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Samantha Mitchell
+sn: Mitchell
+uid: smitchell
+userpassword: dABXwNdcgF
+homephone: 074-934-6232x39718
+mail: samantha.mitchell@theforce.local
+description: Reactive value-added throughput
+ou: Diretoria
+
+
+dn: cn=Bobby Figueroa,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Bobby Figueroa
+sn: Figueroa
+uid: bfigueroa
+userpassword: MKtseFeP3i
+homephone: 001-230-860-5051x04720
+mail: bobby.figueroa@theforce.local
+description: Devolved well-modulated policy
+ou: Vendas
+
+
+dn: cn=Shaun Buckley,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Shaun Buckley
+sn: Buckley
+uid: sbuckley
+userpassword: z08h7N6fbE
+homephone: 800-040-1210
+mail: shaun.buckley@theforce.local
+description: Polarized local toolset
+ou: Diretoria
+
+
+dn: cn=Todd Reed,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Todd Reed
+sn: Reed
+uid: treed
+userpassword: IUyT9SNOT3
+homephone: 677.890.8143x994
+mail: todd.reed@theforce.local
+description: Implemented client-server neural-net
+ou: Vendas
+
+
+dn: cn=Tammy Larson,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tammy Larson
+sn: Larson
+uid: tlarson
+userpassword: bc1dU3cfvz
+homephone: 919.506.3124x75508
+mail: tammy.larson@theforce.local
+description: User-centric leadingedge middleware
+ou: Engenharia
+
+
+dn: cn=Justin Petersen,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Justin Petersen
+sn: Petersen
+uid: jpetersen
+userpassword: 6MfL4usHZs
+homephone: 039-269-4325x0559
+mail: justin.petersen@theforce.local
+description: Phased needs-based core
+ou: Marketing
+
+
+dn: cn=Candice Robinson,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Candice Robinson
+sn: Robinson
+uid: crobinson
+userpassword: JFNcZbj8VW
+homephone: 352.456.9591x3074
+mail: candice.robinson@theforce.local
+description: Fully-configurable eco-centric Graphical User Interface
+ou: Marketing
+
+
+dn: cn=Danny Dennis,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Danny Dennis
+sn: Dennis
+uid: ddennis
+userpassword: K5ADl6jvo9
+homephone: 591.074.8598
+mail: danny.dennis@theforce.local
+description: Reduced bi-directional policy
+ou: Recursos Humanos
+
+
+dn: cn=Sarah Robinson,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Sarah Robinson
+sn: Robinson
+uid: srobinson
+userpassword: HFl3EcKbpw
+homephone: +1-910-109-8164x1105
+mail: sarah.robinson@theforce.local
+description: Polarized motivating database
+ou: Vendas
+
+
+dn: cn=Alyssa Bennett,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Alyssa Bennett
+sn: Bennett
+uid: abennett
+userpassword: vE5dldtQfq
+homephone: 0368111063
+mail: alyssa.bennett@theforce.local
+description: Fundamental intermediate infrastructure
+ou: Tecnologia da Informação
+
+
+dn: cn=Madison Fletcher,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Madison Fletcher
+sn: Fletcher
+uid: mfletcher
+userpassword: Hbgce5nSYw
+homephone: (152)624-7325x76417
+mail: madison.fletcher@theforce.local
+description: Assimilated solution-oriented moratorium
+ou: Marketing
+
+
+dn: cn=Jeremy Hart,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jeremy Hart
+sn: Hart
+uid: jhart
+userpassword: 8OwY14f5vk
+homephone: 001-436-040-1452x4072
+mail: jeremy.hart@theforce.local
+description: Customizable incremental neural-net
+ou: Marketing
+
+
+dn: cn=Natalie Young,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Natalie Young
+sn: Young
+uid: nyoung
+userpassword: LoUJVUplhj
+homephone: 001-548-715-8833x12322
+mail: natalie.young@theforce.local
+description: Synchronized secondary project
+ou: Recursos Humanos
+
+
+dn: cn=Angela Lopez,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Angela Lopez
+sn: Lopez
+uid: alopez
+userpassword: nx47EQO3vs
+homephone: (634)157-1192x93034
+mail: angela.lopez@theforce.local
+description: Fully-configurable 24/7 model
+ou: Conselho
+
+
+dn: cn=Michael Richardson,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michael Richardson
+sn: Richardson
+uid: mrichardson
+userpassword: VCMV1xdcsS
+homephone: 093.013.3341
+mail: michael.richardson@theforce.local
+description: Quality-focused encompassing concept
+ou: Engenharia
+
+
+dn: cn=Chad Parker,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Chad Parker
+sn: Parker
+uid: cparker
+userpassword: fEZDXauaac
+homephone: +1-229-958-7296x3607
+mail: chad.parker@theforce.local
+description: Public-key uniform conglomeration
+ou: Marketing
+
+
+dn: cn=Hannah Shepard,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Hannah Shepard
+sn: Shepard
+uid: hshepard
+userpassword: PR2l84NLBQ
+homephone: 001-655-575-6264x8793
+mail: hannah.shepard@theforce.local
+description: Self-enabling maximized archive
+ou: Vendas
+
+
+dn: cn=Shawn Wilkinson,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Shawn Wilkinson
+sn: Wilkinson
+uid: swilkinson
+userpassword: aSWYe4W7my
+homephone: 001-702-418-7136x76097
+mail: shawn.wilkinson@theforce.local
+description: Front-line incremental Internet solution
+ou: Recursos Humanos
+
+
+dn: cn=Elizabeth Graves,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Elizabeth Graves
+sn: Graves
+uid: egraves
+userpassword: AfV2deLCtw
+homephone: +1-198-006-3658x87565
+mail: elizabeth.graves@theforce.local
+description: Seamless 6thgeneration neural-net
+ou: Marketing
+
+
+dn: cn=Heidi Rangel,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Heidi Rangel
+sn: Rangel
+uid: hrangel
+userpassword: cdJkzr2bT2
+homephone: 001-626-523-2279x28903
+mail: heidi.rangel@theforce.local
+description: Synchronized systemic website
+ou: Diretoria
+
+
+dn: cn=Paul Burns,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Paul Burns
+sn: Burns
+uid: pburns
+userpassword: 61z8Y3wFyp
+homephone: +1-861-392-9480
+mail: paul.burns@theforce.local
+description: Up-sized bandwidth-monitored service-desk
+ou: Vendas
+
+
+dn: cn=Rebecca Lopez,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Rebecca Lopez
+sn: Lopez
+uid: rlopez
+userpassword: xOTOmFngKG
+homephone: 147-852-2305x03481
+mail: rebecca.lopez@theforce.local
+description: Up-sized mission-critical secured line
+ou: Conselho
+
+
+dn: cn=Catherine Ortiz,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Catherine Ortiz
+sn: Ortiz
+uid: cortiz
+userpassword: DkLTOlL22O
+homephone: 972.505.6031x7833
+mail: catherine.ortiz@theforce.local
+description: Managed demand-driven algorithm
+ou: Engenharia
+
+
+dn: cn=Theresa Berg,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Theresa Berg
+sn: Berg
+uid: tberg
+userpassword: 2R381l8pEK
+homephone: 522.674.7846x2792
+mail: theresa.berg@theforce.local
+description: Down-sized web-enabled migration
+ou: Marketing
+
+
+dn: cn=Angela Delacruz,ou=Marketing,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Angela Delacruz
+sn: Delacruz
+uid: adelacruz
+userpassword: 5DvZqOfRFi
+homephone: +1-829-144-9642x191
+mail: angela.delacruz@theforce.local
+description: Adaptive interactive focus group
+ou: Marketing
+
+
+dn: cn=Jesus Johnson,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jesus Johnson
+sn: Johnson
+uid: jjohnson
+userpassword: PmKTXHbQsW
+homephone: 761-087-8877x99209
+mail: jesus.johnson@theforce.local
+description: User-friendly maximized circuit
+ou: Vendas
+
+
+dn: cn=Joy Lee,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Joy Lee
+sn: Lee
+uid: jlee
+userpassword: nwFS5fp3yv
+homephone: +1-370-665-0546
+mail: joy.lee@theforce.local
+description: Vision-oriented holistic open system
+ou: Diretoria
+
+
+dn: cn=Michelle Henry,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michelle Henry
+sn: Henry
+uid: mhenry
+userpassword: gEVUJtMYol
+homephone: +1-921-755-2619x40698
+mail: michelle.henry@theforce.local
+description: Focused empowering Graphic Interface
+ou: Recursos Humanos
+
+
+dn: cn=Lauren Sanchez,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Lauren Sanchez
+sn: Sanchez
+uid: lsanchez
+userpassword: AgY8GixQMz
+homephone: 565-590-9367x931
+mail: lauren.sanchez@theforce.local
+description: Realigned attitude-oriented open system
+ou: Diretoria
+
+
+dn: cn=Daniel Williams,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Daniel Williams
+sn: Williams
+uid: dwilliams
+userpassword: Yzein1gMJx
+homephone: (175)148-3215
+mail: daniel.williams@theforce.local
+description: Re-engineered intermediate neural-net
+ou: Diretoria
+
+
+dn: cn=Jamie Gibson,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jamie Gibson
+sn: Gibson
+uid: jgibson
+userpassword: AzsAewNuyv
+homephone: (720)896-5596x3345
+mail: jamie.gibson@theforce.local
+description: Mandatory 24hour benchmark
+ou: Diretoria
+
+
+dn: cn=Jill Haynes,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jill Haynes
+sn: Haynes
+uid: jhaynes
+userpassword: i9gWoF0A57
+homephone: 4644974150
+mail: jill.haynes@theforce.local
+description: Public-key maximized access
+ou: Engenharia
+
+
+dn: cn=Jacob Freeman,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Jacob Freeman
+sn: Freeman
+uid: jfreeman
+userpassword: RAJ8huPw0W
+homephone: +1-484-970-0655x6998
+mail: jacob.freeman@theforce.local
+description: Centralized disintermediate utilization
+ou: Engenharia
+
+
+dn: cn=Christine Smith,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Christine Smith
+sn: Smith
+uid: csmith
+userpassword: txY3QB5RY5
+homephone: (826)376-0628
+mail: christine.smith@theforce.local
+description: Upgradable optimizing collaboration
+ou: Engenharia
+
+
+dn: cn=Raymond Rodriguez,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Raymond Rodriguez
+sn: Rodriguez
+uid: rrodriguez
+userpassword: 1PnGsN291q
+homephone: +1-459-367-2745
+mail: raymond.rodriguez@theforce.local
+description: Customer-focused upward-trending archive
+ou: Recursos Humanos
+
+
+dn: cn=Tiffany Sanchez,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tiffany Sanchez
+sn: Sanchez
+uid: tsanchez
+userpassword: zzsDDjI367
+homephone: 278.581.6068x90869
+mail: tiffany.sanchez@theforce.local
+description: Quality-focused context-sensitive instruction set
+ou: Recursos Humanos
+
+
+dn: cn=Kayla Juarez,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kayla Juarez
+sn: Juarez
+uid: kjuarez
+userpassword: v5h3OhPvnY
+homephone: 531-128-1202x5947
+mail: kayla.juarez@theforce.local
+description: Compatible 24hour utilization
+ou: Conselho
+
+
+dn: cn=Laura Morales,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Laura Morales
+sn: Morales
+uid: lmorales
+userpassword: h7Evbu3meV
+homephone: 3958986503
+mail: laura.morales@theforce.local
+description: Multi-lateral high-level database
+ou: Conselho
+
+
+dn: cn=Tyler Page,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tyler Page
+sn: Page
+uid: tpage
+userpassword: HjJAUGYHTY
+homephone: +1-872-520-7961x838
+mail: tyler.page@theforce.local
+description: Configurable upward-trending leverage
+ou: Tecnologia da Informação
+
+
+dn: cn=Tony Wagner,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Tony Wagner
+sn: Wagner
+uid: twagner
+userpassword: aEssqpTtvy
+homephone: 336.329.0800x580
+mail: tony.wagner@theforce.local
+description: Triple-buffered high-level core
+ou: Tecnologia da Informação
+
+
+dn: cn=Taylor Hoffman,ou=Tecnologia da Informação,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Taylor Hoffman
+sn: Hoffman
+uid: thoffman
+userpassword: 0ifcbnBVIP
+homephone: 001-270-693-7210
+mail: taylor.hoffman@theforce.local
+description: Extended composite open system
+ou: Tecnologia da Informação
+
+
+dn: cn=Charles Ross,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Charles Ross
+sn: Ross
+uid: cross
+userpassword: b4YvDn4S2j
+homephone: 001-775-249-6392x887
+mail: charles.ross@theforce.local
+description: Synergized asymmetric frame
+ou: Recursos Humanos
+
+
+dn: cn=Kayla Wright,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kayla Wright
+sn: Wright
+uid: kwright
+userpassword: Se3IKqD0Hc
+homephone: 839-032-6364x93715
+mail: kayla.wright@theforce.local
+description: Progressive bandwidth-monitored moratorium
+ou: Conselho
+
+
+dn: cn=Monica Schultz,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Monica Schultz
+sn: Schultz
+uid: mschultz
+userpassword: gZcJF2mypN
+homephone: (202)416-0819x12732
+mail: monica.schultz@theforce.local
+description: Visionary mission-critical superstructure
+ou: Conselho
+
+
+dn: cn=Michael Flores,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michael Flores
+sn: Flores
+uid: mflores
+userpassword: OzRjGN1N8X
+homephone: 001-224-058-8364x30029
+mail: michael.flores@theforce.local
+description: Total upward-trending standardization
+ou: Vendas
+
+
+dn: cn=Courtney Ashley,ou=Recursos Humanos,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Courtney Ashley
+sn: Ashley
+uid: cashley
+userpassword: qWae3QO10w
+homephone: 984-205-3903
+mail: courtney.ashley@theforce.local
+description: Fully-configurable exuding paradigm
+ou: Recursos Humanos
+
+
+dn: cn=John Roman,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: John Roman
+sn: Roman
+uid: jroman
+userpassword: 90EFGz1RuV
+homephone: +1-997-725-0646
+mail: john.roman@theforce.local
+description: Exclusive high-level groupware
+ou: Diretoria
+
+
+dn: cn=Michael Smith,ou=Diretoria,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Michael Smith
+sn: Smith
+uid: msmith
+userpassword: Cbzv78h0H7
+homephone: (289)327-4410
+mail: michael.smith@theforce.local
+description: Customizable human-resource framework
+ou: Diretoria
+
+
+dn: cn=Kristen Figueroa,ou=Engenharia,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kristen Figueroa
+sn: Figueroa
+uid: kfigueroa
+userpassword: U5u9YSJRIK
+homephone: 001-444-285-8324
+mail: kristen.figueroa@theforce.local
+description: Synchronized static encryption
+ou: Engenharia
+
+
+dn: cn=Haley Rice,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Haley Rice
+sn: Rice
+uid: hrice
+userpassword: XRHfSGSrpt
+homephone: 007-944-2203x9779
+mail: haley.rice@theforce.local
+description: Synchronized fault-tolerant moderator
+ou: Vendas
+
+
+dn: cn=Kevin Hall,ou=Vendas,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kevin Hall
+sn: Hall
+uid: khall
+userpassword: 4aWm1Ip5R9
+homephone: 001-598-388-0138x5005
+mail: kevin.hall@theforce.local
+description: Organic systematic superstructure
+ou: Vendas
+
+
+dn: cn=Kyle Wright,ou=Conselho,dc=theforce,dc=local
+objectclass: inetOrgPerson
+cn: Kyle Wright
+sn: Wright
+uid: kwright
+userpassword: qUy7zHSLBc
+homephone: (438)181-8343x432
+mail: kyle.wright@theforce.local
+description: Horizontal dynamic instruction set
+ou: Conselho
+

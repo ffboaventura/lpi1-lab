@@ -1,0 +1,9 @@
+#!/bin/bash
+sleep 15
+date >> /tmp/fw_execd
+
+{% if 'frederico' in grains['owner'] %}
+/sbin/iptables -t nat -I POSTROUTING -o {{ salt['network.ifacestartswith']("10.0")[0] }} -j MASQUERADE
+{% else %}
+/sbin/iptables -t nat -I POSTROUTING -o {{ salt['network.ifacestartswith']("192.168.217")[0] }} -j MASQUERADE
+{% endif %}
