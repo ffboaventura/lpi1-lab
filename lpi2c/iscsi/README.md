@@ -32,16 +32,24 @@ As linhas acima são:
 4. nome do usuário e senha que serão utilizados para conexão pelo *cliente*
 5. nome do usuário e senha que serão utilizados para conexão pelo *servidor*
 
+
+
+Reiniciar o serviço do tgt
+
+```
+sudo systemctl restart tgt
+```
+
 O comando abaixo inicializa o iscsi e os targets, colocando-os em modo de "escuta" em todos os endereços IP disponíveis no servidor
 
 ```
-tgtadm --lld iscsi --mode target --op bind --tid 1 --initiator-address ALL
+sudo tgtadm --lld iscsi --mode target --op bind --tid 1 --initiator-address ALL
 ```
 
 O comando abaixo tem a finalidade de verificar que as configurações estão corretas e que uma (ou mais) LUN(s) está(ão) ativa(s)
 
 ```
-tgtadm --mode target --op show
+sudo tgtadm --mode target --op show
 ```
 
 ## CentOS (initiator)
