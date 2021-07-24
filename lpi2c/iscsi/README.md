@@ -36,6 +36,12 @@ Instala o pacote do `iscsi-initiator`
 sudo yum install -y iscsi-initiator-utils
 ```
 
+**SE JA TIVER EXECUTADO ALGUM DOS COMANDOS ANTERIORMENTE**
+
+```
+sudo rm -rf /var/lib/iscsi/*
+```
+
 Descobre quais targets estão disponíveis no servidor:
 
 ```
@@ -51,42 +57,39 @@ O retorno do comando será o nome do target
 Edite o arquivo `/etc/iscsi/initiatorname.iscsi` e coloque o nome do target e LUN que será configurado:
 
 ```
-InitiatorName=iqn.linuxlpi.homelab.local:lun0
+InitiatorName=iqn.2001-04.com.ubuntu01-tgt-1
 ```
 
-Para configurarmos os dados de conexão, precisaremos criar a seguinte estrutura de diretórios (importante ter as `"` para evitar problemas com os caracteres especiais):
+Agora vamos fazer o login no `target`
 
 ```
-sudo mkdir -p "/etc/iscsi/nodes/iqn.linuxlpi.homelab.local:lun0/192.168.18.199:3260,1"
+sudo iscsiadm -m node -T iqn.2001-04.com.ubuntu01-tgt-1 -p 192.168.18.199 -l
 ```
 
-Agora editamos o arquivo `/etc/iscsi/iscsid.conf` e acrescentamos os seguintes dados no final do arquivo:
+Para verificar que o login está funcionando:
 
 ```
-node.session.auth.authmethod = CHAP
-node.session.auth.username = aluno
-node.session.auth.password = 1q2w3e4r
-node.session.auth.username_in = alunosrv
-node.session.auth.password_in = 1q2w3e4r
-node.startup = automatic
+sudo iscsiadm -m session
+tcp: [3] 192.168.18.199:3260,1 iqn.2001-04.com.ubuntu01-tgt-1 (non-flash)
 ```
 
-Agora reiniciamos o sistema:
+Verificar se o disco está disponível
 
 ```
-sudo reboot
+sudo lsblk
 ```
 
+```
+NAME                     MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                        8:0    0   20G  0 disk
+├─sda1                     8:1    0    1G  0 part /boot
+└─sda2                     8:2    0   19G  0 part
+  ├─centos_centos01-root 253:0    0   17G  0 lvm  /
+  └─centos_centos01-swap 253:1    0    2G  0 lvm  [SWAP]
+sdb                        8:16   0    5G  0 disk
+sr0                       11:0    1 58.3M  0 rom
+```
 
-
-```
-sudo iscsiadm -m node -T iqn.linuxlpi.homelab.local:lun0 -p 192.168.18.199 -l
-```
-```
-```
-```
-```
-```
 ```
 ```
 ```
