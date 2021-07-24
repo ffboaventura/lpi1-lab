@@ -40,6 +40,7 @@ sudo yum install -y iscsi-initiator-utils
 
 ```
 sudo rm -rf /var/lib/iscsi/*
+sudo systemctl restart iscsid
 ```
 
 Descobre quais targets estão disponíveis no servidor:
