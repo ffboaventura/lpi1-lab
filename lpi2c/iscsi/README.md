@@ -11,34 +11,10 @@ sudo apt install tgt
 Criar um arquivo de configuração de uma lun no iSCSI
 
 ```
-sudo vim /etc/tgt/conf.d/iscsi.conf
+sudo tgt-setup-lun -n tgt-1 -d /dev/sdb 192.168.18.200 192.168.18.199
+sudo tgt-admin --dump | sudo tee /etc/tgt/conf.d/iscsi.conf
 ```
 
-O conteúdo do arquivo deverá ser:
-
-```
-<target iqn.linuxlpi.homelab.local:lun0>
-    backing-store /dev/sdb
-    initiator-address 192.168.1.200
-    incominguser aluno 1q2w3e4r
-    outgoinguser alunosrv 1q2w3e4r
-</target>
-```
-
-As linhas acima são:
-1. define o nome do `target` que será utilizado e o número da LUN
-2. aponta para qual disco ou partição será disponibilizado por esta LUN
-3. ip da máquina que fará a conexão com o servidor (cliente)
-4. nome do usuário e senha que serão utilizados para conexão pelo *cliente*
-5. nome do usuário e senha que serão utilizados para conexão pelo *servidor*
-
-
-
-Reiniciar o serviço do tgt
-
-```
-sudo systemctl restart tgt
-```
 
 O comando abaixo inicializa o iscsi e os targets, colocando-os em modo de "escuta" em todos os endereços IP disponíveis no servidor
 
@@ -84,7 +60,7 @@ Para configurarmos os dados de conexão, precisaremos criar a seguinte estrutura
 sudo mkdir -p "/etc/iscsi/nodes/iqn.linuxlpi.homelab.local:lun0/192.168.18.199:3260,1"
 ```
 
-Agora editamos o arquivo `/etc/iscsi/nodes/iqn.linuxlpi.homelab.local:lun0/192.168.18.199:3260,1/default` com os seguintes dados:
+Agora editamos o arquivo `/etc/iscsi/iscsid.conf` e acrescentamos os seguintes dados no final do arquivo:
 
 ```
 node.session.auth.authmethod = CHAP
@@ -95,13 +71,25 @@ node.session.auth.password_in = 1q2w3e4r
 node.startup = automatic
 ```
 
-Agora reiniciamos o serviço do `iscsid`
+Agora reiniciamos o sistema:
 
 ```
-sudo systemctl restart iscsid
+sudo reboot
 ```
 
 
+
+```
+sudo iscsiadm -m node -T iqn.linuxlpi.homelab.local:lun0 -p 192.168.18.199 -l
+```
+```
+```
+```
+```
+```
+```
+```
+```
 ```
 ```
 ```
