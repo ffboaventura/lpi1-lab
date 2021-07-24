@@ -51,7 +51,7 @@ sudo iscsiadm -m discovery -t sendtargets -p 192.168.18.199
 O retorno do comando será o nome do target
 
 ```
-192.168.18.199:3260,1 iqn.linuxlpi.homelab.local:lun0
+192.168.18.199:3260,1 iqn.2001-04.com.ubuntu01-tgt-1
 ```
 
 Edite o arquivo `/etc/iscsi/initiatorname.iscsi` e coloque o nome do target e LUN que será configurado:
