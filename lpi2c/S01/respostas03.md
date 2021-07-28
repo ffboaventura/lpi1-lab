@@ -40,8 +40,54 @@ r2d2               IN CNAME   c3po
 ```
 
 * Domínio 2: [darkside.corp.db](rtr-ctos/darkside.corp.db)
+
+```dns
+$TTL 3D
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
+            2019101801  ; Serial
+            28800       ; refresh (8h)
+            7200        ; retry (2h)
+            2592000     ; expire (30d)
+            86400       ; minimum (1d)
+    )
+        NS      stormtrooper
+        MX  5   darthvader
+darthvader      A       172.18.2.2
+stormtrooper    A       172.18.2.1
+emperor         CNAME   darthvader
+```
+
 * Reverso 1: [172.17.15.rev.db](rtr-ubnt/172.17.15.rev.db)
+
+```dns
+$TTL 3D
+@   IN  SOA ns1.theforce.corp. nsadmin.theforce.corp. (
+            2019101801  ; Serial
+            28800       ; refresh (8h)
+            7200        ; retry (2h)
+            2592000     ; expire (30d)
+            86400       ; minimum (1d)
+    )
+        NS      c3po.theforce.corp.
+1       PTR     c3po.theforce.corp.
+2       PTR     luke.theforce.corp.
+```
+
 * Reverso 3: [172.18.2.rev.db](rtr-ctos/172.18.2.rev.db)
+
+```dns
+$TTL 3D
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
+            2019101801  ; Serial
+            28800       ; refresh (8h)
+            7200        ; retry (2h)
+            2592000     ; expire (30d)
+            86400       ; minimum (1d)
+    )
+        NS      stormtrooper.darkside.corp.
+1       PTR     stormtrooper.darkside.corp.
+2       PTR     darthvader.darkside.corp.
+```
 
 ## Clientes
 
