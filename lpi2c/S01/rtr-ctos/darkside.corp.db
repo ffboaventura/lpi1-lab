@@ -11,6 +11,3 @@ $TTL 3D
 darthvader      A       172.18.2.2
 stormtrooper    A       172.18.2.1
 emperor         CNAME   darthvader
-
-frederico-ctos  A       172.18.2.2
-rtr-01          A       172.18.2.1

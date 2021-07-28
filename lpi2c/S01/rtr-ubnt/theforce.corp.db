@@ -11,8 +11,3 @@ $TTL 3D
 luke    A       172.17.15.2
 c3po    A       172.17.15.1
 r2d2    CNAME   c3po
-
-frederico-ubnt  A   172.17.15.2
-rtr-02          A   172.17.15.1
-
-saltmaster  A   172.31.7.54

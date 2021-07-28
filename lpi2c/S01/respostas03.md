@@ -37,11 +37,6 @@ $TTL 3D
 luke               IN A       172.17.15.2
 c3po               IN A       172.17.15.1
 r2d2               IN CNAME   c3po
-
-frederico-ubnt     IN A   172.17.15.2
-frederico-rtr-02   IN A   172.17.15.1
-
-saltmaster         IN A   172.31.7.54
 ```
 
 * Domínio 2: [darkside.corp.db](rtr-ctos/darkside.corp.db)
