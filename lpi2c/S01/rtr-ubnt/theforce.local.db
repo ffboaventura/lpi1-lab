@@ -1,5 +1,5 @@
 $TTL 3D
-@   IN  SOA ns1.theforce.local. nsadmin.theforce.local. (
+@   IN  SOA ns1.theforce.corp. nsadmin.theforce.corp. (
             2019101801  ; Serial
             28800       ; refresh (8h)
             7200        ; retry (2h)

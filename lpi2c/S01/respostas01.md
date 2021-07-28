@@ -7,7 +7,7 @@ sitename: LPIC-II - Laboratório 01
 ## Configuração dos roteadores
 
 * [X] Instalar pacotes
-  
+
 ```shell
 $ yum install -y nmap traceroute tcpdump nmap-ncat net-tools bind openssh-server
 $ apt install -y nmap traceroute tcpdump netcat bind9 dnsutils apache2
@@ -47,6 +47,12 @@ DEVICE="<ifname>"
 ONBOOT="yes"
 ```
 
+Para ativar as configurações utilize o comando:
+
+```shell
+$ sudo ifdown <ifname> && sudo ifup <ifname>
+```
+
 ### Ubuntu
 
 ```shell
@@ -70,13 +76,16 @@ network:
   version: 2
   renderer: networkd
   ethernets:
-    <ifname>:
+    <ifname-nat>:
       dhcp4: yes
-    <ifname>:
+    <ifname-lan>:
       dhcp4: no
       dhcp6: no
-      addresses: [XX.XX.XX.XX/30]
-      gateway4:  XX.XX.XX.XX
+      addresses: [172.XX.XX.XX/30]
+    <ifname-rtr>:
+      dhcp4: no
+      dhcp6: no
+      addresses: [10.9.8.XX/30]
 ```
 
 * [X] Garantir que os serviços do Bind e OpenSSH estejam funcionando

@@ -1,11 +1,11 @@
 $TTL 3D
-@   IN  SOA ns1.theforce.local. nsadmin.theforce.local. (
+@   IN  SOA ns1.theforce.corp. nsadmin.theforce.corp. (
             2019101801  ; Serial
             28800       ; refresh (8h)
             7200        ; retry (2h)
             2592000     ; expire (30d)
             86400       ; minimum (1d)
     )
-        NS      c3po.theforce.local.
-1       PTR     c3po.theforce.local.
-2       PTR     luke.theforce.local.
+        NS      c3po.theforce.corp.
+1       PTR     c3po.theforce.corp.
+2       PTR     luke.theforce.corp.

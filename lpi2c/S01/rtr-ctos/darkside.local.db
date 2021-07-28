@@ -1,5 +1,5 @@
 $TTL 3D
-@   IN  SOA ns1.darkside.local. nsadmin.darkside.local. (
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
             2019101801  ; Serial
             28800       ; refresh (8h)
             7200        ; retry (2h)
@@ -14,5 +14,3 @@ emperor         CNAME   darthvader
 
 frederico-ctos  A       172.18.2.2
 rtr-01          A       172.18.2.1
-
-saltmaster  A   172.31.7.54

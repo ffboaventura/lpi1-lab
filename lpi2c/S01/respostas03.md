@@ -13,7 +13,7 @@ sitename: LPIC-II - Laboratório 01
 * [X] Configuração da transferência de zonas entre os dois DNSs
 
 ### named.conf
-* CentOS: [/etc/named/named.conf](rtr-ctos/named.conf)
+* CentOS: [/etc/named.conf](rtr-ctos/named.conf)
 * Ubuntu: [/etc/bind/named.conf](rtr-ubnt/named.conf)
 
 ### arquivos de zona
@@ -21,11 +21,11 @@ sitename: LPIC-II - Laboratório 01
 * CentOS: /var/named
 * Ubuntu: /var/cache/bind
 
-* Domínio 1: [theforce.local.db](rtr-ubnt/theforce.local.db)
+* Domínio 1: [theforce.corp.db](rtr-ubnt/theforce.corp.db)
 
 ```dns
 $TTL 3D
-@                  IN  SOA ns1.theforce.local. nsadmin.theforce.local. (
+@                  IN  SOA ns1.theforce.corp. nsadmin.theforce.corp. (
             2019101801  ; Serial
             28800       ; refresh (8h)
             7200        ; retry (2h)
@@ -44,7 +44,7 @@ frederico-rtr-02   IN A   172.17.15.1
 saltmaster         IN A   172.31.7.54
 ```
 
-* Domínio 2: [darkside.local.db](rtr-ctos/darkside.local.db)
+* Domínio 2: [darkside.corp.db](rtr-ctos/darkside.corp.db)
 * Reverso 1: [172.17.15.rev.db](rtr-ubnt/172.17.15.rev.db)
 * Reverso 3: [172.18.2.rev.db](rtr-ctos/172.18.2.rev.db)
 
@@ -57,8 +57,8 @@ saltmaster         IN A   172.31.7.54
 
 ```
 nameserver 10.9.8.X
-domain <dominio>.local
-search <dominio>.local
+domain <dominio>.corp
+search <dominio>.corp
 ```
 
 * [X] Testar acesso e funcionamento dos servidores de DNS
@@ -72,5 +72,5 @@ host <endereco_ip>
 * [X] Fazer consultas avançadas aos servidores de DNS
 
 ```
-dig @10.9.8.X <ns|mx|cname|a> <dominio>.local
+dig @10.9.8.X <ns|mx|cname|a> <dominio>.corp
 ```

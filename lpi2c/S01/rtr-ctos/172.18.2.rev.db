@@ -1,11 +1,11 @@
 $TTL 3D
-@   IN  SOA ns1.darkside.local. nsadmin.darkside.local. (
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
             2019101801  ; Serial
             28800       ; refresh (8h)
             7200        ; retry (2h)
             2592000     ; expire (30d)
             86400       ; minimum (1d)
     )
-        NS      stormtrooper.darkside.local.
-1       PTR     stormtrooper.darkside.local.
-2       PTR     darthvader.darkside.local.
+        NS      stormtrooper.darkside.corp.
+1       PTR     stormtrooper.darkside.corp.
+2       PTR     darthvader.darkside.corp.
