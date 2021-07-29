@@ -89,6 +89,11 @@ $TTL 3D
 2       PTR     darthvader.darkside.corp.
 ```
 
+### Atualização `root.hints`
+
+* CentOS: `wget -O /var/named/root.hints ftp://ftp.internic.net/domain/named.cache`
+* Ubuntu: `wget -O /var/cache/named/root.hints ftp://ftp.internic.net/domain/named.cache`
+
 ## Clientes
 
 * [X] Configurar para utilizar o roteador como servidor de DNS primário
