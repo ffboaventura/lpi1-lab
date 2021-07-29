@@ -92,7 +92,7 @@ $TTL 3D
 ### Atualização `root.hints`
 
 * CentOS: `wget -O /var/named/root.hints ftp://ftp.internic.net/domain/named.cache`
-* Ubuntu: `wget -O /var/cache/named/root.hints ftp://ftp.internic.net/domain/named.cache`
+* Ubuntu: `wget -O /var/cache/bind/root.hints ftp://ftp.internic.net/domain/named.cache`
 
 ## Clientes
 
