@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  backend:
+    image: fboaventura/lab-dj-backend
+    build:
+      context: backend
+    environment:
+      DB_PASS: askdjow2ojdakjshieuawoijeldjkasnweubwy
+      DB_SCHEMA: psycopg2
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: todo
+      DB_USER: todo
+    links:
+      - db
+    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8081"
+
+  frontend:
+    image: fboaventura/lab-node-frontend
+    build:
+      context: frontend
+    links:
+      - backend
+    ports:
+      - 3000:3000
+
+  db:
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_PASSWORD: askdjow2ojdakjshieuawoijeldjkasnweubwy
+      DB_SCHEMA: postgres
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: todo
+      POSTGRES_USER: todo

@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  backend:
+    image: fboaventura/lab-dj-backend
+    build:
+      context: backend
+    environment:
+      DB_SCHEMA: sqlite3
+    ports:
+      - 8000:8081
+    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8081"

@@ -1,0 +1,13 @@
+$TTL 3D
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
+            2019101801  ; Serial
+            28800       ; refresh (8h)
+            7200        ; retry (2h)
+            2592000     ; expire (30d)
+            86400       ; minimum (1d)
+    )
+        NS      stormtrooper
+        MX  5   darthvader
+darthvader      A       172.18.2.2
+stormtrooper    A       172.18.2.1
+emperor         CNAME   darthvader

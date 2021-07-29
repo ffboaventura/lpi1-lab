@@ -1,0 +1,55 @@
+---
+template: index
+title: Laboratório 06
+sitename: LPIC-II - Laboratório 06
+---
+
+## Configuração dos roteadores
+
+
+## Configuração dos clientes
+
+* [X] Instalar pacotes do `pam_winbind`
+
+```shell
+# CentOS
+$ yum install -y samba-winbind-modules
+
+# Ubuntu
+$ apt install -y libpam-winbind
+```
+
+* [X] Configurar PAM para autenticar no servidor SAMBA
+
+```shell
+$ vi /etc/pam.d/password-auth
+```
+
+```
+#%PAM-1.0
+auth        required      pam_env.so
+auth        sufficient    pam_unix.so nullok try_first_pass
+auth        requisite     pam_succeed_if.so uid >= 1000 quiet_success
+########################################################################
+auth        sufficient    pam_winbind.so use_first_pass
+########################################################################
+auth        required      pam_deny.so
+
+account     required      pam_unix.so broken_shadow
+account     sufficient    pam_localuser.so
+account     sufficient    pam_succeed_if.so uid < 1000 quiet
+account     [default=bad success=ok user_unknown=ignore] pam_winbind.so
+account     required      pam_permit.so
+
+password    requisite     pam_cracklib.so try_first_pass retry=3 type=
+password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass use_authtok
+########################################################################
+password    sufficient    pam_winbind.so use_authtok
+########################################################################
+password    required      pam_deny.so
+
+session     optional      pam_keyinit.so revoke
+session     required      pam_limits.so
+session     [success=1 default=ignore] pam_succeed_if.so service in crond quiet use_uid
+session     required      pam_unix.so
+```
