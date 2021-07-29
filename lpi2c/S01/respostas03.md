@@ -122,14 +122,6 @@ No arquivo de configuração do netplan, acrescentar as seguintes linhas:
 
 ```
 
-2. Alterar o arquivo `/etc/resolv.conf`
-
-```
-nameserver 10.9.8.X
-domain <dominio>.corp
-search <dominio>.corp
-```
-
 * [X] Testar acesso e funcionamento dos servidores de DNS
 
 ```
