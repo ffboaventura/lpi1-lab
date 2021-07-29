@@ -102,7 +102,7 @@ $TTL 3D
 
 * CentOS:
 
-No arquivo de configuração da interface da rede lan, acrescentar as seguintes linhas:
+No arquivo de configuração da interface da rede lan (`/etc/sysconfig/network-scripts/ifcfg-enp0s8`), acrescentar as seguintes linhas:
 
 ```
 DNS1="172.17.15.1"
