@@ -109,6 +109,10 @@ DNS1="172.17.15.1"
 DOMAIN="theforce.corp darkside.corp"
 ```
 
+```shell
+sudo ifdown enp0s8 && sudo ifup enp0s8
+```
+
 * Ubuntu
 
 No arquivo de configuração do netplan, acrescentar as seguintes linhas:
@@ -120,6 +124,10 @@ No arquivo de configuração do netplan, acrescentar as seguintes linhas:
         addresses: ["172.18.2.1"]
         search: [theforce.corp, darkside.corp]
 
+```
+
+```shell
+sudo netplan try
 ```
 
 * [X] Testar acesso e funcionamento dos servidores de DNS
