@@ -99,6 +99,29 @@ $TTL 3D
 * [X] Configurar para utilizar o roteador como servidor de DNS primário
 
 1. Alterar os nameservers nos arquivos de configuração de rede (netplan e network-scripts)
+
+* CentOS:
+
+No arquivo de configuração da interface da rede lan, acrescentar as seguintes linhas:
+
+```
+DNS1="172.17.15.1"
+DOMAIN="theforce.corp darkside.corp"
+```
+
+* Ubuntu
+
+No arquivo de configuração do netplan, acrescentar as seguintes linhas:
+
+```yaml
+    enp0s8:
+      ...
+      nameservers:
+        addresses: ["172.18.2.1"]
+        search: [theforce.corp, darkside.corp]
+
+```
+
 2. Alterar o arquivo `/etc/resolv.conf`
 
 ```
