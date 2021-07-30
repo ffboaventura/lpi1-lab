@@ -16,8 +16,8 @@ sitename: LPIC-II - Laboratório 02
   * [ ] Testar acesso de um cliente para o outro (wget ou curl) através do hostname
 
 * [ ] Configurar Hosts Virtuais
-   * [ ] Configurar um `VirtualHost` para servir o site `www.dominio.local`
-   * [ ] Configurar um `VirtualHost` para servir o site `dev.dominio.local`
+   * [ ] Configurar um `VirtualHost` para servir o site `www.dominio.corp`
+   * [ ] Configurar um `VirtualHost` para servir o site `dev.dominio.corp`
    * [ ] Utilizar o modelo de site para os dois `VirtualHost` a partir de diretórios diferentes 
    
 

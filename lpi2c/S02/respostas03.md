@@ -27,7 +27,7 @@ set_var EASYRSA_REQ_COUNTRY     "BR"
 set_var EASYRSA_REQ_PROVINCE    "ES"
 set_var EASYRSA_REQ_CITY        "Vitoria"
 set_var EASYRSA_REQ_ORG         "Empire SA"
-set_var EASYRSA_REQ_EMAIL       "sithlords@darkside.local"
+set_var EASYRSA_REQ_EMAIL       "sithlords@darkside.corp"
 set_var EASYRSA_REQ_OU          "Death Star"
 set_var EASYRSA_KEY_SIZE        2048
 set_var EASYRSA_ALGO            rsa
@@ -63,7 +63,7 @@ export KEY_COUNTRY="BR"
 export KEY_PROVINCE="ES"
 export KEY_CITY="Vitoria"
 export KEY_ORG="Jedi-Academy"
-export KEY_EMAIL="council@theforce.local"
+export KEY_EMAIL="council@theforce.corp"
 export KEY_OU="PadawanTrainingCenter"
 export KEY_NAME="JediCA"
 ```
@@ -147,13 +147,13 @@ vi /etc/httpd/conf.d/z-001-www-ssl.conf
 [z-001-www-ssl](ctos/z-001-www-ssl.conf)
 ```apache
 <VirtualHost *:443>
-    ServerName www.darkside.local
-    ServerAdmin webmaster@darkside.local
+    ServerName www.darkside.corp
+    ServerAdmin webmaster@darkside.corp
     DocumentRoot /var/www/prod
     
     SSLEngine On
-    SSLCertificateFile /etc/httpd/certs/theforce.local.crt
-    SSLCertificateKeyFile /etc/httpd/certs/theforce.local.key
+    SSLCertificateFile /etc/httpd/certs/theforce.corp.crt
+    SSLCertificateKeyFile /etc/httpd/certs/theforce.corp.key
     SSLCACertificateFile /etc/httpd/certs/ca.crt
 </VirtualHost>
 ```
@@ -173,13 +173,13 @@ vi /etc/apache2/sites-available/001-www-ssl.conf
 [001-www-ssl](ubnt/001-www-ssl.conf)
 ```apache
 <VirtualHost *:443>
-    ServerName www.theforce.local
-    ServerAdmin webmaster@theforce.local
+    ServerName www.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/prod
     
     SSLEngine On
-    SSLCertificateFile /etc/apache2/certs/theforce.local.crt
-    SSLCertificateKeyFile /etc/apache2/certs/theforce.local.key
+    SSLCertificateFile /etc/apache2/certs/theforce.corp.crt
+    SSLCertificateKeyFile /etc/apache2/certs/theforce.corp.key
     SSLCACertificateFile /etc/apache2/certs/ca.crt
 </VirtualHost>
 ```

@@ -12,18 +12,16 @@ sitename: LPIC-II - Laboratório 02
 ### Ubuntu
 
 ```bash
-vi /var/cache/bind/theforce.local.db
+vi /var/cache/bind/theforce.corp.db
 ```
 
 ```dns
 $TTL 3D
-@   IN  SOA ns1.theforce.local. nsadmin.theforce.local. (
+@   IN  SOA ns1.theforce.corp. nsadmin.theforce.corp. (
             2019102301  ; Serial            <========= Alterar o Serial
 [...]
 www     A   172.17.15.2 ;                   <========= Acrescentar entrada para www (A ou CNAME)
 dev     CNAME www       ;                   <========= Acrescentar entrada para dev (A ou CNAME)
-
-saltmaster  A   172.31.7.54
 
 ```
 
@@ -34,18 +32,17 @@ rndc reload
 ### CentOS
 
 ```bash
-vi /var/named/darkside.local.db
+vi /var/named/darkside.corp.db
 ```
 
 ```dns
 $TTL 3D
-@   IN  SOA ns1.darkside.local. nsadmin.darkside.local. (
+@   IN  SOA ns1.darkside.corp. nsadmin.darkside.corp. (
             2019102301  ; Serial            <========= Alterar o Serial
 [...]
 www     A   172.18.2.2  ;                   <========= Acrescentar entrada para www (A ou CNAME)
 dev     CNAME www       ;                   <========= Acrescentar entrada para dev (A ou CNAME)
 
-saltmaster  A   172.31.7.54
 ```
 
 ```bash
@@ -56,28 +53,28 @@ rndc reload
 
 * [X] Configuração básica do Apache
   * [X] Testar acesso de um cliente para o outro (wget ou curl) através do IP
-  
+
   ```bash
   wget -O - 172.18.2.2
   wget -O - 172.17.15.2
   curl 172.18.2.2
   curl 172.17.15.2
   ```
-  
+
   * [X] Testar acesso de um cliente para o outro (wget ou curl) através do hostname
 
   ```bash
-  wget -O - luke.theforce.local
-  wget -O - darthvader.darkside.local
-  curl luke.theforce.local
-  curl darthvader.darkside.local
+  wget -O - luke.theforce.corp
+  wget -O - darthvader.darkside.corp
+  curl luke.theforce.corp
+  curl darthvader.darkside.corp
   ```
 
 * [X] Configurar Hosts Virtuais
-   * [X] Configurar um `VirtualHost` para servir o site `www.dominio.local`
-   * [X] Configurar um `VirtualHost` para servir o site `dev.dominio.local`
-   * [X] Utilizar o modelo de site para os dois `VirtualHost` a partir de diretórios diferentes 
- 
+   * [X] Configurar um `VirtualHost` para servir o site `www.dominio.corp`
+   * [X] Configurar um `VirtualHost` para servir o site `dev.dominio.corp`
+   * [X] Utilizar o modelo de site para os dois `VirtualHost` a partir de diretórios diferentes
+
 ### Ubuntu:
 
 ```bash
@@ -88,8 +85,8 @@ vi 001-www.conf
 [001-www.conf](ubnt/001-www.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName www.theforce.local
-    ServerAdmin webmaster@theforce.local
+    ServerName www.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/prod
 </VirtualHost>
 ```
@@ -101,8 +98,8 @@ vi 001-dev.conf
 [002-dev.conf](ubnt/002-dev.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName dev.theforce.local
-    ServerAdmin webmaster@theforce.local
+    ServerName dev.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/dev
 </VirtualHost>
 ```
@@ -128,8 +125,8 @@ vi z-001-www.conf
 [z-001-www.conf](ctos/z-001-www.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName www.darkside.local
-    ServerAdmin webmaster@darkside.local
+    ServerName www.darkside.corp
+    ServerAdmin webmaster@darkside.corp
     DocumentRoot /var/www/prod
 </VirtualHost>
 ```
@@ -141,8 +138,8 @@ vi z-002-dev.conf
 [z-002-dev.conf](ctos/z-002-dev.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName dev.darkside.local
-    ServerAdmin webmaster@darkside.local
+    ServerName dev.darkside.corp
+    ServerAdmin webmaster@darkside.corp
     DocumentRoot /var/www/dev
 </VirtualHost>
 ```
@@ -157,4 +154,3 @@ systemctl restart httpd
 ```
 
 **Modelo de Site**: [site.tar.bz2](site.tar.bz2) | [site.tar.gz](site.tar.gz)
-  

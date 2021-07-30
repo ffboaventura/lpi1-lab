@@ -36,14 +36,14 @@ apt install -y nginx
 ##############################################
 server {
     listen  80;
-    server_name www.theforce.local theforce.local;
+    server_name www.theforce.corp theforce.corp;
     
     location / {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $remote_addr;
         proxy_set_header Host $host;
 
-        proxy_pass http://luke.theforce.local;
+        proxy_pass http://luke.theforce.corp;
     }
 }
 ```

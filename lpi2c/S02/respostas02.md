@@ -8,9 +8,9 @@ sitename: LPIC-II - Laboratório 02
 
 ```apache
 <VirtualHost *:80>
-    ServerName www.theforce.local
-    ServerAlias luke.theforce.local luke theforce.local
-    ServerAdmin webmaster@theforce.local
+    ServerName www.theforce.corp
+    ServerAlias luke.theforce.corp luke theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/prod
 </VirtualHost>
 ```
@@ -24,8 +24,8 @@ htpasswd -B /var/www/.htpasswd dev1
 
 ```apache
 <VirtualHost *:80>
-    ServerName dev.theforce.local
-    ServerAdmin webmaster@theforce.local
+    ServerName dev.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/dev
 
     <Location />
