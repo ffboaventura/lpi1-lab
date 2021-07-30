@@ -92,7 +92,7 @@ vi 001-www.conf
 ```
 
 ```bash
-vi 001-dev.conf
+vi 002-dev.conf
 ```
 
 [002-dev.conf](ubnt/002-dev.conf)
