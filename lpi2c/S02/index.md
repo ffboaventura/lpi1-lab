@@ -22,6 +22,8 @@ yum install -y nmap traceroute tcpdump nmap-ncat bind-utils net-tools httpd open
 
 ```(bash)
 yum install -y nmap traceroute tcpdump nmap-ncat net-tools bind openssh-server
+
+sudo iptables -t nat -I POSTROUTING -o enp0s3 -j MASQUERADE
 ```
 
 ### Ubuntu
@@ -37,7 +39,7 @@ apt install -y nmap traceroute tcpdump netcat dnsutils apache2 openssh-server po
 ```(bash)
 apt install -y nmap traceroute tcpdump netcat bind9 dnsutils apache2
 
-sudo iptables -t nat -o enp0s3 -j MASQUERADE
+sudo iptables -t nat -I POSTROUTING -o enp0s3 -j MASQUERADE
 ```
 
 ## Redes
