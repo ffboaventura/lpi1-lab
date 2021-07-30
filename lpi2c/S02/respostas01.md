@@ -85,8 +85,8 @@ vi 001-www.conf
 [001-www.conf](ubnt/001-www.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName www.theforce.corp
-    ServerAdmin webmaster@theforce.corp
+    ServerName www.darkside.corp
+    ServerAdmin webmaster@darkside.corp
     DocumentRoot /var/www/prod
 </VirtualHost>
 ```
@@ -98,8 +98,8 @@ vi 002-dev.conf
 [002-dev.conf](ubnt/002-dev.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName dev.theforce.corp
-    ServerAdmin webmaster@theforce.corp
+    ServerName dev.darkside.corp
+    ServerAdmin webmaster@darkside.corp
     DocumentRoot /var/www/dev
 </VirtualHost>
 ```
@@ -112,6 +112,7 @@ cp -Rv site prod
 cp -Rv site dev
 a2ensite 001-www
 a2ensite 002-dev
+a2enmod vhost_alias
 systemctl restart apache2
 ```
 
@@ -125,8 +126,8 @@ vi z-001-www.conf
 [z-001-www.conf](ctos/z-001-www.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName www.darkside.corp
-    ServerAdmin webmaster@darkside.corp
+    ServerName www.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/prod
 </VirtualHost>
 ```
@@ -138,8 +139,8 @@ vi z-002-dev.conf
 [z-002-dev.conf](ctos/z-002-dev.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName dev.darkside.corp
-    ServerAdmin webmaster@darkside.corp
+    ServerName dev.theforce.corp
+    ServerAdmin webmaster@theforce.corp
     DocumentRoot /var/www/dev
 </VirtualHost>
 ```
