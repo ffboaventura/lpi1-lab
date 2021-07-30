@@ -146,7 +146,7 @@ vi z-002-dev.conf
 
 ```bash
 cd /var/www
-wget -O site.tar.gz http://172.31.7.54/S02/site.tar.gz
+wget -O site.tar.gz https://labs.fboaventura.dev/lpi2c/S02/site.tar.gz
 tar xzvf site.tar.gz
 cp -Rv site prod
 cp -Rv site dev
