@@ -36,6 +36,8 @@ apt install -y nmap traceroute tcpdump netcat dnsutils apache2 openssh-server po
 
 ```(bash)
 apt install -y nmap traceroute tcpdump netcat bind9 dnsutils apache2
+
+sudo iptables -t nat -o enp0s3 -j MASQUERADE
 ```
 
 ## Redes
