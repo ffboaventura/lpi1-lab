@@ -15,6 +15,15 @@ sitename: LPIC-II - Laboratório 02
 </VirtualHost>
 ```
 
+```apache
+<VirtualHost *:80>
+    ServerName www.darkside.corp
+    ServerAlias darthvader.darkside.corp darthvader darkside.corp
+    ServerAdmin webmaster@darkside.corp
+    DocumentRoot /var/www/prod
+</VirtualHost>
+```
+
 * [X] Configurar autenticação básica para o host **dev**
 
 ```bash
