@@ -114,7 +114,7 @@ ldapadd -x -W -D "cn=admin,dc=darkside,dc=corp" -f anakin.ldif
 
 ```bash
 # Adicionar uma senha para o usuário
-ldappasswd -s <senha_para_usuário> -W -D "cn=admin,dc=darkside,dc=corp" -x "uid=anakin,ou=People,dc=darkside,dc=corp"
+ldappasswd -s <senha_para_usuário> -W -D "cn=admin,dc=darkside,dc=corp" -x "uid=anakin,ou=DeathStar,dc=darkside,dc=corp"
 ```
 
 ```bash
