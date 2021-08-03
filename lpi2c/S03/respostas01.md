@@ -62,23 +62,21 @@ ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
 * Criar o arquivo de configuração da base `base.ldif`
 
 ```ldif
-dn: dc=darkside,dc=corp
-dc: darkside
-objectClass: top
-objectClass: domain
-
-dn: cn=admin,dc=darkside,dc=corp
 objectClass: organizationalRole
 cn: admin
 description: LDAP Manager
 
-dn: ou=People,dc=darkside,dc=corp
+dn: ou=DeathStar,dc=darkside,dc=corp
 objectClass: organizationalUnit
-ou: People
+ou: DeathStar
 
-dn: ou=Group,dc=darkside,dc=corp
+dn: ou=BattleStation,ou=DeathStar,dc=darkside,dc=corp
 objectClass: organizationalUnit
-ou: Group
+ou: BattleStation
+
+dn: ou=Docking,dc=darkside,dc=corp
+objectClass: organizationalUnit
+ou: Docking
 ```
 
 * Aplicar as alterações
@@ -90,7 +88,7 @@ ldapadd -x -W -D "cn=admin,dc=darkside,dc=corp" -f base.ldif
 * Criar um novo usuário `anakin.ldif`
 
 ```ldif
-dn: uid=anakin,ou=People,dc=darkside,dc=corp
+dn: uid=anakin,ou=DeathStar,dc=darkside,dc=corp
 objectClass: top
 objectClass: account
 objectClass: posixAccount
