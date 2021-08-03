@@ -84,7 +84,7 @@ ou: Group
 * Aplicar as alterações
 
 ```bash
-ldapadd -x -W -D "cn=admin,dc=itzgeek,dc=local" -f base.ldif
+ldapadd -x -W -D "cn=admin,dc=darkside,dc=corp" -f base.ldif
 ```
 
 * Criar um novo usuário `anakin.ldif`
@@ -139,19 +139,19 @@ sudo dpkg-reconfigure slapd
 * [X] Adicionar registros nos servidores LDAP locais
 
 ```bash
-ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=local' -f /root/files/<dominio>.ldif
+ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=corp' -f /root/files/<dominio>.ldif
 ```
 
 * [X] Identificar OUs existentes
 
 ```bash
-ldapsearch -h 127.0.0.1 -x -W -D 'cn=admin,dc=<domino>,dc=local' -b 'dc=<dominio>,dc=<local>' '(objectClass=organizationalUnit)'
+ldapsearch -h 127.0.0.1 -x -W -D 'cn=admin,dc=<domino>,dc=corp' -b 'dc=<dominio>,dc=<corp>' '(objectClass=organizationalUnit)'
 ```
 
 * [X] Listar usuários do Marketing
 
 ```bash
-ldapsearch -v -h 127.0.0.1 -x -w 123456 -D 'cn=admin,dc=theforce,dc=local' -b 'dc=<dominio>,dc=<local>' '(&(ou=Marketing) (objectClass=inetOrgPerson))'
+ldapsearch -v -h 127.0.0.1 -x -w 123456 -D 'cn=admin,dc=theforce,dc=corp' -b 'dc=<dominio>,dc=<corp>' '(&(ou=Marketing) (objectClass=inetOrgPerson))'
 ```
 
 * [X] Criar usuário para autenticação no servidor Web
@@ -162,21 +162,21 @@ vi /root/files/dev.ldif
 
 ```ldif
 # dev.ldif
-dn: cn=Desenvolvedor Anonimo,ou=Engenharia,dc=theforce,dc=local
+dn: cn=Desenvolvedor Anonimo,ou=Engenharia,dc=theforce,dc=corp
 objectClass: inetOrgPerson
 cn: Desenvolvedor Anonimo
 sn: Anonimo
 uid: dev
 userPassword: password
 homePhone: +1-829-144-9642x191
-mail: dev@theforce.local
+mail: dev@theforce.corp
 description: Adaptive interactive focus group
 ou: Engenharia
 
 ```
 
 ```bash
-ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=local' -f /root/files/dev.ldif
+ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=corp' -f /root/files/dev.ldif
 ```
 
 ## Configuração dos clientes
@@ -193,8 +193,8 @@ vi /etc/apache2/sites-available/002-dev.conf
 [002-dev.conf](ubnt/002-dev.conf)
 ```apache
 <VirtualHost *:80>
-    ServerName dev.<dominio>.local
-    ServerAdmin webmaster@<dominio>.local
+    ServerName dev.<dominio>.corp
+    ServerAdmin webmaster@<dominio>.corp
     DocumentRoot /var/www/dev
 
     <Location />
@@ -209,10 +209,10 @@ vi /etc/apache2/sites-available/002-dev.conf
         #AuthzLDAPAuthoritative on
 
         # Search user
-        AuthLDAPURL ldap://172.18.2.1:389/ou=Engenharia,dc=<dominio>,dc=local?uid?sub
+        AuthLDAPURL ldap://172.18.2.1:389/ou=Engenharia,dc=<dominio>,dc=corp?uid?sub
 
         # Use this user to bind to LDAP
-        AuthLDAPBindDN cn=admin,dc=<dominio>,dc=local
+        AuthLDAPBindDN cn=admin,dc=<dominio>,dc=corp
         AuthLDAPBindPassword 123456
         Require valid-user
 
@@ -241,8 +241,8 @@ vi /etc/httpd/conf.d/z-002-dev.conf
 
 ```apache
 <VirtualHost *:80>
-    ServerName dev.<dominio>.local
-    ServerAdmin webmaster@<dominio>.local
+    ServerName dev.<dominio>.corp
+    ServerAdmin webmaster@<dominio>.corp
     DocumentRoot /var/www/dev
 
     <Location />
@@ -257,10 +257,10 @@ vi /etc/httpd/conf.d/z-002-dev.conf
         #AuthzLDAPAuthoritative on
 
         # Search user
-        AuthLDAPURL ldap://172.18.2.1:389/ou=Engenharia,dc=<dominio>,dc=local?uid?sub
+        AuthLDAPURL ldap://172.18.2.1:389/ou=Engenharia,dc=<dominio>,dc=corp?uid?sub
 
         # Use this user to bind to LDAP
-        AuthLDAPBindDN cn=admin,dc=<dominio>,dc=local
+        AuthLDAPBindDN cn=admin,dc=<dominio>,dc=corp
         AuthLDAPBindPassword 123456
         Require valid-user
 
