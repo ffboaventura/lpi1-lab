@@ -20,7 +20,7 @@ systemctl enable slapd
 * Gerar uma senha para ser utilizada pelo administrador
 
 ```bash
-slappasswd -h '{SSHA}' -s <senha>
+slappasswd -h '{SSHA}' -s '<senha>'
 ```
 
 * Criar um arquivo `db.ldif` para fazer a configuração do servidor
@@ -132,7 +132,19 @@ apt install -y slapd ldap-utils
 
 ```bash
 sudo dpkg-reconfigure slapd
+
+Omit OpenLDAP server configuration? No
+DNS domain name: theforce.corp
+Organization name: jediacademy
+Administrator password: <senha>
+Confirm password: <senha>
+Do you want the database to be removed when slapd is purged? No
+Move old database? Yes
+
+
 ```
+
+
 
 ## Configuração dos roteadores
 
