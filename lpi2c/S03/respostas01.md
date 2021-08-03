@@ -4,12 +4,142 @@ title: Laboratório 01
 sitename: LPIC-II - Laboratório 01
 ---
 
+## Instalar e configurar pacotes dos servidores
+
+### CentOS
+
+```bash
+yum -y install openldap compat-openldap openldap-clients openldap-servers openldap-servers-sql openldap-devel
+```
+
+```bash
+systemctl start slapd
+systemctl enable slapd
+```
+
+* Gerar uma senha para ser utilizada pelo administrador
+
+```bash
+slappasswd -h {SSHA} -s <senha>
+```
+
+* Criar um arquivo `db.ldif` para fazer a configuração do servidor
+
+```ldif
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcSuffix
+olcSuffix: dc=darkside,dc=corp
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcRootDN
+olcRootDN: cn=admin,dc=darkside,dc=corp
+
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcRootPW
+olcRootPW: <senha_gerada_anteriormente>
+```
+
+* Aplicar as modificações
+
+```bash
+ldapmodify -Y EXTERNAL  -H ldapi:/// -f db.ldif
+```
+
+* Configurar o banco de dados do LDAP
+
+```bash
+cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+chown ldap:ldap /var/lib/ldap/*
+
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/cosine.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/nis.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/inetorgperson.ldif
+```
+
+* Criar o arquivo de configuração da base `base.ldif`
+
+```ldif
+dn: dc=darkside,dc=corp
+dc: darkside
+objectClass: top
+objectClass: domain
+
+dn: cn=admin,dc=darkside,dc=corp
+objectClass: organizationalRole
+cn: admin
+description: LDAP Manager
+
+dn: ou=People,dc=darkside,dc=corp
+objectClass: organizationalUnit
+ou: People
+
+dn: ou=Group,dc=darkside,dc=corp
+objectClass: organizationalUnit
+ou: Group
+```
+
+* Aplicar as alterações
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=itzgeek,dc=local" -f base.ldif
+```
+
+* Criar um novo usuário `anakin.ldif`
+
+```ldif
+dn: uid=anakin,ou=People,dc=darkside,dc=corp
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: anakin
+uid: anakin
+uidNumber: 9999
+gidNumber: 100
+homeDirectory: /home/anakin
+loginShell: /bin/bash
+gecos: Anakin Skywalker
+userPassword: {crypt}x
+shadowLastChange: 17058
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+```
+
+```bash
+# Aplicar as configurações
+ldapadd -x -W -D "cn=admin,dc=darkside,dc=corp" -f anakin.ldif
+```
+
+```bash
+# Adicionar uma senha para o usuário
+ldappasswd -s <senha_para_usuário> -W -D "cn=admin,dc=darkside,dc=corp" -x "uid=anakin,ou=People,dc=darkside,dc=corp"
+```
+
+```bash
+# Verificar as entradas no LDAP
+ldapsearch -x cn=anakin -b dc=darkside,dc=corp
+```
+
+### Ubuntu
+
+```bash
+apt install -y slapd ldap-utils
+```
+
+```bash
+sudo dpkg-reconfigure slapd
+```
+
 ## Configuração dos roteadores
 
 * [X] Adicionar registros nos servidores LDAP locais
 
 ```bash
-ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=local' -f /root/files/<dominio>.ldif 
+ldapadd -h 127.0.0.1 -x -W -D 'cn=admin,dc=<dominio>,dc=local' -f /root/files/<dominio>.ldif
 ```
 
 * [X] Identificar OUs existentes
