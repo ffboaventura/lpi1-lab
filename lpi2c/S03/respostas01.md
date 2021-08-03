@@ -124,9 +124,13 @@ ldapsearch -x cn=anakin -b dc=darkside,dc=corp
 
 ### Ubuntu
 
+* Instalar os Pacotes
+
 ```bash
 apt install -y slapd ldap-utils
 ```
+
+* Reconfigurar o servidor LDAP
 
 ```bash
 sudo dpkg-reconfigure slapd
@@ -139,9 +143,59 @@ Confirm password: <senha>
 Do you want the database to be removed when slapd is purged? No
 Move old database? Yes
 
-
 ```
 
+* Criar os grupos `base.ldif`
+
+```ldif
+dn: ou=RebelBase,dc=theforce,dc=corp
+objectClass: organizationalUnit
+ou: RebelBase
+
+dn: ou=BattleStation,ou=RebelBase,dc=theforce,dc=corp
+objectClass: organizationalUnit
+ou: BattleStation
+
+dn: ou=Docking,dc=theforce,dc=corp
+objectClass: organizationalUnit
+ou: Docking
+```
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=theforce,dc=corp" -f base.ldif
+```
+
+* Criar um usuário `obiwan.ldif`
+
+```ldif
+dn: uid=obiwan,ou=RebelBase,dc=theforce,dc=corp
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: obiwan
+uid: obiwan
+uidNumber: 9999
+gidNumber: 10
+homeDirectory: /home/obiwan
+loginShell: /bin/bash
+gecos: Obiwan Kenobi
+userPassword: {crypt}x
+shadowLastChange: 17058
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+```
+
+```bash
+ldapadd -x -W -D "cn=admin,dc=theforce,dc=corp" -f obiwan.ldif
+```
+
+* Trocar a senha do usuário
+
+```bash
+ldappasswd -s '1q2w3e4r' -W -D "cn=admin,dc=theforce,dc=corp" -x "uid=obiwan,ou=RebelBase,dc=theforce,dc=corp"
+```
 
 
 ## Configuração dos roteadores
