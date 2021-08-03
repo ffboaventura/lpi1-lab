@@ -20,7 +20,7 @@ systemctl enable slapd
 * Gerar uma senha para ser utilizada pelo administrador
 
 ```bash
-slappasswd -h {SSHA} -s <senha>
+slappasswd -h '{SSHA}' -s <senha>
 ```
 
 * Criar um arquivo `db.ldif` para fazer a configuração do servidor
