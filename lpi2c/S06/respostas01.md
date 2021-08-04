@@ -22,7 +22,11 @@ $ apt install -y libpam-winbind
 * [X] Configurar PAM para autenticar no servidor SAMBA
 
 ```shell
+# CentOS
 $ vi /etc/pam.d/password-auth
+
+# Ubuntu
+$ vi /etc/pam.d/common-password
 ```
 
 ```
