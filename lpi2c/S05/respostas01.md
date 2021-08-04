@@ -37,7 +37,7 @@ append_dot_mydomain = no
 readme_directory = no
 compatibility_level = 2
 smtpd_tls_cert_file=/etc/(httpd|apache2)/certs/<dominio>.crt
-smtpd_tls_key_file=/etc/h(httpd|apache2)/certs/<dominio>.key
+smtpd_tls_key_file=/etc/(httpd|apache2)/certs/<dominio>.key
 smtpd_use_tls=yes
 smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
 smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
@@ -48,7 +48,7 @@ alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
 myorigin = $mydomain
 mydestination = $myhostname, $mydomain, localhost.<dominio>, localhost
-relayhost = 
+relayhost =
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128 172.17.15.0/24 172.18.2.0/24 10.9.8.0/30
 mailbox_size_limit = 0
 recipient_delimiter = +
@@ -92,13 +92,13 @@ from email.mime.text import MIMEText
 msg_content = '<h2>Luke, I am your father!</h2>\n'
 message = MIMEText(msg_content, 'html')
 
-message['From'] = 'Darth Vader <darthvader@darkside.local>'
-message['To'] = 'Luke Skywalker <luke@theforce.local>'
+message['From'] = 'Darth Vader <dvader@darkside.corp>'
+message['To'] = 'Luke Skywalker <luke@theforce.corp>'
 message['Subject'] = 'Big Surprise!'
 
 msg_full = message.as_string()
 
-server = smtplib.SMTP('rtr-01.darkside.local:25')
+server = smtplib.SMTP('darthvader.darkside.corp:25')
 # server.starttls()
 # server.login('user', 'pass')
 server.sendmail(message['From'], message['To'], msg_full)
