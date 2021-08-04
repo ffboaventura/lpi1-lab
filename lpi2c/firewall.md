@@ -83,16 +83,6 @@ ${IPTABLES} -A Servicos -s ${DCKR_IPv4} -p udp --dport 161 -j ACCEPT
 ${IPTABLES} -A Servicos -m limit --limit 20/min -j LOG --log-prefix "SVCS: "
 ${IPTABLES} -A Servicos -j REJECT
 
-# Regra de protecao GreenGeeks - PRECISA SER A ULTIMA
-${IPTABLES} -N GreenGeeks
-for port in ${MAIL_PORTS}; do
-    ${IPTABLES} -A GreenGeeks -p tcp --dport ${port} -j ACCEPT
-done
-${IPTABLES} -A GreenGeeks -m limit --limit 5/min -j LOG --log-prefix "GGEEKS: "
-${IPTABLES} -A GreenGeeks -j REJECT
-${IPTABLES} -I FORWARD -d ${GREENGEEKS} -j GreenGeeks
-${IPTABLES} -I OUTPUT -d ${GREENGEEKS} -j GreenGeeks
-
 ${IPTABLES} -I INPUT -i lo -j ACCEPT
 
 ${IPTABLES} -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
@@ -100,10 +90,10 @@ ${IPTABLES} -I OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 ${IPTABLES} -I FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
 
 # IPSETS
-${IPSET} create scanners hash:net
-for ip in `cat ${scanners}`; do
-    ${IPSET} add scanners ${ip}
-done
-${IPTABLES} -I INPUT -m set --match-set scanners src -j REJECT
+#${IPSET} create scanners hash:net
+# for ip in `cat ${scanners}`; do
+#     ${IPSET} add scanners ${ip}
+# done
+# ${IPTABLES} -I INPUT -m set --match-set scanners src -j REJECT
 
 ```
