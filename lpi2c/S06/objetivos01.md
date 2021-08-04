@@ -12,8 +12,6 @@ sitename: LPIC-II - Laboratório 06
 * [ ] Instalar pacotes do `pam_winbind`
 * [ ] Configurar PAM para autenticar no servidor SAMBA
 * [ ] Testar autenticação
-* [ ] 
-* [ ] 
 
 ## Respostas
 
