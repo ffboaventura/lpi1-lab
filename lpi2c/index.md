@@ -73,5 +73,4 @@ sitename: Treinamento LPIC-II - Laboratórios
 [Objetivos 01](S09/objetivos01.md) | [Respostas](S09/respostas01.md)
 [Objetivos 02](S09/objetivos02.md) | [Respostas](S09/respostas02.md)
 [Objetivos 03](S09/objetivos03.md) | [Respostas](S09/respostas03.md)
-<!-- [Objetivos 04](S09/objetivos04.md) | [Respostas](S09/respostas04.md) -->
 
