@@ -7,8 +7,22 @@ sitename: LPIC-II - Laboratório 09
 ## Melhorando a segurança de serviços
 
 * [ ] Dentre os serviços em execução, identificados no [objetivo 1](objetivos01.md), desabilitar os que são desnecessários
+
+```bash
+
+```
+
 * [ ] Alterar configuração dos serviços para melhorar segurança de rede (serviços possíveis)
+
+```bash
+
+```
+
 * [ ] Refazer as avaliações do [objetivo 1](objetivos01.md)
+
+```bash
+
+```
 
 ## Respostas
 
