@@ -31,8 +31,7 @@ sitename: LPIC-II - Laboratório 09
 ### Cliente Vermelho
 
 * [ ] Criar um script de firewall que:
-    * [ ]
-    * [ ]
+    * [ ] Bloqueie todos os serviços não essenciais
 
 
 ## Respostas
