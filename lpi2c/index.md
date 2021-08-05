@@ -63,4 +63,15 @@ sitename: Treinamento LPIC-II - Laboratórios
 [Objetivos 03](S08/objetivos03.md) | [Respostas](S08/respostas03.md)
 [Objetivos 04](S08/objetivos04.md) | [Respostas](S08/respostas04.md)
 
+[Laboratório 09](S09/index.md):
+
+* Identificar serviços em execução
+* Identificar portas abertas
+* Melhorar a segurança do servidor
+* Bloqueio de tráfego utilizando firewall
+
+[Objetivos 01](S09/objetivos01.md) | [Respostas](S09/respostas01.md)
+[Objetivos 02](S09/objetivos02.md) | [Respostas](S09/respostas02.md)
+[Objetivos 03](S09/objetivos03.md) | [Respostas](S09/respostas03.md)
+<!-- [Objetivos 04](S09/objetivos04.md) | [Respostas](S09/respostas04.md) -->
 
