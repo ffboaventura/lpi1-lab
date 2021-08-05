@@ -4,30 +4,20 @@ title: Laboratório 08
 sitename: LPIC-II - Laboratório 08
 ---
 
-## Construindo ambiente com docker-compose
+## Identificando serviços
 
-* [X] Configurar o `docker-compose.yml` para rodar o backend
+### Avaliação Local
 
-```yaml
-version: '3.3'
+* [ ] Identificar serviços em execução nos clientes
+* [ ] Identificar serviços em execução nos roteadores
+* [ ] Identificar portas abertas nos clientes
+* [ ] Identificar portas abertas nos roteadores
 
-services:
-  backend:
-    image: fboaventura/lab-dj-backend
-    build:
-      context: backend
-    environment:
-      DB_BACKEND: sqlite3
-    ports:
-      - 8001:8081
-    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8081"
+### Avaliação Remota (a partir de um cliente)
 
-```
+* [ ] Identificar portas abertas nos servidores da outra rede
 
-```shell
-$ docker-compose up -d
-```
 
-* [X] Testar o acesso à API 
+## Respostas
 
-* Navegar para o link http://localhost:8000/api
+[Respostas](respostas01.md)

@@ -4,38 +4,12 @@ title: Laboratório 08
 sitename: LPIC-II - Laboratório 08
 ---
 
-## Construindo ambiente com docker-compose
+## Melhorando a segurança de serviços
 
-* [X] Alterar o `docker-compose.yml` para incluir o frontend
+* [ ] Dentre os serviços em execução, identificados no [objetivo 1](objetivos01.md), desabilitar os que são desnecessários
+* [ ] Alterar configuração dos serviços para melhorar segurança de rede (serviços possíveis)
+* [ ] Refazer as avaliações do [objetivo 1](objetivos01.md)
 
-```yaml
-version: '3.3'
+## Respostas
 
-services:
-  backend:
-    image: fboaventura/lab-dj-backend
-    build:
-      context: backend
-    environment:
-      DB_BACKEND: sqlite3
-    command: bash -c "python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8081"
-
-  frontend:
-    image: fboaventura/lab-node-frontend
-    build:
-      context: frontend
-    links:
-      - backend
-    ports:
-      - 3000:3000
-    environment:
-      SKIP_PREFLIGHT_CHECK: 'true'
-```
-
-```shell
-$ docker-compose up -d
-```
-
-* [X] Testar o acesso à Aplicação
-
-* Acessar a aplicação no endereço http://localhost:3000
+[Respostas](respostas02.md)
