@@ -1,7 +1,7 @@
 ---
 template: index
-title: Laboratório 08
-sitename: LPIC-II - Laboratório 08
+title: Laboratório 09
+sitename: LPIC-II - Laboratório 09
 ---
 
 ## Garantindo segurança dos acessos
