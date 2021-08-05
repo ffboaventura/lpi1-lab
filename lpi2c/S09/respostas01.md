@@ -753,6 +753,326 @@ tcp    LISTEN     0      128      [::]:22                   [::]:*              
 
 ```bash
 [root@clt-ctos-02 ~]# nmap -sS -sU -T4 -A -O -v 172.18.2.1 172.18.2.1
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-08-05 19:50 -03
+NSE: Loaded 151 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 19:50
+Completed NSE at 19:50, 0.00s elapsed
+Initiating NSE at 19:50
+Completed NSE at 19:50, 0.00s elapsed
+Initiating NSE at 19:50
+Completed NSE at 19:50, 0.00s elapsed
+Initiating Ping Scan at 19:50
+Scanning 172.17.15.1 [4 ports]
+Completed Ping Scan at 19:50, 0.01s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 19:50
+Completed Parallel DNS resolution of 1 host. at 19:50, 0.00s elapsed
+Initiating Ping Scan at 19:50
+Scanning 172.17.15.1 [4 ports]
+Completed Ping Scan at 19:50, 0.00s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 19:50
+Completed Parallel DNS resolution of 1 host. at 19:50, 0.00s elapsed
+Initiating SYN Stealth Scan at 19:50
+Scanning 172.17.15.1 [1000 ports]
+Discovered open port 53/tcp on 172.17.15.1
+Discovered open port 139/tcp on 172.17.15.1
+Discovered open port 445/tcp on 172.17.15.1
+Discovered open port 80/tcp on 172.17.15.1
+Discovered open port 111/tcp on 172.17.15.1
+Discovered open port 22/tcp on 172.17.15.1
+Discovered open port 389/tcp on 172.17.15.1
+Discovered open port 3260/tcp on 172.17.15.1
+Completed SYN Stealth Scan at 19:50, 0.07s elapsed (1000 total ports)
+Initiating UDP Scan at 19:50
+Scanning 172.17.15.1 [1000 ports]
+Increasing send delay for 172.17.15.1 from 0 to 50 due to 11 out of 17 dropped probes since last increase.
+Increasing send delay for 172.17.15.1 from 50 to 100 due to max_successful_tryno increase to 5
+Increasing send delay for 172.17.15.1 from 100 to 200 due to max_successful_tryno increase to 6
+Warning: 172.17.15.1 giving up on port because retransmission cap hit (6).
+Increasing send delay for 172.17.15.1 from 200 to 400 due to 11 out of 15 dropped probes since last increase.
+UDP Scan Timing: About 6.87% done; ETC: 19:58 (0:07:00 remaining)
+Increasing send delay for 172.17.15.1 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 10.01% done; ETC: 20:00 (0:09:08 remaining)
+UDP Scan Timing: About 12.99% done; ETC: 20:02 (0:10:10 remaining)
+Discovered open port 137/udp on 172.17.15.1
+UDP Scan Timing: About 33.51% done; ETC: 20:05 (0:09:33 remaining)
+UDP Scan Timing: About 40.26% done; ETC: 20:05 (0:08:47 remaining)
+Stats: 0:06:05 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 40.66% done; ETC: 20:05 (0:08:53 remaining)
+Discovered open port 53/udp on 172.17.15.1
+UDP Scan Timing: About 46.03% done; ETC: 20:05 (0:08:04 remaining)
+UDP Scan Timing: About 51.54% done; ETC: 20:05 (0:07:19 remaining)
+Stats: 0:08:36 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 56.53% done; ETC: 20:06 (0:06:36 remaining)
+Discovered open port 111/udp on 172.17.15.1
+UDP Scan Timing: About 62.07% done; ETC: 20:06 (0:05:48 remaining)
+UDP Scan Timing: About 67.29% done; ETC: 20:06 (0:05:01 remaining)
+UDP Scan Timing: About 72.50% done; ETC: 20:06 (0:04:15 remaining)
+UDP Scan Timing: About 77.51% done; ETC: 20:06 (0:03:29 remaining)
+UDP Scan Timing: About 82.63% done; ETC: 20:06 (0:02:42 remaining)
+UDP Scan Timing: About 87.74% done; ETC: 20:06 (0:01:55 remaining)
+UDP Scan Timing: About 92.74% done; ETC: 20:06 (0:01:08 remaining)
+Completed UDP Scan at 20:07, 978.84s elapsed (1000 total ports)
+Initiating Service scan at 20:07
+Scanning 30 services on 172.17.15.1
+Service scan Timing: About 40.00% done; ETC: 20:09 (0:01:30 remaining)
+Completed Service scan at 20:08, 97.64s elapsed (30 services on 1 host)
+Initiating OS detection (try #1) against 172.17.15.1
+Retrying OS detection (try #2) against 172.17.15.1
+Retrying OS detection (try #3) against 172.17.15.1
+Retrying OS detection (try #4) against 172.17.15.1
+Retrying OS detection (try #5) against 172.17.15.1
+Initiating Traceroute at 20:08
+Completed Traceroute at 20:08, 0.01s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 20:08
+Completed Parallel DNS resolution of 2 hosts. at 20:08, 0.00s elapsed
+NSE: Script scanning 172.17.15.1.
+Initiating NSE at 20:08
+Completed NSE at 20:09, 57.84s elapsed
+Initiating NSE at 20:09
+Completed NSE at 20:09, 1.06s elapsed
+Initiating NSE at 20:09
+Completed NSE at 20:09, 0.01s elapsed
+Nmap scan report for 172.17.15.1
+Host is up (0.0015s latency).
+Not shown: 1970 closed ports
+PORT      STATE         SERVICE       VERSION
+22/tcp    open          ssh           OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+53/tcp    open          domain        ISC BIND 9.16.1 (Ubuntu Linux)
+80/tcp    open          http          nginx 1.18.0 (Ubuntu)
+| http-methods:
+|_  Supported Methods: GET HEAD
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+111/tcp   open          rpcbind       2-4 (RPC #100000)
+| rpcinfo:
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+139/tcp   open          netbios-ssn   Samba smbd 4.6.2
+389/tcp   open          ldap          OpenLDAP 2.2.X - 2.3.X
+445/tcp   open          netbios-ssn   Samba smbd 4.6.2
+3260/tcp  open          tcpwrapped
+53/udp    open          domain        ISC BIND 9.16.1 (Ubuntu Linux)
+| dns-nsid:
+|_  bind.version: 9.16.1-Ubuntu
+111/udp   open          rpcbind       2-4 (RPC #100000)
+| rpcinfo:
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+137/udp   open          netbios-ns    Samba nmbd netbios-ns (workgroup: THEFORCE)
+138/udp   open|filtered netbios-dgm
+443/udp   open|filtered https
+515/udp   open|filtered printer
+626/udp   open|filtered serialnumberd
+631/udp   open|filtered ipp
+1044/udp  open|filtered dcutility
+1484/udp  open|filtered confluent
+1718/udp  open|filtered h225gatedisc
+3659/udp  open|filtered apple-sasl
+5353/udp  open|filtered zeroconf
+16862/udp open|filtered unknown
+17331/udp open|filtered unknown
+19625/udp open|filtered unknown
+23965/udp open|filtered unknown
+27899/udp open|filtered unknown
+36108/udp open|filtered unknown
+51586/udp open|filtered unknown
+53589/udp open|filtered unknown
+60172/udp open|filtered unknown
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=8/5%OT=22%CT=1%CU=2%PV=Y%DS=2%DC=T%G=Y%TM=610C6FC5%P=x
+OS:86_64-pc-linux-gnu)SEQ(SP=107%GCD=1%ISR=109%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M
+OS:5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW6%
+OS:O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%
+OS:DF=Y%T=40%W=FAF0%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF
+OS:=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=
+OS:%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%
+OS:IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 33.848 days (since Fri Jul  2 23:48:46 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: Host: RTR-UBNT-02; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+| nbstat: NetBIOS name: RTR-UBNT-02, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| Names:
+|   RTR-UBNT-02<00>      Flags: <unique><active>
+|   RTR-UBNT-02<03>      Flags: <unique><active>
+|   RTR-UBNT-02<20>      Flags: <unique><active>
+|   \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|   THEFORCE<00>         Flags: <group><active>
+|   THEFORCE<1b>         Flags: <unique><active>
+|   THEFORCE<1c>         Flags: <unique><active>
+|   THEFORCE<1d>         Flags: <unique><active>
+|_  THEFORCE<1e>         Flags: <group><active>
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2021-08-05T23:08:59
+|_  start_date: N/A
+
+TRACEROUTE (using port 1720/tcp)
+HOP RTT     ADDRESS
+1   0.14 ms _gateway (172.18.2.1)
+2   0.51 ms 172.17.15.1
+
+Initiating SYN Stealth Scan at 20:09
+Scanning 172.17.15.1 [1000 ports]
+Discovered open port 53/tcp on 172.17.15.1
+Discovered open port 139/tcp on 172.17.15.1
+Discovered open port 445/tcp on 172.17.15.1
+Discovered open port 80/tcp on 172.17.15.1
+Discovered open port 111/tcp on 172.17.15.1
+Discovered open port 22/tcp on 172.17.15.1
+Discovered open port 389/tcp on 172.17.15.1
+Discovered open port 3260/tcp on 172.17.15.1
+Completed SYN Stealth Scan at 20:09, 0.45s elapsed (1000 total ports)
+Initiating UDP Scan at 20:09
+Scanning 172.17.15.1 [1000 ports]
+Increasing send delay for 172.17.15.1 from 0 to 50 due to 11 out of 12 dropped probes since last increase.
+UDP Scan Timing: About 12.02% done; ETC: 20:14 (0:03:47 remaining)
+Discovered open port 137/udp on 172.17.15.1
+Increasing send delay for 172.17.15.1 from 50 to 100 due to max_successful_tryno increase to 5
+Increasing send delay for 172.17.15.1 from 100 to 200 due to max_successful_tryno increase to 6
+Warning: 172.17.15.1 giving up on port because retransmission cap hit (6).
+UDP Scan Timing: About 15.66% done; ETC: 20:16 (0:05:29 remaining)
+Increasing send delay for 172.17.15.1 from 200 to 400 due to 12 out of 29 dropped probes since last increase.
+Increasing send delay for 172.17.15.1 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 18.99% done; ETC: 20:17 (0:06:28 remaining)
+UDP Scan Timing: About 21.97% done; ETC: 20:19 (0:07:10 remaining)
+UDP Scan Timing: About 26.87% done; ETC: 20:20 (0:07:40 remaining)
+UDP Scan Timing: About 44.60% done; ETC: 20:22 (0:07:06 remaining)
+Discovered open port 53/udp on 172.17.15.1
+UDP Scan Timing: About 51.74% done; ETC: 20:23 (0:06:24 remaining)
+Discovered open port 111/udp on 172.17.15.1
+UDP Scan Timing: About 58.19% done; ETC: 20:23 (0:05:41 remaining)
+UDP Scan Timing: About 64.10% done; ETC: 20:23 (0:04:58 remaining)
+UDP Scan Timing: About 69.93% done; ETC: 20:23 (0:04:13 remaining)
+UDP Scan Timing: About 75.46% done; ETC: 20:24 (0:03:29 remaining)
+UDP Scan Timing: About 80.97% done; ETC: 20:24 (0:02:44 remaining)
+UDP Scan Timing: About 86.19% done; ETC: 20:24 (0:02:00 remaining)
+UDP Scan Timing: About 91.40% done; ETC: 20:24 (0:01:15 remaining)
+Completed UDP Scan at 20:25, 932.14s elapsed (1000 total ports)
+Initiating Service scan at 20:25
+Scanning 81 services on 172.17.15.1
+Service scan Timing: About 14.81% done; ETC: 20:32 (0:06:14 remaining)
+Service scan Timing: About 45.68% done; ETC: 20:29 (0:01:57 remaining)
+Service scan Timing: About 64.20% done; ETC: 20:29 (0:01:35 remaining)
+Completed Service scan at 20:29, 226.22s elapsed (81 services on 1 host)
+Initiating OS detection (try #1) against 172.17.15.1
+Retrying OS detection (try #2) against 172.17.15.1
+Retrying OS detection (try #3) against 172.17.15.1
+Retrying OS detection (try #4) against 172.17.15.1
+Retrying OS detection (try #5) against 172.17.15.1
+Initiating Traceroute at 20:29
+Completed Traceroute at 20:29, 0.02s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 20:29
+Completed Parallel DNS resolution of 2 hosts. at 20:29, 0.06s elapsed
+NSE: Script scanning 172.17.15.1.
+Initiating NSE at 20:29
+Completed NSE at 20:32, 166.71s elapsed
+Initiating NSE at 20:32
+Completed NSE at 20:32, 4.74s elapsed
+Initiating NSE at 20:32
+Completed NSE at 20:32, 0.01s elapsed
+Nmap scan report for 172.17.15.1
+Host is up (0.0026s latency).
+Not shown: 1919 closed ports, 70 open|filtered ports
+PORT     STATE SERVICE     VERSION
+22/tcp   open  ssh         OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+53/tcp   open  domain      ISC BIND 9.16.1 (Ubuntu Linux)
+80/tcp   open  http        nginx 1.18.0 (Ubuntu)
+| http-methods:
+|_  Supported Methods: GET HEAD
+|_http-server-header: nginx/1.18.0 (Ubuntu)
+|_http-title: Apache2 Ubuntu Default Page: It works
+111/tcp  open  rpcbind     2-4 (RPC #100000)
+| rpcinfo:
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+139/tcp  open  netbios-ssn Samba smbd 4.6.2
+389/tcp  open  ldap        OpenLDAP 2.2.X - 2.3.X
+445/tcp  open  netbios-ssn Samba smbd 4.6.2
+3260/tcp open  tcpwrapped
+53/udp   open  domain      ISC BIND 9.16.1 (Ubuntu Linux)
+| dns-nsid:
+|_  bind.version: 9.16.1-Ubuntu
+111/udp  open  rpcbind     2-4 (RPC #100000)
+| rpcinfo:
+|   program version    port/proto  service
+|   100000  2,3,4        111/tcp   rpcbind
+|   100000  2,3,4        111/udp   rpcbind
+|   100000  3,4          111/tcp6  rpcbind
+|_  100000  3,4          111/udp6  rpcbind
+137/udp  open  netbios-ns  Samba nmbd netbios-ns (workgroup: THEFORCE)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.80%E=4%D=8/5%OT=22%CT=1%CU=2%PV=Y%DS=2%DC=T%G=Y%TM=610C7503%P=x
+OS:86_64-pc-linux-gnu)SEQ(SP=103%GCD=1%ISR=10D%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M
+OS:5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW6%
+OS:O6=M5B4ST11)WIN(W1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%
+OS:DF=Y%T=40%W=FAF0%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=
+OS:0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF
+OS:=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=
+OS:%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%
+OS:IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 33.864 days (since Fri Jul  2 23:48:46 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=259 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: Host: RTR-UBNT-02; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: -1s
+| nbstat: NetBIOS name: RTR-UBNT-02, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| Names:
+|   RTR-UBNT-02<00>      Flags: <unique><active>
+|   RTR-UBNT-02<03>      Flags: <unique><active>
+|   RTR-UBNT-02<20>      Flags: <unique><active>
+|   \x01\x02__MSBROWSE__\x02<01>  Flags: <group><active>
+|   THEFORCE<00>         Flags: <group><active>
+|   THEFORCE<1b>         Flags: <unique><active>
+|   THEFORCE<1c>         Flags: <unique><active>
+|   THEFORCE<1d>         Flags: <unique><active>
+|_  THEFORCE<1e>         Flags: <group><active>
+| smb2-security-mode:
+|   2.02:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2021-08-05T23:29:28
+|_  start_date: N/A
+
+TRACEROUTE (using port 1720/tcp)
+HOP RTT     ADDRESS
+1   0.14 ms _gateway (172.18.2.1)
+2   0.51 ms 172.17.15.1
+
+NSE: Script Post-scanning.
+Initiating NSE at 20:32
+Completed NSE at 20:32, 0.00s elapsed
+Initiating NSE at 20:32
+Completed NSE at 20:32, 0.00s elapsed
+Initiating NSE at 20:32
+Completed NSE at 20:32, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 2 IP addresses (2 hosts up) scanned in 2491.31 seconds
+           Raw packets sent: 5529 (206.033KB) | Rcvd: 4230 (208.491KB)
 
 ```
 
@@ -760,6 +1080,250 @@ tcp    LISTEN     0      128      [::]:22                   [::]:*              
 
 ```bash
 root@clt-ubnt-01:~# nmap -sS -sU -T4 -A -O -v 172.17.15.1 172.17.15.1
+Starting Nmap 6.40 ( http://nmap.org ) at 2021-08-05 19:50 -03
+NSE: Loaded 110 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating Ping Scan at 19:50
+Scanning 172.18.2.1 [4 ports]
+Completed Ping Scan at 19:50, 0.20s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 19:50
+Completed Parallel DNS resolution of 1 host. at 19:50, 11.01s elapsed
+Initiating Ping Scan at 19:50
+Scanning 172.18.2.1 [4 ports]
+Completed Ping Scan at 19:50, 0.20s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 19:50
+Completed Parallel DNS resolution of 1 host. at 19:51, 11.01s elapsed
+Initiating SYN Stealth Scan at 19:51
+Scanning 172.18.2.1 [1000 ports]
+Discovered open port 22/tcp on 172.18.2.1
+Discovered open port 53/tcp on 172.18.2.1
+Discovered open port 80/tcp on 172.18.2.1
+Discovered open port 389/tcp on 172.18.2.1
+Completed SYN Stealth Scan at 19:51, 1.42s elapsed (1000 total ports)
+Initiating UDP Scan at 19:51
+Scanning 172.18.2.1 [1000 ports]
+Increasing send delay for 172.18.2.1 from 0 to 50 due to max_successful_tryno increase to 5
+Increasing send delay for 172.18.2.1 from 50 to 100 due to max_successful_tryno increase to 6
+Warning: 172.18.2.1 giving up on port because retransmission cap hit (6).
+Increasing send delay for 172.18.2.1 from 100 to 200 due to 11 out of 15 dropped probes since last increase.
+UDP Scan Timing: About 7.34% done; ETC: 19:58 (0:06:31 remaining)
+Increasing send delay for 172.18.2.1 from 200 to 400 due to 11 out of 11 dropped probes since last increase.
+Increasing send delay for 172.18.2.1 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 10.63% done; ETC: 20:00 (0:08:33 remaining)
+UDP Scan Timing: About 13.69% done; ETC: 20:02 (0:09:34 remaining)
+UDP Scan Timing: About 18.60% done; ETC: 20:03 (0:10:08 remaining)
+Discovered open port 53/udp on 172.18.2.1
+UDP Scan Timing: About 32.50% done; ETC: 20:05 (0:09:29 remaining)
+UDP Scan Timing: About 39.26% done; ETC: 20:05 (0:08:46 remaining)
+Stats: 0:06:22 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 41.09% done; ETC: 20:05 (0:08:33 remaining)
+UDP Scan Timing: About 46.93% done; ETC: 20:05 (0:07:49 remaining)
+Stats: 0:07:47 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 49.79% done; ETC: 20:05 (0:07:27 remaining)
+Stats: 0:08:10 elapsed; 0 hosts completed (1 up), 1 undergoing UDP Scan
+UDP Scan Timing: About 52.14% done; ETC: 20:05 (0:07:08 remaining)
+UDP Scan Timing: About 57.59% done; ETC: 20:06 (0:06:23 remaining)
+UDP Scan Timing: About 63.20% done; ETC: 20:06 (0:05:34 remaining)
+UDP Scan Timing: About 68.43% done; ETC: 20:06 (0:04:48 remaining)
+UDP Scan Timing: About 73.64% done; ETC: 20:06 (0:04:02 remaining)
+UDP Scan Timing: About 78.86% done; ETC: 20:06 (0:03:15 remaining)
+UDP Scan Timing: About 84.07% done; ETC: 20:06 (0:02:27 remaining)
+UDP Scan Timing: About 89.20% done; ETC: 20:06 (0:01:40 remaining)
+UDP Scan Timing: About 94.51% done; ETC: 20:06 (0:00:51 remaining)
+Completed UDP Scan at 20:07, 978.71s elapsed (1000 total ports)
+Initiating Service scan at 20:07
+Scanning 21 services on 172.18.2.1
+Service scan Timing: About 28.57% done; ETC: 20:09 (0:01:35 remaining)
+Stats: 0:17:38 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan
+Service scan Timing: About 42.86% done; ETC: 20:09 (0:01:13 remaining)
+Completed Service scan at 20:08, 72.58s elapsed (21 services on 1 host)
+Initiating OS detection (try #1) against 172.18.2.1
+Retrying OS detection (try #2) against 172.18.2.1
+adjust_timeouts2: packet supposedly had rtt of -125012 microseconds.  Ignoring time.
+adjust_timeouts2: packet supposedly had rtt of -125012 microseconds.  Ignoring time.
+Retrying OS detection (try #3) against 172.18.2.1
+Retrying OS detection (try #4) against 172.18.2.1
+adjust_timeouts2: packet supposedly had rtt of -159633 microseconds.  Ignoring time.
+adjust_timeouts2: packet supposedly had rtt of -159633 microseconds.  Ignoring time.
+Retrying OS detection (try #5) against 172.18.2.1
+Initiating Traceroute at 20:08
+Completed Traceroute at 20:08, 0.01s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 20:08
+Completed Parallel DNS resolution of 2 hosts. at 20:09, 11.00s elapsed
+NSE: Script scanning 172.18.2.1.
+Initiating NSE at 20:09
+Completed NSE at 20:09, 30.32s elapsed
+Nmap scan report for 172.18.2.1
+Host is up (0.0021s latency).
+Not shown: 1979 closed ports
+PORT      STATE         SERVICE VERSION
+22/tcp    open          ssh     OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 2048 e6:28:28:5b:95:70:81:05:39:58:ce:ab:c9:6f:27:69 (RSA)
+|_256 5f:33:de:cb:e4:8e:8b:f9:1b:85:3e:0b:54:d9:12:40 (ECDSA)
+53/tcp    open          domain
+| dns-nsid:
+|_  bind.version: 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5
+80/tcp    open          http    nginx 1.20.1
+|_http-methods: POST OPTIONS HEAD GET
+|_http-title: Apache2 Ubuntu Default Page: It works
+389/tcp   open          ldap    OpenLDAP 2.2.X - 2.3.X
+22/udp    open|filtered ssh
+53/udp    open          domain
+| dns-nsid:
+|_  bind.version: 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5
+2362/udp  open|filtered digiman
+16498/udp open|filtered unknown
+17332/udp open|filtered unknown
+17629/udp open|filtered unknown
+18081/udp open|filtered unknown
+19728/udp open|filtered unknown
+19936/udp open|filtered unknown
+20309/udp open|filtered unknown
+20313/udp open|filtered unknown
+20423/udp open|filtered unknown
+33354/udp open|filtered unknown
+38498/udp open|filtered unknown
+40732/udp open|filtered unknown
+53006/udp open|filtered unknown
+62699/udp open|filtered unknown
+No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=6.40%E=4%D=8/5%OT=22%CT=1%CU=2%PV=Y%DS=2%DC=T%G=Y%TM=610C6FAC%P=x
+OS:86_64-redhat-linux-gnu)SEQ(SP=106%GCD=1%ISR=10D%TI=Z%TS=A)SEQ(SP=106%GCD
+OS:=1%ISR=10D%TI=Z%II=I%TS=A)SEQ(SP=106%GCD=1%ISR=10D%TI=Z%CI=I%TS=A)OPS(O1
+OS:=M5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW
+OS:6%O6=M5B4ST11)WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W6=7120)ECN(R=
+OS:Y%DF=Y%T=40%W=7210%O=M5B4NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%R
+OS:D=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%
+OS:DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%
+OS:O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=4
+OS:0%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 0.029 days (since Thu Aug  5 19:27:38 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE (using port 135/tcp)
+HOP RTT     ADDRESS
+1   0.74 ms 172.17.15.1
+2   2.15 ms 172.18.2.1
+
+Initiating SYN Stealth Scan at 20:09
+Scanning 172.18.2.1 [1000 ports]
+Discovered open port 22/tcp on 172.18.2.1
+Discovered open port 53/tcp on 172.18.2.1
+Discovered open port 80/tcp on 172.18.2.1
+Discovered open port 389/tcp on 172.18.2.1
+Completed SYN Stealth Scan at 20:09, 1.60s elapsed (1000 total ports)
+Initiating UDP Scan at 20:09
+Scanning 172.18.2.1 [1000 ports]
+Increasing send delay for 172.18.2.1 from 0 to 50 due to max_successful_tryno increase to 5
+Increasing send delay for 172.18.2.1 from 50 to 100 due to max_successful_tryno increase to 6
+Warning: 172.18.2.1 giving up on port because retransmission cap hit (6).
+Increasing send delay for 172.18.2.1 from 100 to 200 due to 11 out of 12 dropped probes since last increase.
+Increasing send delay for 172.18.2.1 from 200 to 400 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 7.20% done; ETC: 20:16 (0:06:40 remaining)
+Increasing send delay for 172.18.2.1 from 400 to 800 due to 11 out of 11 dropped probes since last increase.
+UDP Scan Timing: About 10.39% done; ETC: 20:19 (0:08:46 remaining)
+UDP Scan Timing: About 13.44% done; ETC: 20:20 (0:09:46 remaining)
+UDP Scan Timing: About 18.27% done; ETC: 20:22 (0:10:22 remaining)
+Discovered open port 53/udp on 172.18.2.1
+UDP Scan Timing: About 30.73% done; ETC: 20:23 (0:09:44 remaining)
+UDP Scan Timing: About 37.79% done; ETC: 20:24 (0:09:00 remaining)
+UDP Scan Timing: About 43.93% done; ETC: 20:24 (0:08:15 remaining)
+UDP Scan Timing: About 49.76% done; ETC: 20:24 (0:07:29 remaining)
+UDP Scan Timing: About 55.29% done; ETC: 20:24 (0:06:44 remaining)
+UDP Scan Timing: About 60.71% done; ETC: 20:24 (0:05:58 remaining)
+UDP Scan Timing: About 66.03% done; ETC: 20:24 (0:05:11 remaining)
+UDP Scan Timing: About 71.23% done; ETC: 20:24 (0:04:25 remaining)
+UDP Scan Timing: About 76.46% done; ETC: 20:24 (0:03:37 remaining)
+UDP Scan Timing: About 81.67% done; ETC: 20:25 (0:02:50 remaining)
+UDP Scan Timing: About 86.80% done; ETC: 20:25 (0:02:03 remaining)
+UDP Scan Timing: About 92.11% done; ETC: 20:25 (0:01:14 remaining)
+Completed UDP Scan at 20:25, 979.25s elapsed (1000 total ports)
+Initiating Service scan at 20:25
+Scanning 20 services on 172.18.2.1
+Service scan Timing: About 30.00% done; ETC: 20:28 (0:01:45 remaining)
+Completed Service scan at 20:27, 72.62s elapsed (20 services on 1 host)
+Initiating OS detection (try #1) against 172.18.2.1
+Retrying OS detection (try #2) against 172.18.2.1
+Retrying OS detection (try #3) against 172.18.2.1
+adjust_timeouts2: packet supposedly had rtt of -152658 microseconds.  Ignoring time.
+adjust_timeouts2: packet supposedly had rtt of -152658 microseconds.  Ignoring time.
+Retrying OS detection (try #4) against 172.18.2.1
+Retrying OS detection (try #5) against 172.18.2.1
+adjust_timeouts2: packet supposedly had rtt of -154391 microseconds.  Ignoring time.
+adjust_timeouts2: packet supposedly had rtt of -154391 microseconds.  Ignoring time.
+Initiating Traceroute at 20:27
+Completed Traceroute at 20:27, 0.01s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 20:27
+Completed Parallel DNS resolution of 2 hosts. at 20:27, 11.00s elapsed
+NSE: Script scanning 172.18.2.1.
+Initiating NSE at 20:27
+Completed NSE at 20:28, 30.25s elapsed
+Nmap scan report for 172.18.2.1
+Host is up (0.0024s latency).
+Not shown: 1980 closed ports
+PORT      STATE         SERVICE        VERSION
+22/tcp    open          ssh            OpenSSH 7.4 (protocol 2.0)
+| ssh-hostkey: 2048 e6:28:28:5b:95:70:81:05:39:58:ce:ab:c9:6f:27:69 (RSA)
+|_256 5f:33:de:cb:e4:8e:8b:f9:1b:85:3e:0b:54:d9:12:40 (ECDSA)
+53/tcp    open          domain
+| dns-nsid:
+|_  bind.version: 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5
+80/tcp    open          http           nginx 1.20.1
+|_http-methods: POST OPTIONS HEAD GET
+|_http-title: Apache2 Ubuntu Default Page: It works
+389/tcp   open          ldap           OpenLDAP 2.2.X - 2.3.X
+22/udp    open|filtered ssh
+53/udp    open          domain
+| dns-nsid:
+|_  bind.version: 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.5
+363/udp   open|filtered rsvp_tunnel
+593/udp   open|filtered http-rpc-epmap
+1049/udp  open|filtered td-postman
+16498/udp open|filtered unknown
+17219/udp open|filtered chipper
+20279/udp open|filtered unknown
+20309/udp open|filtered unknown
+20366/udp open|filtered unknown
+20423/udp open|filtered unknown
+21360/udp open|filtered unknown
+32345/udp open|filtered unknown
+38498/udp open|filtered unknown
+53006/udp open|filtered unknown
+62699/udp open|filtered unknown
+No exact OS matches for host (If you know what OS is running on it, see http://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=6.40%E=4%D=8/5%OT=22%CT=1%CU=2%PV=Y%DS=2%DC=T%G=Y%TM=610C7400%P=x
+OS:86_64-redhat-linux-gnu)SEQ(SP=103%GCD=1%ISR=108%TI=Z%TS=A)SEQ(SP=103%GCD
+OS:=1%ISR=108%TI=Z%II=I%TS=A)OPS(O1=M5B4ST11NW6%O2=M5B4ST11NW6%O3=M5B4NNT11
+OS:NW6%O4=M5B4ST11NW6%O5=M5B4ST11NW6%O6=M5B4ST11)WIN(W1=7120%W2=7120%W3=712
+OS:0%W4=7120%W5=7120%W6=7120)ECN(R=Y%DF=Y%T=40%W=7210%O=M5B4NNSNW6%CC=Y%Q=)
+OS:T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=
+OS:0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T
+OS:6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+
+OS:%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK
+OS:=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Uptime guess: 0.042 days (since Thu Aug  5 19:27:39 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=259 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE (using port 135/tcp)
+HOP RTT     ADDRESS
+1   0.74 ms 172.17.15.1
+2   2.15 ms 172.18.2.1
+
+NSE: Script Post-scanning.
+Initiating NSE at 20:28
+Completed NSE at 20:28, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at http://nmap.org/submit/ .
+Nmap done: 2 IP addresses (2 hosts up) scanned in 2239.05 seconds
+           Raw packets sent: 5526 (215.848KB) | Rcvd: 4585 (231.446KB)
 
 ```
 
