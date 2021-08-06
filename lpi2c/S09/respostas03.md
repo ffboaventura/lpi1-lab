@@ -41,10 +41,10 @@ IP_CLT_AZ="172.18.2.2"
 IP_CLT_VM="172.17.15.2"
 IP_RTR_AZ_RT="10.9.8.1"
 IP_RTR_AZ_IN="172.18.2.1"
-IP_RTR_AZ_EX="1192.168.18.202"
+IP_RTR_AZ_EX="192.168.18.202" # IP da rede local onde está ligado o virtualbox
 IP_RTR_VM_RT="10.9.8.2"
 IP_RTR_VM_IN="172.17.15.1"
-IP_RTR_VM_EX="1192.168.18.199"
+IP_RTR_VM_EX="192.168.18.199" # IP da rede local onde está ligado o virtualbox
 
 # Serviços
 SSH="22"
