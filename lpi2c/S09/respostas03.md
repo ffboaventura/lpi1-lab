@@ -73,11 +73,11 @@ function start {
     # Permita o acesso dos clientes à Internet
     ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_AZ} -j MASQUERADE
     # Redirecione a porta 8889 externa para o servidor web dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_AZ}:80
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_AZ}:80
     # Redirecione a porta 8443 externa para o servidor https dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_AZ}:443
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_AZ}:443
     # Redirecione a porta 2222 externa para o servidor ssh dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_AZ}:${SSH}
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_AZ}:${SSH}
 
     # Permitir o acesso ao servidor web do cliente azul apenas a partir do roteador vermelho
     ${IPT} -w -A FORWARD -i ${IF_RTR} -p tcp -m multiport --dports 80,443 ! -s ${IP_RTR_VM_RT} -d ${IP_CLT_AZ} -j REJECT
@@ -89,11 +89,11 @@ function start {
     # Permita o acesso dos clientes à Internet
     ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_VM} -j MASQUERADE
     # Redirecione a porta 8889 externa para o servidor web dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_VM}:80
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_VM}:80
     # Redirecione a porta 8443 externa para o servidor https dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_VM}:443
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_VM}:443
     # Redirecione a porta 2222 externa para o servidor ssh dos clientes
-    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
+    ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
 
     # Fazer com que o cliente vermelho consiga acessar o servidor web do cliente azul
     ${IPT} -w -t nat -A POSTROUTING -i ${IF_RTR} -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
