@@ -58,9 +58,9 @@ function stop {
   ${IPT} -w -F OUTPUT
   ${IPT} -w -F FORWARD
   ${IPT} -w -t nat -F INPUT
-  ${IPT} -w -t nat  -F OUTPUT
-  ${IPT} -w -t nat  -F POSTROUTING
-  ${IPT} -w -t nat  -F PREROUTING
+  ${IPT} -w -t nat -F OUTPUT
+  ${IPT} -w -t nat -F POSTROUTING
+  ${IPT} -w -t nat -F PREROUTING
 }
 
 stop
