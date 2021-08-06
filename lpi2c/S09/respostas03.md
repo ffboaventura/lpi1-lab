@@ -8,20 +8,20 @@ sitename: LPIC-II - Laboratório 09
 
 ### Roteadores
 
-* [ ] Criar um script de firewall que:
-    * [ ] Permita o acesso dos clientes à Internet
-    * [ ] Redirecione a porta `8889` externa para o servidor `http` dos clientes
-    * [ ] Redirecione a porta `8443` externa para o servidor `https` dos clientes
-    * [ ] Redirecione a porta `2222` externa para o servidor `ssh` dos clientes
+* [X] Criar um script de firewall que:
+    * [X] Permita o acesso dos clientes à Internet
+    * [X] Redirecione a porta `8889` externa para o servidor `http` dos clientes
+    * [X] Redirecione a porta `8443` externa para o servidor `https` dos clientes
+    * [X] Redirecione a porta `2222` externa para o servidor `ssh` dos clientes
 
 ### Roteador Azul
 
-* [ ] Permitir o acesso ao servidor `web` do cliente `azul` apenas a partir do roteador `vermelho`
-* [ ] Bloquear o acesso ao serviço `ssh` para o roteador `vermelho`
+* [X] Permitir o acesso ao servidor `web` do cliente `azul` apenas a partir do roteador `vermelho`
+* [X] Bloquear o acesso ao serviço `ssh` para o roteador `vermelho`
 
 ### Roteador Vermelho
 
-* [ ] Fazer com que o cliente `vermelho` consiga acessar o servidor `web` do cliente `azul`
+* [X] Fazer com que o cliente `vermelho` consiga acessar o servidor `web` do cliente `azul`
 
 
 #### Resolução Roteadores
@@ -228,8 +228,8 @@ exit $RETVAL
 
 ### Cliente Vermelho
 
-* [ ] Criar um script de firewall que:
-    * [ ] Bloqueie todos os serviços não essenciais
+* [X] Criar um script de firewall que:
+    * [X] Bloqueie todos os serviços não essenciais
 
 ```bash
 #!/bin/bash
