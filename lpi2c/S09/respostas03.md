@@ -180,9 +180,15 @@ function start {
   ${IPT} -w -A INPUT -i lo -j ACCEPT
   ${IPT} -w -A OUTPUT -o lo -j ACCEPT
 
+  # Gera logs dos acessos
+  ${IPT} -w -N MeusLogs
+  ${IPT} -w -A MeusLogs -m limit --limit 15/second -j LOG  --log-level info --log-prefix "FW: "
+  ${IPT} -w -A MeusLogs -j RETURN
+
   # Permita acesso ao servidor web apenas do roteador ou local
   ${IPT} -w -N WebAccess
   ${IPT} -w -A WebAccess -s ${IP_RTR_AZ_RT} -j ACCEPT
+  ${IPT} -w -A WebAccess -j MeusLogs
   ${IPT} -w -A WebAccess -j REJECT
   ${IPT} -w -A INPUT -p tcp -m multiport --dports 80,443 -i ${IF_INT} -j WebAccess
 
@@ -191,6 +197,9 @@ function start {
   ${IPT} -w -A SSH -s ${IP_RTR_AZ_IN} -j ACCEPT
   ${IPT} -w -A SSH -s ${IP_CLT_VM} -j ACCEPT
   ${IPT} -w -A SSH -j REJECT
+  ${IPT} -w -A INPUT -p tcp --dport ${SSH} -j MeusLogs
+  ${IPT} -w -A INPUT -p tcp --dport ${SSH} -j SSH
+
 }
 
 cmd=$1
