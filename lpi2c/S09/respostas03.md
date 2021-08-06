@@ -124,12 +124,12 @@ case "$cmd" in
     ;;
 
   *)
-  echo "Usage $0 [start|stop|reload]"
-  ;;
+    echo "Usage $0 [start|stop|reload]"
+    ;;
 
 esac
 
-exit $RETVAL%
+exit $RETVAL
 ```
 
 ### Cliente Azul
@@ -141,6 +141,89 @@ exit $RETVAL%
 ```bash
 #!/bin/bash
 
+IPT=$(which iptables)
+
+# Interfaces
+IF_INT="enp0s8"
+IF_EXT="enp0s3"
+IF_RTR="enp0s9"
+
+# IPs
+IP_CLT_AZ="172.18.2.2"
+IP_CLT_VM="172.17.15.2"
+IP_RTR_AZ_RT="10.9.8.1"
+IP_RTR_AZ_IN="172.18.2.1"
+IP_RTR_AZ_EX="192.168.18.202" # IP da rede local onde está ligado o virtualbox
+IP_RTR_VM_RT="10.9.8.2"
+IP_RTR_VM_IN="172.17.15.1"
+IP_RTR_VM_EX="192.168.18.199" # IP da rede local onde está ligado o virtualbox
+
+# Serviços
+SSH="22"
+
+# Limpa
+function stop {
+  ${IPT} -w -P INPUT ACCEPT
+  ${IPT} -w -P FORWARD ACCEPT
+  ${IPT} -w -P OUTPUT ACCEPT
+  ${IPT} -w -F INPUT
+  ${IPT} -w -F OUTPUT
+  ${IPT} -w -F FORWARD
+  ${IPT} -w -t nat -F INPUT
+  ${IPT} -w -t nat -F OUTPUT
+  ${IPT} -w -t nat -F POSTROUTING
+  ${IPT} -w -t nat -F PREROUTING
+}
+
+function start {
+  # Permite todo o tráfego interno
+  ${IPT} -w -A INPUT -i lo -j ACCEPT
+  ${IPT} -w -A OUTPUT -o lo -j ACCEPT
+
+  # Permita acesso ao servidor web apenas do roteador ou local
+  ${IPT} -w -N WebAccess
+  ${IPT} -w -A WebAccess -s ${IP_RTR_AZ_RT} -j ACCEPT
+  ${IPT} -w -A WebAccess -j REJECT
+  ${IPT} -w -A INPUT -p tcp -m multiport --dports 80,443 -i ${IF_INT} -j WebAccess
+
+  # Permita acesso via SSH do roteador azul e do cliente vermelho
+  ${IPT} -w -N SSH
+  ${IPT} -w -A SSH -s ${IP_RTR_AZ_IN} -j ACCEPT
+  ${IPT} -w -A SSH -s ${IP_CLT_VM} -j ACCEPT
+  ${IPT} -w -A SSH -j REJECT
+}
+
+cmd=$1
+test -z "$cmd" && {
+  cmd="start"
+}
+
+case "$cmd" in
+  start)
+    stop
+    start
+    RETVAL=$?
+    ;;
+
+  stop)
+    stop
+    RETVAL=$?
+    ;;
+
+  reload)
+    $0 stop
+    $0 start
+    RETVAL=$?
+    ;;
+
+  *)
+    echo "Usage $0 [start|stop|reload]"
+    ;;
+
+esac
+
+exit $RETVAL
+
 ```
 
 ### Cliente Vermelho
@@ -151,8 +234,86 @@ exit $RETVAL%
 ```bash
 #!/bin/bash
 
+IPT=$(which iptables)
+
+# Interfaces
+IF_INT="enp0s8"
+IF_EXT="enp0s3"
+IF_RTR="enp0s9"
+
+# IPs
+IP_CLT_AZ="172.18.2.2"
+IP_CLT_VM="172.17.15.2"
+IP_RTR_AZ_RT="10.9.8.1"
+IP_RTR_AZ_IN="172.18.2.1"
+IP_RTR_AZ_EX="192.168.18.202" # IP da rede local onde está ligado o virtualbox
+IP_RTR_VM_RT="10.9.8.2"
+IP_RTR_VM_IN="172.17.15.1"
+IP_RTR_VM_EX="192.168.18.199" # IP da rede local onde está ligado o virtualbox
+
+# Serviços
+SSH="22"
+ESSENCIAIS="${SSH} 80 443"
+
+# Limpa
+function stop {
+  ${IPT} -w -P INPUT ACCEPT
+  ${IPT} -w -P FORWARD ACCEPT
+  ${IPT} -w -P OUTPUT ACCEPT
+  ${IPT} -w -F INPUT
+  ${IPT} -w -F OUTPUT
+  ${IPT} -w -F FORWARD
+  ${IPT} -w -t nat -F INPUT
+  ${IPT} -w -t nat -F OUTPUT
+  ${IPT} -w -t nat -F POSTROUTING
+  ${IPT} -w -t nat -F PREROUTING
+}
+
+function start {
+    # Permite todo o tráfego interno
+  ${IPT} -w -A INPUT -i lo -j ACCEPT
+  ${IPT} -w -A OUTPUT -o lo -j ACCEPT
+
+  # Bloqueia todos os serviços não essenciais
+  for p in ${ESSENCIAIS}; do
+    ${IPT} -w -A INPUT -i ${IF_INT} -p tcp --dport ${p} -j ACCEPT
+  done
+  ${IPT} -w -A INPUT -j REJECT
+}
+
+cmd=$1
+test -z "$cmd" && {
+  cmd="start"
+}
+
+case "$cmd" in
+  start)
+    stop
+    start
+    RETVAL=$?
+    ;;
+
+  stop)
+    stop
+    RETVAL=$?
+    ;;
+
+  reload)
+    $0 stop
+    $0 start
+    RETVAL=$?
+    ;;
+
+  *)
+    echo "Usage $0 [start|stop|reload]"
+    ;;
+
+esac
+
+exit $RETVAL
+
 ```
 
-## Respostas
+## Objetivos
 
-[Respostas](respostas03.md)
+[Objetivos](objetivos03.md)
