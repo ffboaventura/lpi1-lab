@@ -139,6 +139,7 @@ exit $RETVAL%
     * [ ] Permita acesso via SSH do roteador azul e do cliente vermelho
 
 ```bash
+#!/bin/bash
 
 ```
 
@@ -148,6 +149,7 @@ exit $RETVAL%
     * [ ] Bloqueie todos os serviços não essenciais
 
 ```bash
+#!/bin/bash
 
 ```
 
