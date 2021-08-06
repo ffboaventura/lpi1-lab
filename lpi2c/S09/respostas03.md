@@ -24,6 +24,11 @@ sitename: LPIC-II - Laboratório 09
 * [ ] Fazer com que o cliente `vermelho` consiga acessar o servidor `web` do cliente `azul`
 
 
+#### Resolução Roteadores
+
+* Criar o diretório `/etc/fw`
+* Criar o arquivo `firewall.sh` com o conteúdo abaixo, alterando a variável `FW` para o lado correto da rede
+
 ```bash
 #!/bin/bash
 
@@ -63,37 +68,68 @@ function stop {
   ${IPT} -w -t nat -F PREROUTING
 }
 
-stop
+function start {
+  if [[ "${FW}" == "azul" ]]; then
+    # Permita o acesso dos clientes à Internet
+    ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_AZ} -j MASQUERADE
+    # Redirecione a porta 8889 externa para o servidor web dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_AZ}:80
+    # Redirecione a porta 8443 externa para o servidor https dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_AZ}:443
+    # Redirecione a porta 2222 externa para o servidor ssh dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_AZ}:${SSH}
 
-if [[ "${FW}" == "azul" ]]; then
-  # Permita o acesso dos clientes à Internet
-  ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_AZ} -j MASQUERADE
-  # Redirecione a porta 8889 externa para o servidor web dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to ${IP_CLT_AZ}:80
-  # Redirecione a porta 8443 externa para o servidor https dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to ${IP_CLT_AZ}:443
-  # Redirecione a porta 2222 externa para o servidor ssh dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 2222 -j DNAT --to ${IP_CLT_AZ}:${SSH}
+    # Permitir o acesso ao servidor web do cliente azul apenas a partir do roteador vermelho
+    ${IPT} -w -A FORWARD -i ${IF_RTR} -p tcp -m multiport --dports 80,443 ! -s ${IP_RTR_VM_RT} -d ${IP_CLT_AZ} -j REJECT
 
-  # Permitir o acesso ao servidor web do cliente azul apenas a partir do roteador vermelho
-  ${IPT} -w -A FORWARD -p tcp -m multiport --dports 80,443 ! -s ${IP_RTR_VM_RT} -d ${IP_CLT_AZ} -j REJECT
+    # Bloquear o acesso ao serviço ssh para o roteador vermelho
+    ${IPT} -w -A FORWARD -i ${IF_RTR} -p tcp --dport ${SSH} -s ${IP_RTR_VM_RT} -j REJECT
 
-  # Bloquear o acesso ao serviço ssh para o roteador vermelho
-  ${IPT} -w -A FORWARD -p tcp --dport ${SSH} -s ${IP_RTR_VM_RT} -j REJECT
+  elif [[ "${FW}" == "vermelho" ]]; then
+    # Permita o acesso dos clientes à Internet
+    ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_VM} -j MASQUERADE
+    # Redirecione a porta 8889 externa para o servidor web dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8889 -j DNAT --to ${IP_CLT_VM}:80
+    # Redirecione a porta 8443 externa para o servidor https dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 8443 -j DNAT --to ${IP_CLT_VM}:443
+    # Redirecione a porta 2222 externa para o servidor ssh dos clientes
+    ${IPT} -w -t nat -A PREROUTING -o ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
 
-elif [[ "${FW}" == "vermelho" ]]; then
-  # Permita o acesso dos clientes à Internet
-  ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_VM} -j MASQUERADE
-  # Redirecione a porta 8889 externa para o servidor web dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to ${IP_CLT_VM}:80
-  # Redirecione a porta 8443 externa para o servidor https dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to ${IP_CLT_VM}:443
-  # Redirecione a porta 2222 externa para o servidor ssh dos clientes
-  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
+    # Fazer com que o cliente vermelho consiga acessar o servidor web do cliente azul
+    ${IPT} -w -t nat -A POSTROUTING -i ${IF_RTR} -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
+  fi
+}
 
-  # Fazer com que o cliente vermelho consiga acessar o servidor web do cliente azul
-  ${IPT} -w -t nat -A POSTROUTING -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
-fi
+cmd=$1
+test -z "$cmd" && {
+  cmd="start"
+}
+
+case "$cmd" in
+  start)
+    stop
+    start
+    RETVAL=$?
+    ;;
+
+  stop)
+    stop
+    RETVAL=$?
+    ;;
+
+  reload)
+    $0 stop
+    $0 start
+    RETVAL=$?
+    ;;
+
+  *)
+  echo "Usage $0 [start|stop|reload]"
+  ;;
+
+esac
+
+exit $RETVAL%
 ```
 
 ### Cliente Azul
