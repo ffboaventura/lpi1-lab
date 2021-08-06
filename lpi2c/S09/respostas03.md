@@ -96,7 +96,7 @@ function start {
     ${IPT} -w -t nat -A PREROUTING -i ${IF_EXT} -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
 
     # Fazer com que o cliente vermelho consiga acessar o servidor web do cliente azul
-    ${IPT} -w -t nat -A POSTROUTING -i ${IF_RTR} -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
+    ${IPT} -w -t nat -A POSTROUTING -o ${IF_RTR} -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
   fi
 }
 
