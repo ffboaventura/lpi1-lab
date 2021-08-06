@@ -13,18 +13,13 @@ sitename: LPIC-II - Laboratório 09
 #### Ubuntu
 
 ```bash
-root@clt-ubnt-01:~# systemctl list-unit-files | head -n 1 && systemctl list-unit-files | grep enabled | grep service | grep -v systemd
+root@clt-ubnt-01:~# systemctl list-unit-files | head -n 1 && systemctl list-unit-files | grep enabled | grep service | egrep -v "systemd|masked|disabled"
 UNIT FILE                                  STATE           VENDOR PRESET
 accounts-daemon.service                    enabled         enabled
-acpid.service                              disabled        enabled
 alsa-restore.service                       static          enabled
 alsa-state.service                         static          enabled
-alsa-utils.service                         masked          enabled
 anacron.service                            enabled         enabled
-apache-htcacheclean.service                disabled        enabled
-apache-htcacheclean@.service               disabled        enabled
 apache2.service                            enabled         enabled
-apache2@.service                           disabled        enabled
 apparmor.service                           enabled         enabled
 apport-autoreport.service                  static          enabled
 apport-forward@.service                    static          enabled
@@ -32,7 +27,6 @@ apport.service                             generated       enabled
 apt-daily-upgrade.service                  static          enabled
 apt-daily.service                          static          enabled
 arpwatch.service                           enabled         enabled
-arpwatch@.service                          disabled        enabled
 atd.service                                enabled         enabled
 autovt@.service                            enabled         enabled
 avahi-daemon.service                       enabled         enabled
@@ -42,7 +36,6 @@ blueman-mechanism.service                  enabled         enabled
 bluetooth.service                          enabled         enabled
 bolt.service                               static          enabled
 brltty-udev.service                        static          enabled
-brltty.service                             disabled        enabled
 clean-mount-point@.service                 static          enabled
 cloud-config.service                       enabled         enabled
 cloud-final.service                        enabled         enabled
@@ -53,8 +46,6 @@ configure-printer@.service                 static          enabled
 console-setup.service                      enabled         enabled
 container-getty@.service                   static          enabled
 cron.service                               enabled         enabled
-cryptdisks-early.service                   masked          enabled
-cryptdisks.service                         masked          enabled
 cups-browsed.service                       enabled         enabled
 cups.service                               enabled         enabled
 dbus-fi.w1.wpa_supplicant1.service         enabled         enabled
@@ -93,7 +84,6 @@ gpu-manager.service                        enabled         enabled
 grub-common.service                        generated       enabled
 grub-initrd-fallback.service               enabled         enabled
 hddtemp.service                            generated       enabled
-hwclock.service                            masked          enabled
 iio-sensor-proxy.service                   static          enabled
 initrd-cleanup.service                     static          enabled
 initrd-parse-etc.service                   static          enabled
@@ -102,7 +92,6 @@ initrd-udevadm-cleanup-db.service          static          enabled
 ippusbxd@.service                          static          enabled
 irqbalance.service                         enabled         enabled
 iscsi.service                              enabled         enabled
-iscsid.service                             disabled        enabled
 kerneloops.service                         enabled         enabled
 keyboard-setup.service                     enabled         enabled
 kmod-static-nodes.service                  static          enabled
@@ -113,7 +102,6 @@ logrotate.service                          static          enabled
 lvm2-lvmpolld.service                      static          enabled
 lvm2-monitor.service                       enabled         enabled
 lvm2-pvscan@.service                       static          enabled
-lvm2.service                               masked          enabled
 lxd-agent-9p.service                       enabled         enabled
 lxd-agent.service                          enabled         enabled
 man-db.service                             static          enabled
@@ -127,11 +115,9 @@ mdmonitor.service                          static          enabled
 ModemManager.service                       enabled         enabled
 modprobe@.service                          static          enabled
 motd-news.service                          static          enabled
-multipath-tools-boot.service               masked          enabled
 multipath-tools.service                    enabled         enabled
 multipathd.service                         enabled         enabled
 nagios4.service                            generated       enabled
-named-resolvconf.service                   disabled        enabled
 named.service                              enabled         enabled
 netplan-ovs-cleanup.service                enabled-runtime enabled
 network-manager.service                    enabled         enabled
@@ -164,22 +150,14 @@ postfix.service                            enabled         enabled
 postfix@.service                           indirect        enabled
 pppd-dns.service                           enabled         enabled
 procps.service                             static          enabled
-pulseaudio-enable-autospawn.service        masked          enabled
 quotaon.service                            static          enabled
 rc-local.service                           static          enabled
-rc.service                                 masked          enabled
-rcS.service                                masked          enabled
 rescue.service                             static          enabled
 rpcbind.service                            enabled         enabled
 rsync.service                              enabled         enabled
 rsyslog.service                            enabled         enabled
-rtkit-daemon.service                       disabled        enabled
-samba-ad-dc.service                        masked          enabled
-saned.service                              masked          enabled
 saned@.service                             indirect        enabled
-screen-cleanup.service                     masked          enabled
 secureboot-db.service                      enabled         enabled
-serial-getty@.service                      disabled        enabled
 setvtrgb.service                           enabled         enabled
 slapd.service                              generated       enabled
 smbd.service                               enabled         enabled
@@ -194,14 +172,11 @@ snapd.seeded.service                       enabled         enabled
 snapd.service                              enabled         enabled
 snapd.snap-repair.service                  static          enabled
 snapd.system-shutdown.service              enabled         enabled
-speech-dispatcher.service                  disabled        enabled
-speech-dispatcherd.service                 disabled        enabled
 spice-vdagent.service                      indirect        enabled
 spice-vdagentd.service                     indirect        enabled
 ssh.service                                enabled         enabled
 ssh@.service                               static          enabled
 sshd.service                               enabled         enabled
-sudo.service                               masked          enabled
 switcheroo-control.service                 enabled         enabled
 syslog.service                             enabled         enabled
 sysstat.service                            enabled         enabled
@@ -213,7 +188,6 @@ udev.service                               static          enabled
 udisks2.service                            enabled         enabled
 ufw.service                                enabled         enabled
 unattended-upgrades.service                enabled         enabled
-upower.service                             disabled        enabled
 usb_modeswitch@.service                    static          enabled
 usbmuxd.service                            static          enabled
 user-runtime-dir@.service                  static          enabled
@@ -225,11 +199,7 @@ vmtoolsd.service                           enabled         enabled
 wacom-inputattach@.service                 static          enabled
 whoopsie.service                           enabled         enabled
 winbind.service                            enabled         enabled
-wpa_supplicant-nl80211@.service            disabled        enabled
-wpa_supplicant-wired@.service              disabled        enabled
 wpa_supplicant.service                     enabled         enabled
-wpa_supplicant@.service                    disabled        enabled
-x11-common.service                         masked          enabled
 xfs_scrub@.service                         static          enabled
 xfs_scrub_all.service                      static          enabled
 xfs_scrub_fail@.service                    static          enabled

@@ -10,7 +10,8 @@ sitename: LPIC-II - Laboratório 09
 
 * [ ] Criar um script de firewall que:
     * [ ] Permita o acesso dos clientes à Internet
-    * [ ] Redirecione a porta `8889` externa para o servidor `web` dos clientes
+    * [ ] Redirecione a porta `8889` externa para o servidor `http` dos clientes
+    * [ ] Redirecione a porta `8443` externa para o servidor `https` dos clientes
     * [ ] Redirecione a porta `2222` externa para o servidor `ssh` dos clientes
 
 ### Roteador Azul
