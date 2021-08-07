@@ -6,94 +6,72 @@ sitename: LPIC-II - IPTables Firewall
 
 ```bash
 #!/bin/bash
-IPTABLES=$(which iptables)
-IF_OUT="enp3s0"
-IF_LAN="enp2s0"
-IF_DMZ="ens33"
 
-# MANGLE
-${IPTABLES} -t mangle -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+FW="azul" # azul ou vermelho
 
-# NAT
-${IPTABLES} -t nat -I POSTROUTING -s 192.168.0.0/24 -o ${IF_OUT} -j MASQUERADE
+IPT=$(which iptables)
 
-# Controle WWW Saida
-${IPTABLES} -N ControlHTTP
-for ip in ${HTTP_DST_ALLOWED}; do
-    ${IPTABLES} -A ControlHTTP -d ${ip} -j ACCEPT
-done
-${IPTABLES} -A ControlHTTP -j REJECT
-${IPTABLES} -I FORWARD -s ${LAN_IPV4} -o ${IF_OUT} -p tcp -m multiport --dports 80,443 -j ControlHTTP
-${IPTABLES} -I FORWARD -s ${LAN_IPV4} -o net -p tcp -m multiport --dports 80,443 -j ControlHTTP
+# Interfaces
+IF_INT="enp0s8"
+IF_EXT="enp0s3"
+IF_RTR="enp0s9"
 
-# Maquinas FULL
-${IPTABLES} -N FullAccess
-${IPTABLES} -I FORWARD -j FullAccess
-for mac in ${MACS_FULL}; do
-    ${IPTABLES} -A FullAccess -m mac --mac-source ${mac} -j ACCEPT
-done
-${IPTABLES} -A FullAccess -j RETURN
+# IPs
+IP_CLT_AZ="172.18.2.2"
+IP_CLT_VM="172.17.15.2"
+IP_RTR_AZ_RT="10.9.8.1"
+IP_RTR_AZ_IN="172.18.2.1"
+IP_RTR_AZ_EX="1192.168.18.202"
+IP_RTR_VM_RT="10.9.8.2"
+IP_RTR_VM_IN="172.17.15.1"
+IP_RTR_VM_EX="1192.168.18.199"
 
-# Regras de liberacao dos servidores
-${IPTABLES} -N Srvs_Out
-${IPTABLES} -I FORWARD -i ${IF_LAN} -j Srvs_Out
-for srv in ${ALL_SRVS}; do
-    ${IPTABLES} -A Srvs_Out -s ${srv} -j ACCEPT
-done
-${IPTABLES} -A Srvs_Out -j RETURN
+# Serviços
+SSH="22"
 
-# Regras para servidor de e-mail
-${IPTABLES} -N Mail
-${IPTABLES} -I FORWARD -i net -j Mail
-${IPTABLES} -I FORWARD -i ${IF_OUT} -j Mail
-for srv in ${MAIL}; do
-    ${IPTABLES} -A Mail -p tcp --dport ${srv} -d ${MAILSRV} -j ACCEPT
-    ${IPTABLES} -t nat -I PREROUTING -i net -p tcp --dport ${srv} -j DNAT --to ${MAILSRV}
-    ${IPTABLES} -t nat -I PREROUTING -i ${IF_OUT} -p tcp --dport ${srv} -j DNAT --to ${MAILSRV}
-done
-${IPTABLES} -A Mail -j RETURN
+# Limpa
+function stop {
+  ${IPT} -w -P INPUT ACCEPT
+  ${IPT} -w -P FORWARD ACCEPT
+  ${IPT} -w -P OUTPUT ACCEPT
+  ${IPT} -w -F INPUT
+  ${IPT} -w -F OUTPUT
+  ${IPT} -w -F FORWARD
+  ${IPT} -w -t nat -F INPUT
+  ${IPT} -w -t nat  -F OUTPUT
+  ${IPT} -w -t nat  -F POSTROUTING
+  ${IPT} -w -t nat  -F PREROUTING
+}
 
-# Regras de servicos no Firewall
-${IPTABLES} -N Servicos
-${IPTABLES} -I INPUT -j Servicos
+stop
 
-# Permite acessos da Lan aos servicos do firewall
-for ${IF_LAN} in ${LAN} ${VPN}; do
-    for svc in ${INT_TCP_SVC}; do
-        ${IPTABLES} -A Servicos -i ${${IF_LAN}} -p tcp --dport ${svc} -j ACCEPT
-    done
-    for svc in ${INT_UDP_SVC}; do
-        ${IPTABLES} -A Servicos -i ${${IF_LAN}} -p udp --dport ${svc} -j ACCEPT
-    done
-done
+if [[ "${FW}" == "azul" ]]; then
+  # Permita o acesso dos clientes à Internet
+  ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_AZ} -j MASQUERADE
+  # Redirecione a porta 8889 externa para o servidor web dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to ${IP_CLT_AZ}:80
+  # Redirecione a porta 8443 externa para o servidor https dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to ${IP_CLT_AZ}:443
+  # Redirecione a porta 2222 externa para o servidor ssh dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 2222 -j DNAT --to ${IP_CLT_AZ}:${SSH}
 
-# Permite acessos da Wan aos servicos do firewall
-for wan in ${NET} ${${IF_OUT}}; do
-    for svc in ${EXT_TCP_SVC}; do
-        ${IPTABLES} -A Servicos -i ${wan} -p tcp --dport ${svc} -j ACCEPT
-    done
-    for svc in ${EXT_UDP_SVC}; do
-        ${IPTABLES} -A Servicos -i ${wan} -p udp --dport ${svc} -j ACCEPT
-    done
-done
+  # Permitir o acesso ao servidor web do cliente azul apenas a partir do roteador vermelho
+  ${IPT} -w -A FORWARD -p tcp -m multiport --dports 80,443 ! -s ${IP_RTR_VM_RT} -d ${IP_CLT_AZ} -j REJECT
 
-# Permite acesso da máquina Docker ao SNMP
-${IPTABLES} -A Servicos -s ${DCKR_IPv4} -p udp --dport 161 -j ACCEPT
+  # Bloquear o acesso ao serviço ssh para o roteador vermelho
+  ${IPT} -w -A FORWARD -p tcp --dport ${SSH} -s ${IP_RTR_VM_RT} -j REJECT
 
-${IPTABLES} -A Servicos -m limit --limit 20/min -j LOG --log-prefix "SVCS: "
-${IPTABLES} -A Servicos -j REJECT
+elif [[ "${FW}" == "vermelho" ]]; then
+  # Permita o acesso dos clientes à Internet
+  ${IPT} -w -t nat -A POSTROUTING -o ${IF_EXT} -s ${IP_CLT_VM} -j MASQUERADE
+  # Redirecione a porta 8889 externa para o servidor web dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8889 -j DNAT --to ${IP_CLT_VM}:80
+  # Redirecione a porta 8443 externa para o servidor https dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 8443 -j DNAT --to ${IP_CLT_VM}:443
+  # Redirecione a porta 2222 externa para o servidor ssh dos clientes
+  ${IPT} -w -t nat -A PREROUTING -p tcp --dport 2222 -j DNAT --to ${IP_CLT_VM}:${SSH}
 
-${IPTABLES} -I INPUT -i lo -j ACCEPT
-
-${IPTABLES} -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-${IPTABLES} -I OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-${IPTABLES} -I FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-# IPSETS
-#${IPSET} create scanners hash:net
-# for ip in `cat ${scanners}`; do
-#     ${IPSET} add scanners ${ip}
-# done
-# ${IPTABLES} -I INPUT -m set --match-set scanners src -j REJECT
-
+  # Fazer com que o cliente vermelho consiga acessar o servidor web do cliente azul
+  ${IPT} -w -t nat -A POSTROUTING -p tcp -m multiport --dports 80,443 -s ${IP_CLT_VM} -d ${IP_CLT_AZ} -j SNAT --to ${IP_RTR_VM_RT}
+fi
 ```
