@@ -1,4 +1,8 @@
-# Lista de comandos do Linux
+---
+template: index
+title: Lista de comandos do Linux
+sitename: LPIC-I - Laboratório 01
+---
 
 ## Básicos
 

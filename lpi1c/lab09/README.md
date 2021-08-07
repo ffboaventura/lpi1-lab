@@ -1,4 +1,8 @@
-# Lab-09 - Configurando sessões e escrevendo scripts
+---
+template: index
+title: Lab-09 - Configurando sessões e escrevendo scripts
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

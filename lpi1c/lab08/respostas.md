@@ -1,4 +1,8 @@
-# Lab-08 - Expressões Regulares
+---
+template: index
+title: Lab-08 - Expressões Regulares
+sitename: LPIC-I - Laboratório 01
+---
 
 - [Lista de Comandos](../comandos.md)
 -

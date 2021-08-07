@@ -1,4 +1,8 @@
-# Lab-11 - Gerenciando o sistema
+---
+template: index
+title: Lab-11 - Gerenciando o sistema
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

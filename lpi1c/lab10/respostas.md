@@ -1,4 +1,8 @@
-# Lab-10 - Loops e decisões
+---
+template: index
+title: Lab-10 - Loops e decisões
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

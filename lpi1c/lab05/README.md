@@ -1,4 +1,8 @@
-# Lab-05 - Gerenciamento básico de arquivos
+---
+template: index
+title: Lab-05 - Gerenciamento básico de arquivos
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

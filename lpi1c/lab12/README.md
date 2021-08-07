@@ -1,4 +1,8 @@
-# Lab-12 - Configurando a rede
+---
+template: index
+title: Lab-12 - Configurando a rede
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

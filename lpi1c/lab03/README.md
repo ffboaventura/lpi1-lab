@@ -1,4 +1,8 @@
-# Lab-03 - Fluxo de texto e filtros
+---
+template: index
+title: Lab-03 - Fluxo de texto e filtros
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

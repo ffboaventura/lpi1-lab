@@ -1,4 +1,8 @@
-# Lab-07 - Gerenciando processos
+---
+template: index
+title: Lab-07 - Gerenciando processos
+sitename: LPIC-I - Laboratório 01
+---
 
 - [Lista de Comandos](../comandos.md)
 - [Cheat Sheets](../../cheatsheets) - Tabelas com resumos de comandos

@@ -1,4 +1,8 @@
-# Lab-04 - Checksums
+---
+template: index
+title: Lab-04 - Checksums
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

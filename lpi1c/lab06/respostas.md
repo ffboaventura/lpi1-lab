@@ -1,4 +1,8 @@
-# Lab-06 - Encontrando arquivos e redirecionamentos
+---
+template: index
+title: Lab-06 - Encontrando arquivos e redirecionamentos
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 

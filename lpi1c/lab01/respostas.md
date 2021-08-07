@@ -1,4 +1,9 @@
-# Lab-01 - Discos, Partições e Arquivos de Sistemas
+---
+template: index
+title: Lab-01 - Discos, Partições e Arquivos de Sistemas
+sitename: LPIC-I - Laboratório 01
+---
+
 
 [Lista de Comandos](../comandos.md)
 

@@ -1,3 +1,12 @@
+---
+template: index
+title: Treinamento LPIC-I - Laboratórios
+author: Frederico Freire Boaventura
+author_url: https://fboaventura.dev
+author_email: frederico@boaventura.net
+sitename: Treinamento LPIC-I - Laboratórios
+---
+
 # Laboratório LPIC-I
 
 - [Comandos](comandos.md) - Lista de comandos mais utilizados no decorrer do módulo LPI-1

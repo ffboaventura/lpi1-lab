@@ -1,4 +1,8 @@
-# Lab-02 - Gerenciamento de Pacotes
+---
+template: index
+title: Lab-02 - Gerenciamento de Pacotes
+sitename: LPIC-I - Laboratório 01
+---
 
 [Lista de Comandos](../comandos.md)
 
