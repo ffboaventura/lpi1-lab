@@ -9,7 +9,7 @@ sitename: Treinamento LPIC-II - Laboratórios
 
 ## Topologia
 
-![Lab 01](images/lpi2_lab_s02.png)
+![Lab 01](/images/lpi2_lab_s02.png)
 
 [Laboratório 01](S01/index.md):
 
