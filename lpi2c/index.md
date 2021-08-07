@@ -1,15 +1,15 @@
 ---
 template: index
-title: Treinamento LPIC-II - Laboratórios
+title: Treinamento LPIC I & II - Laboratórios
 author: Frederico Freire Boaventura
-author_url: https://frederico.cf
+author_url: https://fboaventura.dev
 author_email: frederico@boaventura.net
-sitename: Treinamento LPIC-II - Laboratórios
+sitename: Treinamento LPIC I & II - Laboratórios
 ---
 
 ## Topologia
 
-![Lab 01](images/lpi2_lab_s02.png)
+![Lab 01](/images/lpi2_lab_s02.png)
 
 [Laboratório 01](S01/index.md):
 

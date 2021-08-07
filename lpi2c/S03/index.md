@@ -6,7 +6,7 @@ sitename: LPIC-II - Laboratório 03
 
 ## Topologia
 
-![Lab 03](../images/lpi2_lab_s02.png)
+![Lab 03](/images/lpi2_lab_s02.png)
 
 ## Pacotes Necessários
 

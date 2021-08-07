@@ -2,7 +2,7 @@
 template: index
 title: Treinamento LPIC-II - Laboratórios
 author: Frederico Freire Boaventura
-author_url: https://frederico.cf
+author_url: https://fboaventura.dev
 author_email: frederico@boaventura.net
 sitename: Treinamento LPIC-II - Laboratórios
 ---
