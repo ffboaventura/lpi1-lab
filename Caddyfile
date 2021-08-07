@@ -1,0 +1,6 @@
+0.0.0.0:2015
+ext .html .htm .md
+markdown / {
+    template index templates/main.html
+}
+gzip

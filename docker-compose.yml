@@ -1,0 +1,9 @@
+version: '3.5'
+services:
+  http:
+    image: joshix/caddy
+    ports:
+      - 80:2015
+    volumes:
+      - .:/var/www/html:ro
+
