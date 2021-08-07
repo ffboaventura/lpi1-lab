@@ -279,7 +279,7 @@ function stop {
 }
 
 function start {
-    # Permite todo o tráfego interno
+  # Permite todo o tráfego interno
   ${IPT} -w -A INPUT -i lo -j ACCEPT
   ${IPT} -w -A OUTPUT -o lo -j ACCEPT
 
